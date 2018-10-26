@@ -28,9 +28,10 @@ def cmp(standard_data,temp_data,dict_key = None):
 if __name__ == '__main__':
     standard_file = 'D:\json\file.standard'
     tmp_file = 'D:\json\file.tmp'
-    logging.basicConfig(level = logging.INFO,filename = 'log.txt',
+    logging.basicConfig(level = logging.DEBUG,filename = 'log.txt',
                         format = '%(asctime)s:%(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
-                       datefmt='%a,%d %b %Y %H:%M:%S')#定义log文件格式，级别是INFO，格式是：时间，执行文件名[行数]，级别，传入信息
+                       datefmt='%a,%d %b %Y %H:%M:%S')#定义log文件格式，级别是INFO，格式是：时间，执行文件名[行数]，级别，传入信息，可以使用
+    #logging.warning等，文件中显示相应的级别
     if os.path.exists(standard_file):
         with open(standard_file,'r') as fp1:
             standard = json.load(fp1,encoding = 'utf-8')
