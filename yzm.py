@@ -1,5 +1,4 @@
 import random
-
 # 随机数
 print(random.random())              # 返回一个随机小数'0.4800545746046827'
 print(random.randint(1,5))          # 返回（1-5）随机整型数据
