@@ -21,7 +21,7 @@ print(struct_stamp)                         # 返回时间戳 ‘1463846400.0’
 # 将时间戳转为字符串格式
 print(time.gmtime(time.time()-86640))         # 将utc时间戳转换成struct_time格式
 print(time.strftime("%Y-%m-%d %H:%M:%S",time.gmtime()) ) # 将utc struct_time格式转成指定的字符串格式
-
+time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
 
 # 时间加减
 print(datetime.datetime.now())           # 返回当前时间 2017-05-07 22:36:45.179732
