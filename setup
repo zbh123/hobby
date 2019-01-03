@@ -1,0 +1,8 @@
+#usage:python setup.py py2exe
+from distutils.core import setup
+import py2exe
+import convert_standard_LPE #.py文件名
+
+setup(console = [{'script':'convert_standard_LPE.py',
+                  'copyright':'Copyright(c).......',}],
+				  version = convert_standard_LPE.__version__)
