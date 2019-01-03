@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>复杂表格</title>
+</head>
+<body>
+    <link href="轮播效果.css" rel="stylesheet" type = "txt/css">
+    <center>
+	<table width='100%' align = "center">
+	<tr>
+        <td width = "50%" style = "float:left;margin:0px;padding:0px;">
+		<table border = "1" width = "50%">
+            <tr>
+                <th colspan="3" >周一菜谱</th>
+<!--               <th colspan="1">周一菜谱</th>    <!-- colspan="2"  占位,表示这一列占2列 -->
+            </tr>
+            <tr>
+                <td rowspan="2">素菜</td>    <!-- rowspan="2"  占位,表示这一列占3行 -->
+                <td>清炒茄子</td>
+                <td>花椒扁豆</td>
+            </tr>
+            <tr>
+                <td>小葱豆腐</td>
+                <td>炒白菜</td>
+            </tr>
+            <tr>
+                <td rowspan="2">荤菜</td>    <!-- rowspan="2"  占位,表示这一列占3行 -->
+                <td>油焖大虾</td>
+                <td>海参鱼翅</td>
+            </tr>
+            <tr>
+                <td>红烧肉<img src = "C:\Users\user\Desktop\python基础.png" title = "hongshaorou" width = "100"></td>
+                <td>烤全羊</td>
+            </tr>
+        </table>    
+        <td width = "50%" style = "float:right;margin:0px;padding:0px;">
+		<table border = "3" width="50%">
+            <tr>
+                <th colspan="1" >项目</th>
+                <th colspan="5">上课</th>    <!-- colspan="2"  占位,表示这一列占2列 -->
+                <th colspan="2">休息</th>
+			</tr>
+            <tr>
+				<td>星期</td>    
+                <td>周一</td>    <!-- rowspan="2"  占位,表示这一列占3行 -->
+                <td>周二</td>
+                <td>周三</td>
+                <td>周四</td>
+				<td>周五</td>
+                <td>周六</td>
+				<td>周天</td>
+            </tr>
+            <tr>
+                <td rowspan="4">上午</td>
+                <td>语文</td>
+				<td>数学</td>
+                <td>英语</td>
+                <td>英语</td>
+				<td>物理</td>
+                <td>计算机</td>
+				<td rowspan  = "4">休息</td>
+			</tr>
+			<tr>
+				<td>语文</td>
+				<td>数学</td>
+                <td>英语</td>
+                <td>英语</td>
+				<td>物理</td>
+                <td>计算机</td>
+			</tr>
+				<td>语文</td>
+				<td>数学</td>
+                <td>英语</td>
+                <td>英语</td>
+				<td>物理</td>
+                <td>计算机</td>
+			<tr>
+				<td>语文</td>
+				<td>数学</td>
+                <td>英语</td>
+                <td>英语</td>
+				<td>物理</td>
+                <td>计算机</td>
+			</tr>
+            <tr>
+                <td rowspan="2">下午</td>    <!-- rowspan="2"  占位,表示这一列占3行 -->
+                <td>语文</td>
+				<td>数学</td>
+                <td>英语</td>
+                <td>英语</td>
+				<td>物理</td>
+                <td>计算机</td>
+				<td rowspan="2">休息</td>
+            </tr>
+			<tr>
+			    <td>语文</td>
+				<td>数学</td>
+                <td>英语</td>
+                <td>英语</td>
+				<td>物理</td>
+                <td>计算机</td>
+			</tr>
+        </table>
+    </tr>
+    </table>	
+		<table style="color:#FF00FF"width="928" height="395" border="1" background="Hydrangeas.jpg">
+	        <tr>
+                <td width="76"> </td>
+                <td width="86" height="50"> </td>
+                <td width="100">周一</td>
+                <td width="100">周二</td>
+                <td width="100">周三</td>
+                <td width="100">周四</td>
+                <td width="100">周五</td>
+                <td width="100">周六</td>
+                <td width="108">周日</td>
+            </tr>
+            <tr>
+                <td rowspan="4">上午</td>
+                <td>1</td>
+                <td rowspan="2">午休</td>
+                <td rowspan="2">软件工程</td>
+                <td rowspan="2"> </td>
+                <td rowspan="2">商务英语</td>
+                <td rowspan="2">毛泽东思想和中国特色社会主义概论</td>
+                <td rowspan="2"> </td>
+                <td rowspan="2"> </td>
+            </tr>
+            <tr>
+ 
+            <td>2</td>
+            </tr>
+             <tr>
+ 
+              <td>3</td>
+              <td rowspan="2">计算机组成原理</td>
+              <td rowspan="2">英语听说</td>
+              <td rowspan="2">WEB开发</td>
+              <td rowspan="2">毛泽东思想和中国特色社会主义概论</td>
+              <td rowspan="2"> </td>
+              <td rowspan="2">体育</td>
+              <td rowspan="2"> </td>
+			  </tr>
+			<tr>
+ 
+			<td>4</td>
+			</tr>
+			<tr>
+			<td colspan="8" align="center"><b>午休</b></td>
+			</tr>
+			<tr>
+			<td rowspan="4">下午</td>
+			<td>5</td>
+			<td rowspan="2">计算机实践开发</td>
+			<td rowspan="2"> </td>
+			<td rowspan="2">计算机组成原理</td>
+			<td rowspan="2">计算机软件实践开发</td>
+			<td rowspan="2">WEB开发</td>
+			<td rowspan="2"> </td>
+			<td rowspan="2"> </td>
+			</tr>
+			<tr>
+ 
+			<td>6</td>
+			</tr>
+			<tr>
+ 
+			<td>7</td>
+			<td rowspan="2"> </td>
+			<td rowspan="2">商务英语</td>
+			<td rowspan="2">英语训练</td>
+			<td rowspan="2"> </td>
+			<td rowspan="2">软件工程</td>
+			<td rowspan="2"> </td>
+			<td rowspan="2"> </td>
+			</tr>
+			<tr>
+ 
+			<td>8</td>
+			</tr>
+		</table>
+    </center>
+</body>
+</html>
