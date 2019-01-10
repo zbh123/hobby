@@ -1,0 +1,79 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>一组图片循环且首尾相连的滚动效果</title>
+	<style>
+	#bg{
+		width:1000px;height:2000px; /* 规定的是显示图片的页面范围 */
+		background：url(bgimage.jpg); /* 规定背景图片url是关键字*/
+		}
+	#sm{/*滚动对象样式*/
+		overflow:hidden;/*隐藏Div中多余的内容，增加图片会一起滚动, overflow属性规定当内容溢出元素框时发生的事情。*/
+		width:800px;height:1000px; /*规定显示图片的大小*/
+		margin:0 auto;  /* 设置所有外边距属性，上下左右的外边距 */
+		padding-top:30px;  /* 上内边距*/
+		}
+	</style>
+</head>
+<body>
+<center>
+	<div id="bg">  <!-- 规定的是显示图片的范围的大小 -->
+		<div id="sm">	<!--滚动div-->
+				<table>		<!--外表格1x2,且第2单元格是空的-->
+					<tr>
+						<td id="Pic1">
+							<table>	<!--内表格1x9,存放9张图片-->
+								<tr>
+									<td><img src="img1.jpg" onmouseover="mouseover(this)" onmouseout="mouseout(this)"/></td>
+									<td><img src="img2.jpg" onmouseover="mouseover(this)" onmouseout="mouseout(this)"/></td>
+									<td><img src="img3.jpg" onmouseover="mouseover(this)" onmouseout="mouseout(this)"/></td>
+									<td><img src="img4.jpg" onmouseover="mouseover(this)" onmouseout="mouseout(this)"/></td>
+									<td><img src="img5.jpg" onmouseover="mouseover(this)" onmouseout="mouseout(this)"/></td>
+									<td><img src="img6.jpg" onmouseover="mouseover(this)" onmouseout="mouseout(this)"/></td>
+									<td><img src="img7.jpg" onmouseover="mouseover(this)" onmouseout="mouseout(this)"/></td>
+								</tr>
+						   </table>
+					   </td>
+					<td id="Pic2"></td>
+				    </tr>
+				</table>
+		</div>
+	</div>
+</center>
+ 
+<!--下面内容的客户端脚本不可放置在页面头部-->
+ 
+<script>
+	Pic2.innerHTML=Pic1.innerHTML;//复制一组图片，但被隐藏
+	function scrolltoleft(){//定义向左移动的方法
+		sm.scrollLeft++;//改变层的水平坐标，实现向左移动，jquery的内容
+		if(sm.scrollLeft>=Pic1.scrollWidth)//需要复位
+			sm.scrollLeft=0;//层的位置复位，浏览器窗口的宽度有限的
+	}
+	
+	var MyMar=setInterval(scrolltoleft,40); //定时器，按照指定周期（毫秒计）来调用函数，方法名后不可加()
+	
+	function mouseover(x){//放大图片
+		x.style.width="800";
+		x.style.height="800"
+		x.style.cursor="pointer"
+	}
+	function mouseout(x){//图片复原
+		x.style.width="500";
+		x.style.height="500"
+	}
+ 
+	//两面两行是用方法响应对象的事件
+	sm.onmouseover=function(){//匿名方法（函数）
+		clearInterval(MyMar);//停止滚动
+	}
+	
+	sm.onmouseout=function(){
+		MyMar = setInterval(scrolltoleft,40);//继续滚动
+	}
+	
+ 
+</script>							
+</body>
+</html>
+ 
