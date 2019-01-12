@@ -1,0 +1,119 @@
+<style type="text/css">
+#myImg{
+	border-radius:5px;
+	cursor:pointer;
+	transition:0.3s;
+}
+#myImg:hover {opacity:0.7;}
+/*弹窗背景*/
+.modal{
+	display:none;
+	position:fixed;
+	z-index:1;
+	padding-top:100px;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	overflow:auto;
+	background-color:rgb(0,0,0);
+	background-color:rgba(0,0,0,0.9);
+	}
+
+.modal_content{
+	margin:auto;
+	display:block;
+	width:80%;
+	max-width:700px;
+	}
+#caption{
+	margin:auto;
+	display:block;
+	width:80%;
+	max-width:700px;
+	text-align:center;
+	color:#ccc;
+	padding:10px 0;
+	height:150px;
+	}
+.modal_content,#caption{
+	-webkit-animation-name:zoom;
+	-webkit-animation-duration:0.6s;
+	animation-name:zoom;
+	animation-duration:0.6s;
+	}
+@-webkit-keyframes zoom{
+	from {-webkit-transform:scale(0)}
+	to {-webkit-transform:scale(1)}
+	}
+@keyframes zoom{
+	from {transform:scale(0)}
+	to {transform:scale(1)}
+	}
+.close{
+	position:absolute;
+	top:15px;
+	right:35px;
+	color:#f1f1f1;
+	font-size:40px;
+	font-weight:bold;
+	transition:0.3s;
+	}
+.close:hover,
+.close:focus{
+	color:#bbb;
+	text-decoration:none;
+	cursor:pointer;
+	}
+@media only screen and (max-width:700px){  /*小屏幕图片的宽度为100%*/
+	.modal_content{
+		width:100%;
+		}
+		}
+</style>
+
+<script language="JavaScript">
+window.onload=function(){  //之前运行不成功，是因为HTML页面是按照顺序来加载的，JS在前，导致先load JS，
+//相关参数没有读入，因此报错，不能实现JS功能。解决办法将JS的内容放在window.onload=function(){....}里面
+// 获取弹窗
+var modal = document.getElementById('myModal');
+ 
+// 获取图片插入到弹窗 - 使用 "alt" 属性作为文本部分的内容
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+	}
+ 
+// 获取 <span> 元素，设置关闭按钮
+var span = document.getElementsByClassName("close")[0];
+ 
+// 当点击 (x), 关闭弹窗
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+}
+</script>
+
+
+<!-- 触发弹窗 - 图片改为你的图片地址 -->
+<img id="myImg" src="https://c.runoob.com/wp-content/uploads/2017/01/btotbhpudiagtmvlkyrs.jpg" alt="文本描述信息" width="300" height="200">
+ 
+<!-- 弹窗 -->
+<div id="myModal" class="modal">
+ 
+  <!-- 关闭按钮 -->
+  <span class="close">&times;</span>
+ 
+  <!-- 弹窗内容 -->
+  <img class="modal-content" id="img01">
+ 
+  <!-- 文本描述 -->
+  <div id="caption"></div>
+</div>
+
+
+
