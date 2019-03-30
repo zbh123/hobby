@@ -1,0 +1,39 @@
+'''
+凡是满足第三项等于前两项和的数列都可以用斐波那契数列来表示
+其形式：1，1,2,3,5,8,13,21
+'''
+
+
+# -*- coding:utf-8 -*-
+class Solution:
+    def Fibonacci(self, n):
+        # write code here
+        a,b = 0,1
+        for i in range(n):
+            a,b = b,a+b
+        return a
+
+#青蛙跳1或2阶：        
+# -*- coding:utf-8 -*-
+class Solution:
+    def jumpFloor(self, number):
+        # write code here
+        if number <= 1:
+            return 1
+        result = 1
+        count = 1
+        for i in range(number):
+            result, count = count, result+count
+        return result
+        
+#青蛙跳1到n阶：
+# -*- coding:utf-8 -*-
+class Solution:
+    def jumpFloorII(self, number):
+        # write code here
+        sum = 0
+        if number <= 1 :
+            return 1
+        else:
+            sum = 2*self.jumpFloorII(number-1)
+        return sum
