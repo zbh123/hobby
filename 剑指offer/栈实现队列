@@ -1,0 +1,19 @@
+'''
+栈：先进后出，类似于有底的瓶子，先进的水，留在瓶底，最后出来
+队列：先进先出，类似于没底的瓶子，先进的水，先出来
+'''
+class Solution:
+    def __init__(self):
+        self.stack1 = []
+        self.stack2 = []
+    def push(self, node):
+        # write code here
+        self.stack1.append(node)
+        
+    def pop(self):
+        while len(self.stack1)>0:
+            self.stack2.append(self.stack1.pop())
+        first = self.stack2.pop()
+        while len(self.stack2)>0:
+            self.stack1.append(self.stack2.pop())
+        return first
