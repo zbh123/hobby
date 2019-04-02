@@ -129,15 +129,18 @@ def cnnLayer():
 
 def cnnTrain():
     out = cnnLayer()
-
+    # 函数的功能就是计算labels和logits之间的交叉熵（cross entropy）,labels的每一行必须是一个概率分布（即概率之合加起来为1）
+    # tf.reduce_mean函数用于计算张量tensor沿着指定的数轴（tensor的某一维度）上的的平均值，主要用作降维或者计算tensor（图像）的平均值
     cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=out, labels=y_))
-
+    # Adam优化算法：是一个寻找全局最优点的优化算法，引入了二次方梯度校正
     train_step = tf.train.AdamOptimizer(0.01).minimize(cross_entropy)
-    # 比较标签是否相等，再求的所有数的平均值，tf.cast(强制转换类型)
+    # 比较标签是否相等，再求的所有数的平均值，tf.cast(强制转换类型),tf.argmax它能给出某个tensor对象在某一维上的其数据最大值所在的索引值
+    # tf.equal(A, B)是对比这两个矩阵或者向量的相等的元素，如果是相等的那就返回True，反正返回False，返回的值的矩阵维度和A是一样的,对比每个元素的值，对应元素上相同true，不同false
     accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(out, 1), tf.argmax(y_, 1)), tf.float32))
-    # 将loss与accuracy保存以供tensorboard使用
+    # 将loss与accuracy保存以供tensorboard使用，用来显示标量信息，一般在画loss,accuary时会用到这个函数。loss是损失，accuracy是精度图
     tf.summary.scalar('loss', cross_entropy)
     tf.summary.scalar('accuracy', accuracy)
+    # merge_all 可以将所有summary全部保存到磁盘，以便tensorboard显示。如果没有特殊要求，一般用这一句就可一显示训练时的各种信息了
     merged_summary_op = tf.summary.merge_all()
     # 数据保存器的初始化
     saver = tf.train.Saver()
@@ -145,7 +148,7 @@ def cnnTrain():
     with tf.Session() as sess:
 
         sess.run(tf.global_variables_initializer())
-
+        # tf.summary.FileWriter指定一个文件用来保存图
         summary_writer = tf.summary.FileWriter('./tmp', graph=tf.get_default_graph())
 
         for n in range(10):
