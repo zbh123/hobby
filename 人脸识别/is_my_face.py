@@ -85,6 +85,7 @@ def weightVariable(shape):
 
 
 def biasVariable(shape):
+    # 用于从服从指定正太分布的数值中取出指定个数的值
     init = tf.random_normal(shape)
     return tf.Variable(init)
 
