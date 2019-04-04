@@ -73,6 +73,7 @@ num_batch = len(train_x) // 128
 # placeholder占位符，它的好处是可以避免生成大量常量来提供输入数据，提高了计算图的利用率
 # 占位符，顾名思义，用来占位置的字符，即可以定义模型大小，而不填充参数，类似于形参，先将graph的大小框架搭建好
 # 当sess.run的时候才会正式执行，feed_dict用于传参
+# 式中shape=[None,size,size,3]None表示要传入的图片数量（None表示不确定），size是图片大小，高宽可不同，最后的3是通道数
 x = tf.placeholder(tf.float32, [None, size, size, 3])
 y_ = tf.placeholder(tf.float32, [None, 2])
 
