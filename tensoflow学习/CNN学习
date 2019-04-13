@@ -29,7 +29,7 @@ print(mnist.train.labels.shape)   # (55000, 10)
 plt.imshow(mnist.train.images[0].reshape((28, 28)), cmap='gray')
 plt.title('%i' % np.argmax(mnist.train.labels[0])); plt.show()
 
-#设置占位符，用于run时进行传参
+#设置占位符，用于run时进行传参，None代表的是图片数量
 #255是色彩的最大值，
 tf_x = tf.placeholder(tf.float32, [None, 28*28]) / 255.
 image = tf.reshape(tf_x, [-1, 28, 28, 1])              # (batch图片个数, height图片高, width图片宽, channel灰度图为1，彩图为3)
