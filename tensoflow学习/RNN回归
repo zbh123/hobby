@@ -1,0 +1,76 @@
+"""
+假设我们有一个初始状态h0，还有输入x1，调用call(x1, h0)后就可以得到(output1, h1)：
+再调用一次call(x2, h1)就可以得到(output2, h2)：
+也就是说，每调用一次RNNCell的call方法，就相当于在时间上“推进了一步”，这就是RNNCell的基本功能。
+
+所谓的隐藏层就是RNN层，也就是循环神经网络，类似于卷积神经网络的卷积核数量
+Know more, visit my Python tutorial page: https://morvanzhou.github.io/tutorials/
+My Youtube Channel: https://www.youtube.com/user/MorvanZhou
+Dependencies:
+tensorflow: 1.1.0
+matplotlib
+numpy
+"""
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+# Hyper Parameters
+TIME_STEP = 10       # rnn time step 时间步长，变量x的间隔，如有100个x，时间步长为10那么就取10个x值
+INPUT_SIZE = 1      # rnn input size 每次输入1个图片
+CELL_SIZE = 32      # rnn cell size 类似于卷积核，用来控制输出的厚度
+LR = 0.02           # learning rate 学习效率，越小越精确，越大跨度越大
+
+# show data
+# 定义数据x， 取值范围0到2pi， 取100个值， 类型是float32
+steps = np.linspace(0, np.pi*2, 100, dtype=np.float32)
+x_np = np.sin(steps); y_np = np.cos(steps)    # float32 for converting torch FloatTensor
+plt.plot(steps, y_np, 'r-', label='target (cos)'); plt.plot(steps, x_np, 'b-', label='input (sin)')
+plt.legend(loc='best'); plt.show()
+
+# tensorflow placeholders
+tf_x = tf.placeholder(tf.float32, [None, TIME_STEP, INPUT_SIZE])        # shape(batch, 5, 1)：图片数量，RNN数量，输入个数
+tf_y = tf.placeholder(tf.float32, [None, TIME_STEP, INPUT_SIZE])          # input y
+
+# RNN
+rnn_cell = tf.nn.rnn_cell.LSTMCell(num_units=CELL_SIZE)# LSTMCell核的数量
+init_s = rnn_cell.zero_state(batch_size=1, dtype=tf.float32)    # very first hidden state 第一次初始化时定义输入的隐藏层
+outputs, final_s = tf.nn.dynamic_rnn(
+    rnn_cell,                   # cell you have chosen 使用RNN的类型
+    tf_x,                       # input 输入
+    initial_state=init_s,       # the initial hidden state 隐藏层
+    time_major=False,           # False时数据类型: (batch, time step, input); True时数据类型: (time step, batch, input)
+) # 返回的outputs包含所有的结果是列表， final_s是最后一次的结果
+outs2D = tf.reshape(outputs, [-1, CELL_SIZE])                       # reshape 3D output to 2D for fully connected layer，将三维的结果reshape成二维，便于矩阵乘积运算
+# 全连接层
+net_outs2D = tf.layers.dense(outs2D, INPUT_SIZE)
+outs = tf.reshape(net_outs2D, [-1, TIME_STEP, INPUT_SIZE])          # reshape back to 3D
+
+# 计算损失函数，并将loss最小化，run的函数
+loss = tf.losses.mean_squared_error(labels=tf_y, predictions=outs)  # compute cost
+train_op = tf.train.AdamOptimizer(LR).minimize(loss)
+
+sess = tf.Session()
+sess.run(tf.global_variables_initializer())     # initialize var in graph
+
+plt.figure(1, figsize=(12, 5)); plt.ion()       # continuously plot
+
+for step in range(60):
+    start, end = step * np.pi, (step+1)*np.pi   # time range
+    # use sin predicts cos
+    # 值的范围是start到end，取TIME_STEP个值
+    steps = np.linspace(start, end, TIME_STEP)
+    x = np.sin(steps)[np.newaxis, :, np.newaxis]    # shape (batch, time_step, input_size)
+    y = np.cos(steps)[np.newaxis, :, np.newaxis]
+    if 'final_s_' not in globals():                 # first state, no any hidden state， 刚开始没有隐藏层即没有经历RNN时不需要传值，取上面定义的值即可
+        feed_dict = {tf_x: x, tf_y: y}         
+    else:                                           # has hidden state, so pass it to rnn 每次经过RNN，就会返回最新的结果，就是下一次RNN的输入
+        feed_dict = {tf_x: x, tf_y: y, init_s: final_s_}
+    _, pred_, final_s_ = sess.run([train_op, outs, final_s], feed_dict)     # train
+
+    # plotting
+    plt.plot(steps, y.flatten(), 'r-'); plt.plot(steps, pred_.flatten(), 'b-')
+    plt.ylim((-1.2, 1.2)); plt.draw(); plt.pause(0.05)
+
+plt.ioff(); plt.show()
