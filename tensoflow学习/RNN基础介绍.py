@@ -10,7 +10,7 @@ His code is a very good one for RNN beginners. Feel free to check it out.
 
 RNN的基本原理就是一个蛋，进入之前需要乘个系数，进入之后进行RNN计算，计算完之后需要输出，还要乘个系数
 即从第二步的开始，每次的输入都是上一步的输出，所以需要多次reshape保持原来的格式大小
-
+主要用来学习并预测，如写论文，写code等
 """
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
