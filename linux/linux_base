@@ -1,0 +1,41 @@
+touch 新建文件，如存在，则更新新建时间
+ls -a 查看所有文件 ls -l查看详细信息， ls -l -a 或ls -la查看所有文件的详细信息
+cat file 查看文件内容
+more命令：分页显示
+通配符：*匹配所有， ？匹配一个， ls a？匹配以a开头的任一文件
+cp：复制文件或文件夹 格式：cp file newfile
+   -a 复制文件夹
+mv 移动文件或文件夹， 同一文件夹内为改名
+find 根据文件名等信息查找指定文件 find path -name “文件名”
+grep命令：
+  作用：查找文件中相应的内容及文本信息
+  格式：grep “内容” [选项] 文件名或路径
+  常用选项：
+  -n    显示行号
+  -r/R 递归搜索文件夹内的内容
+  tar 打包和解包
+    格式tar [选项] 文件名 [文件名或路径]
+    常用选项：
+    -c 创建包   tar -czvf day1.tar.gz linux/day1 #将day1文件打包
+    -x 解包   tar -xzvf day1.tar.gz linux/day1 #将day1文件打包
+    -z 用gzip或gunzip进行压缩或解压
+    -v 显示操作细节
+    -f 文件
+ sudo：用超级用户权限来执行这些命令
+    格式：sudo 命令 [选项] [参数]
+ exit：退出
+ chmod：修改文件权限
+  格式：chmod 权限 文件名或文件夹名
+  权限：
+  u 用户
+  g 同组用户
+  o 其他用户
+  a 所有用户
+  + 添加权限
+  - 删除权限
+  chmod u+r a.txt
+  chmod o-rwx a.txt
+输出重定向：
+    >将输出重定向到指定文件
+    >>将输出重定向追加到指定文件
+    
