@@ -1,0 +1,20 @@
+1.8-svn	sfspike	fatmix3d_compile/runge/anormal:	leonvel@AMAX	Sat Apr  9 21:13:19 2016
+
+	d3=50
+	o1=0
+	n3=150
+	d2=25
+	o2=0
+	label1="Z"
+	n2=460
+	data_format="native_float"
+	o3=0
+	label2="Y"
+	label3="X"
+	esize=4
+	in="./velupdate.dat"
+	unit1="m"
+	unit2="m"
+	unit3="m"
+	d1=10
+	n1=180
