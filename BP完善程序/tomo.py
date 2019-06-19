@@ -6,9 +6,9 @@ import struct
 import math
 from mpi4py import MPI
 from ctypes import *
-import lsqr
-fast = CDLL('./fast.so')
-# lsqr = CDLL('./lsqr.so')
+# import lsqr
+fast = CDLL('fast.so', mode=RTLD_GLOBAL)
+lsqr_re = CDLL('lsqr_re.so', mode=RTLD_GLOBAL)
 
 class tomo():
     def __init__(self):
@@ -30,32 +30,35 @@ class tomo():
         self.itmax = 0
         self.niter = 0
 
-        self.shotxyz = []
-        self.recxyz = []
+
+        self.readpar()
+        self.buildrealmodel()
+        self.buildmodel()
+
 
     def readpar(self):
         with open('Tomo3D.par', 'r') as fp:
-            readlines = fp.readline()
-        self.nshot = int(readlines[0])
-        self.nx = int(readlines[1])
-        self.ny = int(readlines[2])
-        self.nz = int(readlines[3])
-        self.dx = float(readlines[4])
-        self.dy = float(readlines[5])
-        self.dz = float(readlines[6])
-        self.v0 = float(readlines[7])
-        self.dv = float(readlines[8])
-        self.delta = float(readlines[9])
+            readlines = fp.readlines()
+        self.nshot = int(readlines[0].strip('\n'))
+        self.nx = int(readlines[1].strip('\n'))
+        self.ny = int(readlines[2].strip('\n'))
+        self.nz = int(readlines[3].strip('\n'))
+        self.dx = float(readlines[4].strip('\n'))
+        self.dy = float(readlines[5].strip('\n'))
+        self.dz = float(readlines[6].strip('\n'))
+        self.v0 = float(readlines[7].strip('\n'))
+        self.dv = float(readlines[8].strip('\n'))
+        self.delta = float(readlines[9].strip('\n'))
         self.sign = 1.0
-        self.damp = float(readlines[10])
-        self.lamda = float(readlines[11])
-        self.sz = float(readlines[12])
-        self.omega = float(readlines[13])
-        self.itmax = int(readlines[14])
-        self.niter = int(readlines[15])
+        self.damp = float(readlines[10].strip('\n'))
+        self.lamda = float(readlines[11].strip('\n'))
+        self.sz = float(readlines[12].strip('\n'))
+        self.omega = float(readlines[13].strip('\n'))
+        self.itmax = int(readlines[14].strip('\n'))
+        self.niter = int(readlines[15].strip('\n'))
         with open('count.txt','r') as fp:
             self.neachshot = fp.readlines()
-        if len(self.neachshot) <= self.nshot:
+        if len(self.neachshot) < self.nshot:
             print('number of shot error')
             os._exit(0)
         self.nray = 0
@@ -63,27 +66,25 @@ class tomo():
             self.nray += int(i)
 
     def read_3d(self, file, nx, ny, nz):
-        with open(file, 'rb') as fp:
-            item = np.zeros((nx, ny, nz))
-            for i in range(nx):
-                for j in range(ny):
-                    for k in range(nz):
-                        data = fp.read(4)
-                        elem = struct.unpack("fp", data)[0]
-                        item[i][j][k] = elem
+        f = open(file, 'rb')
+        item = np.zeros((nx, ny, nz))
+        for i in range(nx):
+            for j in range(ny):
+                for k in range(nz):
+                    data = f.read(4)
+                    elem = struct.unpack("f", data)[0]
+                    item[i][j][k] = elem
         return item
 
     def read_2d(self, file, nx, ny):
-        with open(file, 'rb') as fp:
-            item = np.zeros((nx, ny))
-            for i in range(nx):
-                for j in range(ny):
-                    data = fp.read(4)
-                    elem = struct.unpack("fp", data)[0]
-                    item[i][j] = elem
+        f = open(file, 'rb')
+        item = np.zeros((nx, ny))
+        for i in range(nx):
+            for j in range(ny):
+                data = f.read(4)
+                elem = struct.unpack("f", data)[0]
+                item[i][j] = elem
         return item
-
-
 
     def buildrealmodel(self):
         self.ele = self.read_2d('elevation.dat', self.nx, self.ny)
@@ -94,6 +95,8 @@ class tomo():
         self.realvel = np.zeros(self.nx * self.ny * self.nz)
         self.realvx = np.zeros(self.nx * self.ny * self.nz)
         self.realq = np.zeros(self.nx * self.ny * self.nz)
+        print("read file OK")
+        print(self.ele[0][0])
         count = 0
         for i in range(self.nx):
             for j in range(self.ny):
@@ -127,22 +130,32 @@ class tomo():
                     self.q = (1 + 2 * delta[i][j][k]) / (1 + 2 * eps[i][j][k])
                     self.vx[count] = self.vel[count] / (1 + 2 * eps[i][j][k])
                     count += 1
-
+        print("build model OK")
+        self.shotxyz = np.zeros((self.nshot, 3))
+        self.recxyz = np.zeros((self.nray, 3))
         with open('shot.txt','r') as fp:
             shot_location = fp.readlines()
         if len(shot_location) >= self.nshot:
             for i in range(self.nshot):
-                tempx = int(float(shot_location[i][0].strip('\n').strip())/self.dx + 0.5)
-                tempy = int(float(shot_location[i][0].strip('\n').strip())/self.dy + 0.5)
-                self.shotxyz[i][2] = self.ele[tempx][tempy]
+                if shot_location[i].strip('\n').strip():
+                    shot = shot_location[i].strip('\n').strip().split()
+                    tempx = int(float(shot[0].strip('\n').strip()) / self.dx + 0.5)
+                    tempy = int(float(shot[1].strip('\n').strip()) / self.dy + 0.5)
+                    self.shotxyz[i][0] = float(shot[0].strip('\n').strip())
+                    self.shotxyz[i][1] = float(shot[1].strip('\n').strip())
+                    self.shotxyz[i][2] = self.ele[tempx][tempy]
 
         with open('rec.txt','r') as fp:
             rec_location = fp.readlines()
         if len(rec_location) >= self.nray:
             for i in range(self.nray):
-                tempx = int(float(rec_location[i][0].strip('\n').strip())/self.dx + 0.5)
-                tempy = int(float(rec_location[i][0].strip('\n').strip())/self.dy + 0.5)
-                self.recxyz[i][2] = self.ele[tempx][tempy]
+                if rec_location[i].strip('\n').strip():
+                    rec = rec_location[i].strip('\n').strip().split()
+                    tempx = int(float(rec[0].strip('\n').strip()) / self.dx + 0.5)
+                    tempy = int(float(rec[1].strip('\n').strip()) / self.dy + 0.5)
+                    self.recxyz[i][0] = float(rec[0].strip('\n').strip())
+                    self.recxyz[i][1] = float(rec[1].strip('\n').strip())
+                    self.recxyz[i][2] = self.ele[tempx][tempy]
 
     def calculate_time(self, iter, ishot, nx, ny, nz, vel, q, vx, realvel, realq, realvx, flag, plane, dx, dy, dz,
                        shotxyz, recxyz, delta, neachshot, fdelta, fdeltaapp,
@@ -155,13 +168,21 @@ class tomo():
         realtime = np.zeros((nx * ny * nz))
         tmp_time = np.zeros((nx * ny * nz))
         fast.fastmarch_init(nx, ny, nz)
-        fast.fastmarch(time, tmp_time, vx, vel, q, flag, plane, nx, ny, nz, 0, 0, 0, dx, dy, dz, shotxyz[ishot][0],
-                       shotxyz[ishot][0][1], shotxyz[ishot][0][2], 1, 1, 1, 1)
-        fast.fastmarch(realtime, tmp_time, realvx, realvel, realq, flag, plane, nx, ny, nz, 0, 0, 0, dx, dy, dz,
-                       shotxyz[ishot][0], shotxyz[ishot][1], shotxyz[ishot][2], 1, 1, 1, 1)
+        fast.fastmarch((c_float * len(time))(*time.tolist()), (c_float * len(tmp_time))(*tmp_time.tolist),
+                       (c_float * len(vx))(*vx.tolist()), (c_float * len(vel))(*vel.tolist()), (c_float * len(q))(*q.tolist()),
+                       flag, plane, nx, ny, nz, 0, 0, 0, dx, dy, dz, float(shotxyz[ishot][0]),
+                       float(shotxyz[ishot][0][1]), float(shotxyz[ishot][0][2]), 1, 1, 1, 1)
+        fast.fastmarch((c_float * len(realtime))(*realtime.tolist()), (c_float * len(tmp_time))(*tmp_time.tolist),
+                       (c_float * len(realvx))(*realvx.tolist()), (c_float * len(realvel))(*realvel.tolist()), (c_float * len(realq))(*realq.tolist()),
+                       flag, plane, nx, ny, nz, 0, 0, 0, dx, dy, dz, float(shotxyz[ishot][0]),
+                       float(shotxyz[ishot][0][1]), float(shotxyz[ishot][0][2]), 1, 1, 1, 1)
+        # fast.fastmarch(realtime, tmp_time, realvx, realvel, realq, flag, plane, nx, ny, nz, 0, 0, 0, dx, dy, dz,
+        #                shotxyz[ishot][0], shotxyz[ishot][1], shotxyz[ishot][2], 1, 1, 1, 1)
         fast.fastmarch_close()
         print("VTIFMM of %s shot has been calculated(ID:%d, Ite:%d)\n" % (ishot + 1, ishot + 1, iter + 1))
         count = 0
+        time = np.array(time)
+        realtime = np.array(realtime)
         for i in range(nx):
             for j in range(ny):
                 for k in range(nz):
@@ -538,6 +559,82 @@ class tomo():
             s += neachshot[i]
         return s
 
+    def smooth(self):
+        for i in range(self.nx*self.ny*self.nz):
+            self.ds[i] = self.ds[i]/1000
+        for i in range(self.nx):
+            for j in range(self.ny):
+                for k in range(self.nz):
+                    if self.vel[i][j][k] != 0:
+                        s1 = 1.0/self.vel[i][j][k]
+                        if self.ds[i + self.nx * j + self.nx * self.ny * k] > s1 * 0.5:
+                            self.ds[i+self.nx * j+self.nx * self.ny * k]=s1 * 0.5
+                        if self.ds[i + self.nx * j + self.nx * self.ny * k] < -s1 * 0.5:
+                            self.ds[i+self.nx * j+self.nx * self.ny * k]=-s1 * 0.5
+                        self.vel[i][j][k] = 1. / (s1 + self.ds[i + self.nx * j + self.nx * self.ny * k])
+
+        for i in range(self.nx):
+            for j in range(self.ny):
+                for k in range(self.nz):
+                    if self.vel[i][j][k] > 10:
+                        v = 0
+                        siren = 0
+                        if i-1>=0 and j-1>=0 and k-1>=0:
+                            v=v+self.vel[i-1][j-1][k-1]
+                            siren += 1
+                        if j-1>=0 and k-1>= 0:
+                            v=v+self.vel[i][j-1][k-1]
+                            siren+=1
+                        if i+1<=self.nx-1 and j-1>=0 and k-1>=0:
+                            v=v+self.vel[i+1][j-1][k-1];siren+=1
+                        if i-1>=0 and k-1>=0:
+                            v=v+self.vel[i-1][j][k-1];siren+=1
+                        if k-1>=0:
+                            v=v+self.vel[i][j][k-1];siren+=1
+                        if (i+1 <= self.nx-1 and k-1 >= 0):
+                            v=v+self.vel[i+1][j][k-1];siren+=1
+                        if (i-1>=0 and j+1<=self.ny-1 and k-1>=0):
+                            v=v+self.vel[i-1][j+1][k-1];siren+=1
+                        if (j+1 <= self.ny-1 and k-1 >= 0):
+                            v=v+self.vel[i][j+1][k-1];siren+=1
+                        if (i+1 <= self.nx-1 and j+1 <= self.ny-1 and k-1 >= 0):
+                            v=v+self.vel[i+1][j+1][k-1];siren+=1
+                        if (i-1 >= 0 and j-1 >= 0):
+                            v=v+self.vel[i-1][j-1][k];siren+=1
+                        if (j-1 >= 0):
+                            v=v+self.vel[i][j-1][k];siren+=1
+                        if (i+1 <= self.nx-1 and j-1 >= 0):
+                            v=v+self.vel[i+1][j-1][k];siren+=1
+                        if (i-1 >= 0):
+                            v=v+self.vel[i-1][j][k];siren+=1
+                        if (i+1 <= self.nx-1):
+                            v=v+self.vel[i+1][j][k];siren+=1
+                        if (i-1 >= 0 and j+1 <= self.ny-1):
+                            v=v+self.vel[i-1][j+1][k];siren+=1
+                        if (j+1 <= self.ny-1):
+                            v=v+self.vel[i][j+1][k];siren+=1
+                        if (i+1 <= self.nx-1 and j+1 <= self.ny-1):
+                            v=v+self.vel[i+1][j+1][k];siren+=1
+                        if (i-1 >= 0 and j-1 >= 0 and k+1 <= self.nz-1):
+                            v=v+self.vel[i-1][j-1][k+1];siren+=1
+                        if (j-1 >= 0 and k+1 <= self.nz-1):
+                            v=v+self.vel[i][j-1][k+1];siren+=1
+                        if (i+1 <= self.nx-1 and j-1 >= 0 and k+1 <= self.nz-1):
+                            v=v+self.vel[i+1][j-1][k+1];siren+=1
+                        if (i-1 >= 0 and k+1 <= self.nz-1):
+                            v=v+self.vel[i-1][j][k+1];siren+=1
+                        if (k+1 <= self.nz-1):
+                            v=v+self.vel[i][j][k+1];siren+=1
+                        if (i+1 <= self.nx-1 and k+1 <= self.nz-1):
+                            v=v+self.vel[i+1][j][k+1];siren+=1
+                        if (i-1 >= 0 and j+1 <= self.ny-1 and k+1 <= self.nz-1):
+                            v=v+self.vel[i-1][j+1][k+1];siren+=1
+                        if (j+1 <= self.ny-1 and k+1 <= self.nz-1):
+                            v=v+self.vel[i][j+1][k+1];siren+=1
+                        if (i+1 <= self.nx-1 and j+1 <= self.ny-1 and k+1 <= self.nz-1):
+                            v=v+self.vel[i+1][j+1][k+1];siren+=1
+
+                        self.vel[i][j][k]=1.0 / (2 * siren) * v+0.5 * self.vel[i][j][k]
     def start(self):
 
         comm = MPI.COMM_WORLD
@@ -677,10 +774,11 @@ class tomo():
                         for k in range(self.nz):
                             self.sel3D[i][j][k] = 1000/self.vel[i][j][k]
 
-                # lsqr.RegLSQR(sumcountdt, sumnmax, sumcountdtapp, sumnmaxapp, self.sign, self.nx, self.ny, self.nz, self.damp, self.lamda, self.sz, self.omega, self.itmax,
-                #         self.nx * self.ny * self.nz, sdeltat, sfrenum, sfrelen, self.ds, self.sel3D, sdeltatapp, sfrenumapp, sfrelenapp, self.dens)
-                RegLSQR = lsqr.LSQRFramework(sfrelen)
-                RegLSQR.solve(sdeltat,damp=self.damp, show=True)
+                lsqr_re.RegLSQR(sumcountdt, sumnmax, sumcountdtapp, sumnmaxapp, self.sign, self.nx, self.ny, self.nz, self.damp, self.lamda, self.sz, self.omega, self.itmax,
+                        self.nx * self.ny * self.nz, sdeltat, sfrenum, sfrelen, (c_float * len(self.ds))(*self.ds.tolist()), self.sel3D, sdeltatapp, sfrenumapp, sfrelenapp, self.dens)
+                # RegLSQR = lsqr.LSQRFramework(sfrelen)
+                # RegLSQR.solve(sdeltat,damp=self.damp, show=True)
+                self.ds = np.array(self.ds)
                 self.smooth()
                 with open('velupdate.dat', 'wb+') as fp:
                     for i in range(self.nx):
@@ -691,96 +789,11 @@ class tomo():
                                 fp.write(self.vel[i][j][k])
 
 
-    def smooth(self):
-        for i in range(self.nx*self.ny*self.nz):
-            self.ds[i] = self.ds[i]/1000
-        for i in range(self.nx):
-            for j in range(self.ny):
-                for k in range(self.nz):
-                    if self.vel[i][j][k] != 0:
-                        s1 = 1.0/self.vel[i][j][k]
-                        if self.ds[i + self.nx * j + self.nx * self.ny * k] > s1 * 0.5:
-                            self.ds[i+self.nx * j+self.nx * self.ny * k]=s1 * 0.5
-                        if self.ds[i + self.nx * j + self.nx * self.ny * k] < -s1 * 0.5:
-                            self.ds[i+self.nx * j+self.nx * self.ny * k]=-s1 * 0.5
-                        self.vel[i][j][k] = 1. / (s1 + self.ds[i + self.nx * j + self.nx * self.ny * k])
-
-        for i in range(self.nx):
-            for j in range(self.ny):
-                for k in range(self.nz):
-                    if self.vel[i][j][k] > 10:
-                        v = 0
-                        siren = 0
-                        if i-1>=0 and j-1>=0 and k-1>=0:
-                            v=v+self.vel[i-1][j-1][k-1]
-                            siren += 1
-                        if j-1>=0 and k-1>= 0:
-                            v=v+self.vel[i][j-1][k-1]
-                            siren+=1
-                        if i+1<=self.nx-1 and j-1>=0 and k-1>=0:
-                            v=v+self.vel[i+1][j-1][k-1];siren+=1
-                        if i-1>=0 and k-1>=0:
-                            v=v+self.vel[i-1][j][k-1];siren+=1
-                        if k-1>=0:
-                            v=v+self.vel[i][j][k-1];siren+=1
-                        if (i+1 <= self.nx-1 and k-1 >= 0):
-                            v=v+self.vel[i+1][j][k-1];siren+=1
-                        if (i-1>=0 and j+1<=self.ny-1 and k-1>=0):
-                            v=v+self.vel[i-1][j+1][k-1];siren+=1
-                        if (j+1 <= self.ny-1 and k-1 >= 0):
-                            v=v+self.vel[i][j+1][k-1];siren+=1
-                        if (i+1 <= self.nx-1 and j+1 <= self.ny-1 and k-1 >= 0):
-                            v=v+self.vel[i+1][j+1][k-1];siren+=1
-                        if (i-1 >= 0 and j-1 >= 0):
-                            v=v+self.vel[i-1][j-1][k];siren+=1
-                        if (j-1 >= 0):
-                            v=v+self.vel[i][j-1][k];siren+=1
-                        if (i+1 <= self.nx-1 and j-1 >= 0):
-                            v=v+self.vel[i+1][j-1][k];siren+=1
-                        if (i-1 >= 0):
-                            v=v+self.vel[i-1][j][k];siren+=1
-                        if (i+1 <= self.nx-1):
-                            v=v+self.vel[i+1][j][k];siren+=1
-                        if (i-1 >= 0 and j+1 <= self.ny-1):
-                            v=v+self.vel[i-1][j+1][k];siren+=1
-                        if (j+1 <= self.ny-1):
-                            v=v+self.vel[i][j+1][k];siren+=1
-                        if (i+1 <= self.nx-1 and j+1 <= self.ny-1):
-                            v=v+self.vel[i+1][j+1][k];siren+=1
-                        if (i-1 >= 0 and j-1 >= 0 and k+1 <= self.nz-1):
-                            v=v+self.vel[i-1][j-1][k+1];siren+=1
-                        if (j-1 >= 0 and k+1 <= self.nz-1):
-                            v=v+self.vel[i][j-1][k+1];siren+=1
-                        if (i+1 <= self.nx-1 and j-1 >= 0 and k+1 <= self.nz-1):
-                            v=v+self.vel[i+1][j-1][k+1];siren+=1
-                        if (i-1 >= 0 and k+1 <= self.nz-1):
-                            v=v+self.vel[i-1][j][k+1];siren+=1
-                        if (k+1 <= self.nz-1):
-                            v=v+self.vel[i][j][k+1];siren+=1
-                        if (i+1 <= self.nx-1 and k+1 <= self.nz-1):
-                            v=v+self.vel[i+1][j][k+1];siren+=1
-                        if (i-1 >= 0 and j+1 <= self.ny-1 and k+1 <= self.nz-1):
-                            v=v+self.vel[i-1][j+1][k+1];siren+=1
-                        if (j+1 <= self.ny-1 and k+1 <= self.nz-1):
-                            v=v+self.vel[i][j+1][k+1];siren+=1
-                        if (i+1 <= self.nx-1 and j+1 <= self.ny-1 and k+1 <= self.nz-1):
-                            v=v+self.vel[i+1][j+1][k+1];siren+=1
-
-                        self.vel[i][j][k]=1.0 / (2 * siren) * v+0.5 * self.vel[i][j][k]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == '__main__':
+    tomo3D = tomo()
+    tomo3D.start()
 
 
 
