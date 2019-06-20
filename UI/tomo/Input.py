@@ -1,4 +1,5 @@
 from PyQt4 import QtCore, QtGui
+from excute_c import Worker
 import os
 import re
 
@@ -249,12 +250,24 @@ class Ui_Form(QtGui.QWidget):
         self.retranslateUi(Form)
 
         QtCore.QMetaObject.connectSlotsByName(Form)
+
+        self.thread = Worker()
+        self.thread.file_changed_signal.connect(self.update_file_list)
+
         self.reset.clicked.connect(self.clear)
-        self.run.clicked.connect(self.start)
+        self.run.clicked.connect(self.thread_start())
         self.shot_path.cliked.connect(lambda :self.get_file(self.shotpathEdit))
         self.rec_path.cliked.connect(lambda :self.get_file(self.shotpathEdit))
         self.fb_path.cliked.connect(lambda :self.get_file(self.shotpathEdit))
         self.ele_path.cliked.connect(lambda :self.get_file(self.shotpathEdit))
+
+    def update_file_list(self, file_inf):
+        self.out.append(file_inf)
+
+    def thread_start(self):
+        self.get_text()
+        self.run.setEnabled(False)
+        self.thread.start()
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(_translate("Form", "Form", None))
