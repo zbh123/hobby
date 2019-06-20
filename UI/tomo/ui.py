@@ -59,8 +59,8 @@ class TestDialog(QtGui.QTableWidget):
         tabWidget.addTab(w2, "preProcess")
         tabWidget.resize(900, 800)
 
-        sys.stdout = EmittingStream(textWritten=self.normalOutputWritten)
-        sys.stderr = EmittingStream(textWritten=self.normalOutputWritten)
+        #sys.stdout = EmittingStream(textWritten=self.normalOutputWritten)
+        #sys.stderr = EmittingStream(textWritten=self.normalOutputWritten)
 
     def __del__(self):
         sys.stdout = sys.__stdout__
