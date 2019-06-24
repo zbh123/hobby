@@ -1,5 +1,6 @@
 '''
 调用C语言的so文件，是通过gcc -fPIC -shared func.c -o libfunc.so -lm -w 编译出来的
+传参目前浮点型只能传32位的浮点型，其他的C语言不能正确的识别数值
 '''
 
 import os
@@ -117,9 +118,9 @@ class tomo():
         vel3D = np.zeros((self.nx, self.ny, self.nz))
         eps = np.zeros((self.nx, self.ny, self.nz))
         delta = np.zeros((self.nx, self.ny, self.nz))
-        self.vel = np.zeros(self.nx * self.ny * self.nz)
-        self.vx = np.zeros(self.nx * self.ny * self.nz)
-        self.q = np.zeros(self.nx * self.ny * self.nz)
+        self.vel = np.zeros(self.nx * self.ny * self.nz, dtype=np.float32)
+        self.vx = np.zeros(self.nx * self.ny * self.nz, dtype=np.float32)
+        self.q = np.zeros(self.nx * self.ny * self.nz, dtype=np.float32)
         count = 0
         for i in range(self.nx):
             for j in range(self.ny):
@@ -174,9 +175,9 @@ class tomo():
         total_data = nx * ny * nz
         num_plane = 1*3
 
-        realtime = np.zeros((nx * ny * nz))
-        tmp_time = np.zeros((nx * ny * nz))
-        time = np.zeros((nx * ny * nz))
+        realtime = np.zeros(nx * ny * nz, dtype=np.float32)
+        tmp_time = np.zeros(nx * ny * nz, dtype=np.float32)
+        time = np.zeros(nx * ny * nz, dtype=np.float32)
         # time = (c_float * total_data)()
         # tmp_time = (c_float * total_data)()
         # tmp_vx = (c_float * total_data)()
@@ -193,10 +194,14 @@ class tomo():
         #     tmp_flag[i] = flag[i]
 
         fast.fastmarch_init.argtypes = [c_int, c_int, c_int]
-        fast.fastmarch.argtypes = [npct.ndpointer(dtype=np.float, ndim=1, flags="C_CONTIGUOUS"), npct.ndpointer(dtype=np.float, ndim=1, flags="C_CONTIGUOUS"),
-                             npct.ndpointer(dtype=np.float, ndim=1, flags="C_CONTIGUOUS"), npct.ndpointer(dtype=np.float, ndim=1, flags="C_CONTIGUOUS"),npct.ndpointer(dtype=np.float, ndim=1, flags="C_CONTIGUOUS"),
-                             npct.ndpointer(dtype=np.int, ndim=1, flags="C_CONTIGUOUS"), npct.ndpointer(dtype=np.bool, ndim=1, flags="C_CONTIGUOUS"), c_int, c_int, c_int, c_float,
-                             c_float, c_float, c_float, c_float, c_float, c_float, c_float, c_float, c_int, c_int, c_int, c_int]
+        fast.fastmarch.argtypes = [npct.ndpointer(dtype=np.float32, ndim=1, flags="C_CONTIGUOUS"), 
+                                   npct.ndpointer(dtype=np.float32, ndim=1, flags="C_CONTIGUOUS"),
+                                   npct.ndpointer(dtype=np.float32, ndim=1, flags="C_CONTIGUOUS"), 
+                                   npct.ndpointer(dtype=np.float32, ndim=1, flags="C_CONTIGUOUS"),
+                                   npct.ndpointer(dtype=np.float32, ndim=1, flags="C_CONTIGUOUS"),
+                                   npct.ndpointer(dtype=np.int, ndim=1, flags="C_CONTIGUOUS"), 
+                                   npct.ndpointer(dtype=np.bool, ndim=1, flags="C_CONTIGUOUS"), 
+                                   c_int, c_int, c_int, c_float, c_float, c_float, c_float, c_float, c_float, c_float, c_float, c_float, c_int, c_int, c_int, c_int]
 
         fast.fastmarch_init(c_int(nx), c_int(ny), c_int(nz))
         fast.fastmarch(time, tmp_time, vx, vel, q, flag, plane, c_int(nx), c_int(ny), c_int(nz), c_float(0.), c_float(0.), c_float(0.), c_float(dx), c_float(dy), c_float(dz),
@@ -322,7 +327,7 @@ class tomo():
                 for k in range(nz):
                     if k == 0:
                         gz[i][j][k] = (time3D[i][j][k + 1] - time3D[i][j][k]) / dz
-                    elif j == nz - 1:
+                    elif k == nz - 1:
                         gz[i][j][k] = (time3D[i][j][k] - time3D[i][j][k - 1]) / dz
                     else:
                         gz[i][j][k] = (time3D[i][j][k + 1] - time3D[i][j][k - 1]) / (2 * dz)
