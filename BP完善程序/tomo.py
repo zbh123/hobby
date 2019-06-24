@@ -673,10 +673,10 @@ class tomo():
             tempnmaxapp = []
             tempcountdtapp = []
             if rank!=0:
-                comm.send(self.nmax, dest=0)
-                comm.send(self.countdt, dest=0)
-                comm.send(self.nmaxapp, dest=0)
-                comm.send(self.countdtapp, dest=0)
+                comm.send(self.nmax, dest=0, tag=1)
+                comm.send(self.countdt, dest=0, tag=2)
+                comm.send(self.nmaxapp, dest=0, tag=3)
+                comm.send(self.countdtapp, dest=0, tag=4)
             if rank == 0:
                 tempnamx.append(self.nmax)
                 tempcountdt.append(self.nmax)
@@ -684,10 +684,10 @@ class tomo():
                 tempcountdtapp.append(self.nmax)
 
                 for i in range(1, size):
-                    tempnamx.append(comm.recv(source=i))
-                    tempcountdt.append(comm.recv(source=i))
-                    tempnmaxapp.append(comm.recv(source=i))
-                    tempcountdtapp.append(comm.recv(source=i))
+                    tempnamx.append(comm.recv(source=i, tag=1))
+                    tempcountdt.append(comm.recv(source=i, tag=2))
+                    tempnmaxapp.append(comm.recv(source=i, tag=3))
+                    tempcountdtapp.append(comm.recv(source=i, tag=4))
 
                 for i in range(size):
                     sumnmax += tempnamx[i]
