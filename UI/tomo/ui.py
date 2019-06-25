@@ -39,7 +39,8 @@ class Ui_Dialog(object):
 class EmittingStream(QtCore.QObject):
     textWritten = QtCore.pyqtSignal(str)
     def write(self, text):
-        self.textWritten.emit(str(text))
+        if text.strip('\n').strip():
+            self.textWritten.emit("print Info: {}".format(str(text).strip('\n')))
 
 class TestDialog(QtGui.QTableWidget):
     def __init__(self):
@@ -59,19 +60,19 @@ class TestDialog(QtGui.QTableWidget):
         tabWidget.addTab(w2, "preProcess")
         tabWidget.resize(900, 800)
 
-        #sys.stdout = EmittingStream(textWritten=self.normalOutputWritten)
-        #sys.stderr = EmittingStream(textWritten=self.normalOutputWritten)
+        sys.stdout = EmittingStream(textWritten=self.normalOutputWritten)
+        sys.stderr = EmittingStream(textWritten=self.normalOutputWritten)
 
     def __del__(self):
         sys.stdout = sys.__stdout__
         sys.stderr = sys.__stderr__
 
     def normalOutputWritten(self, text):
-        cursor = self.firstUI.out.textCursor()
-        cursor.movePosition(QtGui.QTextCursor.End)
-        cursor.insertText(text)
-        self.firstUI.out.setTextCursor(cursor)
-        self.firstUI.out.ensureCursorVisible()
+        #cursor = self.firstUI.out.textCursor()
+        #cursor.movePosition(QtGui.QTextCursor.End)
+        self.firstUI.out.insertText(text)
+        #self.firstUI.out.setTextCursor(cursor)
+        #self.firstUI.out.ensureCursorVisible()
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
