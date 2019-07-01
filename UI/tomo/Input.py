@@ -69,7 +69,7 @@ class Ui_Form(QtGui.QWidget):
         self.Nshot.setObjectName(_fromUtf8("Nshot"))
 
         self.Output = QtGui.QLabel(Form)
-        self.Output.setGeometry(QtCore.QRect(60, 60, 41, 20))
+        self.Output.setGeometry(QtCore.QRect(400, 360, 41, 41))
         self.Output.setObjectName(_fromUtf8("Output"))
 
         self.dzEdit = QtGui.QLineEdit(Form)
@@ -161,9 +161,9 @@ class Ui_Form(QtGui.QWidget):
         self.line.setFrameShadow(QtGui.QFrame.Sunken)
         self.line.setObjectName(_fromUtf8("line"))
 
-        self.out = QtGui.QLineEdit(Form)
+        self.out = QtGui.QTextEdit(Form)
         self.out.setGeometry(QtCore.QRect(60, 410, 701, 181))
-        self.out.setObjectName(_fromUtf8("out"))
+        self.out.setObjectName(_fromUtf8("textEdit"))
 
         self.omega = QtGui.QLabel(Form)
         self.omega.setGeometry(QtCore.QRect(180, 140, 41, 20))
@@ -255,11 +255,11 @@ class Ui_Form(QtGui.QWidget):
         self.thread.file_changed_signal.connect(self.update_file_list)
 
         self.reset.clicked.connect(self.clear)
-        self.run.clicked.connect(self.thread_start())
-        self.shot_path.cliked.connect(lambda :self.get_file(self.shotpathEdit))
-        self.rec_path.cliked.connect(lambda :self.get_file(self.shotpathEdit))
-        self.fb_path.cliked.connect(lambda :self.get_file(self.shotpathEdit))
-        self.ele_path.cliked.connect(lambda :self.get_file(self.shotpathEdit))
+        self.run.clicked.connect(self.thread_start)
+        self.shot_path.clicked.connect(lambda :self.get_file(self.shotpathEdit))
+        self.rec_path.clicked.connect(lambda :self.get_file(self.shotpathEdit))
+        self.fb_path.clicked.connect(lambda :self.get_file(self.shotpathEdit))
+        self.ele_path.clicked.connect(lambda :self.get_file(self.shotpathEdit))
 
     def update_file_list(self, file_inf):
         self.out.append(file_inf)
@@ -275,9 +275,9 @@ class Ui_Form(QtGui.QWidget):
         self.v0.setText(_translate("Form", "v0:", None))
         self.Nz.setText(_translate("Form", "Nz:", None))
         self.fb_file.setText(_translate("Form", "fb_file:", None))
-        self.reset.setText(_translate("Form", "Reset:", None))
+        self.reset.setText(_translate("Form", "Reset", None))
         self.Nshot.setText(_translate("Form", "Nshot:", None))
-        self.Output.setText(_translate("Form", "Output:", None))
+        self.Output.setText(_translate("Form", "Output", None))
         self.niter.setText(_translate("Form", "niter:", None))
         self.lamda.setText(_translate("Form", "lamda:", None))
         self.dv.setText(_translate("Form", "dv:", None))
@@ -289,9 +289,9 @@ class Ui_Form(QtGui.QWidget):
         self.dx.setText(_translate("Form", "dx:", None))
         self.omega.setText(_translate("Form", "omega:", None))
         self.Ny.setText(_translate("Form", "Ny:", None))
-        self.run.setText(_translate("Form", "Run:", None))
+        self.run.setText(_translate("Form", "Run", None))
         self.sz.setText(_translate("Form", "sz:", None))
-        self.Input.setText(_translate("Form", "Input Parameter:", None))
+        self.Input.setText(_translate("Form", "Input Parameter", None))
         self.shotpath.setText(_translate("Form", "shotpath:", None))
         self.dy.setText(_translate("Form", "dy:", None))
         self.dz.setText(_translate("Form", "dz:", None))
@@ -321,6 +321,7 @@ class Ui_Form(QtGui.QWidget):
         self.recpathEdit.clear()
         self.fb_fileEdit.clear()
         self.elevationEdit.clear()
+        self.out.clear()
 
     def get_file(self, name):
         path = QtGui.QFileDialog.getOpenFileName(self, 'Open File', '.', 'dat files (*.dat);;All files (*.*)')
