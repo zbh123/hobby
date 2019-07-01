@@ -384,8 +384,8 @@ class Ui_Form(QtGui.QWidget):
         else:
             self.out.append("%s need be number or path" % num)
 
-    def start(self):
-        self.get_text()
+    #def start(self):
+        #self.get_text()
         # from * import *
         # *
 
