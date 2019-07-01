@@ -70,7 +70,7 @@ class TestDialog(QtGui.QTableWidget):
     def normalOutputWritten(self, text):
         #cursor = self.firstUI.out.textCursor()
         #cursor.movePosition(QtGui.QTextCursor.End)
-        self.firstUI.out.insertText(text)
+        self.firstUI.out.append(text)
         #self.firstUI.out.setTextCursor(cursor)
         #self.firstUI.out.ensureCursorVisible()
 
