@@ -1,6 +1,7 @@
 # -*- coding:gbk -*-
 '''示例8: 装饰器带类参数
 装饰器实质就是在不改变原函数的基础上，可以为原函数增加功能，即在原函数执行前先执行装饰器，装饰器内部调用原函数
+https://www.cnblogs.com/rhcad/archive/2011/12/21/2295507.html
 '''
  
 class locker:
