@@ -257,9 +257,9 @@ class Ui_Form(QtGui.QWidget):
         self.reset.clicked.connect(self.clear)
         self.run.clicked.connect(self.thread_start)
         self.shot_path.clicked.connect(lambda :self.get_file(self.shotpathEdit))
-        self.rec_path.clicked.connect(lambda :self.get_file(self.shotpathEdit))
-        self.fb_path.clicked.connect(lambda :self.get_file(self.shotpathEdit))
-        self.ele_path.clicked.connect(lambda :self.get_file(self.shotpathEdit))
+        self.rec_path.clicked.connect(lambda :self.get_file(self.recpathEdit))
+        self.fb_path.clicked.connect(lambda :self.get_file(self.fb_fileEdit))
+        self.ele_path.clicked.connect(lambda :self.get_file(self.elevationEdit))
 
     def update_file_list(self, file_inf):
         self.out.append(file_inf)
