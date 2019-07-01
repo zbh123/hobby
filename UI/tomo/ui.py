@@ -36,6 +36,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
 
+#获取引入函数的print内容
 class EmittingStream(QtCore.QObject):
     textWritten = QtCore.pyqtSignal(str)
     def write(self, text):
@@ -70,6 +71,7 @@ class TestDialog(QtGui.QTableWidget):
     def normalOutputWritten(self, text):
         #cursor = self.firstUI.out.textCursor()
         #cursor.movePosition(QtGui.QTextCursor.End)
+        #只能用append不能用setText，否则会让界面卡死
         self.firstUI.out.append(text)
         #self.firstUI.out.setTextCursor(cursor)
         #self.firstUI.out.ensureCursorVisible()
