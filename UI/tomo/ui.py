@@ -50,7 +50,7 @@ class TestDialog(QtGui.QTableWidget):
         self.firstUI = Ui_Form()
         self.secondUI = Ui_Dialog()
 
-        tabWidget = QtGui.QTableWidget(self)
+        tabWidget = QtGui.QTabWidget(self)
         w1 = QtGui.QWidget()
         self.firstUI.setupUi(w1)
         w2 = QtGui.QDialog()
