@@ -1,0 +1,38 @@
+# -*- coding:gbk -*-
+'''示例8: 装饰器带类参数
+装饰器实质就是在不改变原函数的基础上，可以为原函数增加功能，即在原函数执行前先执行装饰器，装饰器内部调用原函数
+'''
+ 
+class locker:
+    def __init__(self):
+        print("locker.__init__() should be not called.")
+        
+    #用staticmethod定义的函数，其功能与类之外的函数功能一致， 只是声明函数时不需要添加self或其他表名类的关键字     
+    @staticmethod
+    def acquire():
+        print("locker.acquire() called.（这是静态方法）")
+         
+    @staticmethod
+    def release():
+        print("  locker.release() called.（不需要对象实例）")
+ 
+def deco(cls):
+    '''cls 必须实现acquire和release静态方法'''
+    def _deco(func):
+        def __deco():
+            print("before %s called [%s]." % (func.__name__, cls))
+            cls.acquire()
+            try:
+                return func()
+            finally:
+                cls.release()
+        return __deco
+    return _deco
+
+#使用装饰器deco，并且给装饰器传参
+@deco(locker)
+def myfunc():
+    print(" myfunc() called.")
+ 
+myfunc()
+myfunc()
