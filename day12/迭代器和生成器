@@ -1,0 +1,39 @@
+'''
+生成器，当函数中出现yield时，该函数成为生成器，当外部调用该函数时，会返回yield变量
+'''
+#读取大数据文件，每次只取1M
+def read_file(fpath): 
+    BLOCK_SIZE = 1024 
+    with open(fpath, 'rb') as f: 
+        while True: 
+            block = f.read(BLOCK_SIZE) 
+            if block: 
+                yield block 
+            else: 
+                return
+#在for循环内部直接对异常StopIteration进行处理，不需要额外定义
+for file in read_file(path):
+    print(file)
+                
+'''
+迭代器，类中定义__iter__的数据类型都可以是迭代器
+'''
+
+# -*- coding: cp936 -*-
+class Fabs(object):
+    def __init__(self,max):
+        self.max = max
+        self.n, self.a, self.b = 0, 0, 1  #特别指出：第0项是0，第1项是第一个1.整个数列从1开始
+    def __iter__(self):
+        return self
+    def next(self):
+        if self.n < self.max:
+            r = self.b
+            self.a, self.b = self.b, self.a + self.b
+            self.n = self.n + 1
+            return r
+        raise StopIteration()
+
+print Fabs(5)
+for key in Fabs(5):
+    print key
