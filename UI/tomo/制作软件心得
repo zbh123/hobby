@@ -1,0 +1,11 @@
+1、C语言的编译，编译方法是gcc -fPIC -shared func.c -o libfunc.so -lm -w，需要手动安装gcc，其他方法编译出的so文件无法被识别
+2、Python调用C语言，模块ctypes和numpy.ctypeslib的使用规则，源代码都有详细的例子，当遇到OSError时，肯定是传入的参数有问题，传参的类型必须定义好，
+目前3.6和window7 32位向C语言传参，float型只能是float32，其他类型传入的值都有问题，numpy只能传二维和一维的，三维的传入C语言识别不出，可以将三维
+数组降维到一维，传入C之后，再在C里面转成三维
+3、当运行时内存占用过大时，可以使用del+gc，清除部分不用数组的缓存
+4、MPI进程间通信，可以通过加tag标签，实现多个进程同时通信， 但是MPI一旦执行，就会成为一个独立的部分，分别执行所有Python代码，相当于整个代码被
+多个进程同时执行，怎么只让MPI执行一个函数，暂时未解决
+5、Pool和queue结合可以完美实现多进程执行一个函数，MPI的rank可以用queue的put获取，然后get得到，这样就可以将多进程区分开来，进程间的通信也可以
+用queue实现
+6、UI界面的制作，可以直接使用PyQt4自带的designer编辑界面，生成ui文件，然后用pyuic4 *.ui -o *.py转成py文件，然后为UI界面的各组件赋予相应的功能
+7、各组件功能的简单实现，将引用函数的print内容打印出来，需要使用Qt中的pyqtSignal和Qthread
