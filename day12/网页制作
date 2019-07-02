@@ -1,0 +1,3 @@
+1、https://adminlte.io/  上面有很全的网页组件，可以根据需要拿部分组件
+2、设置网页时，需要将引入的block模块分别赋值，如style部分，可以使用{% block style%}{%endblock%}来实现
+3、Django传参，在网页内部使用时，只需要{{}}即可引入，无论是在html，js或者jquery中都可以直接使用
