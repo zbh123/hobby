@@ -1,0 +1,8 @@
+1、 参考网址http://wiki.jikexueyuan.com/project/start-learning-python/301.html，比较详细介绍tornado的组成实现，前后端的描述规则
+2、 后端：由函数变成类，分为get和post两种方法，返回是self.sender（'*.html', param=param）
+3、 前端：css,js,img都位于py的同级目录statics文件夹下
+    引进css：<link rel="stylesheet" href="{{static_url('bower/boot/boot.css')}}">
+    引进js：<script src="{{static_url('bower/boot/boot.js')}}"></script>
+    引进img：<img src="{{static_url('dist/img/123.jpg')}}">
+    数组参数不能用list.1，需要用list[1]， 用dict时 {% for key, values in dict.items() %}使用时用dict['key1']
+    
