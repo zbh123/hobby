@@ -1,0 +1,39 @@
+使用：引入Flask， render_template(默认路径是与py文件同目录下的templates文件夹),request(用于获取前端的参数)
+
+1、前后端传参方式几乎相同，GET：前端将参数放在url路径中，后端使用method方法可以设定POST方法还是GET方法
+2、前后端获取参数的方法同样是{{param}}，不同的是Flask的字典遍历时是{{for key, values in dict.iterm()}}，字典后面加个括号
+前端获取参数的方法如下，request.args.get('key'), request.form.get('key')或者直接传参如index,当前端传入多个参数时
+3、css、js等在HTML中的引入，默认在static文件夹里面（与py文件同目录），
+引入css：<link rel="stylesheet" href="{{url_for ('static',filename='dist/css/skin/all.css')}}
+引入js：<script src="{{url_foe('static', filename='dist/css/skin/all.js')}}"></script>
+引入图片： <img src="{{url_foe('static', filename='dist/css/skin/all.jpg')}}">
+
+
+
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route('/', method=["POST", "GET"])
+def hello_world():
+    后端接收时要写methods=[‘GET’,‘POST’]
+    xx=request.form.get('key');
+    xx=request.form['key']
+    2）如果是GET
+    xx=request.args.get('key')
+    return 'Hello Flask!'
+@app.route('/index/<id>', method=["GET"])
+def index(id):
+    print(id)
+    render_template('index.html', id=id)
+
+##url形式如：www.baidu.com?username='zhubh&passwd='123456''
+@app.route('/login', method=["GET"])
+def index():
+    username = request.args.get('username')
+    passwd = request.args.get('passwd')
+    render_template('index.html', user=username, passwd=passwd)
+
+if __name__ == '__main__':
+    app.run(debug=True)   
