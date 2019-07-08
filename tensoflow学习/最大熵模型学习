@@ -1,0 +1,128 @@
+最大熵模型：
+    根据对已有数据的训练，输出给定数据在某条件下发生的概率
+特征函数：
+    用于描述已知数据各条件与结果之间对应关系的函数，其值为对应的概率
+约束条件：
+    1、经验分布，即某一事件或几个事件联合发生的次数除以事件总数
+    2、约束条件，可表述成特征函数关于经验分布的期望和特征函数关于模型的期望值，两者若是相同则满足约束条件，否则不满足，通过不断更新
+    特征函数的特征值实现更新模型期望的功能
+最大熵模型定义：
+    满足所有约束条件的模型集合中条件熵最大的模型称为最大熵模型
+
+# -*- coding:utf-8 -*-
+import sys
+import math
+from collections import defaultdict
+class MaxEnt:
+    def __init__(self):
+        self._samples = []  # 样本集, 元素是[y,x1,x2,...,xn]的元组
+        self._Y = set([])  # 标签集合,相当于去重之后的y
+        # Key是(xi,yi)对，Value是count(xi,yi)，如：{('rainy', 'no'): 2, ('mild', 'no'): 2, ('FALSE', 'no'): 2,...}
+        self._numXY = defaultdict(int)
+        self._N = 0  # 样本数量
+        self._n = 0  # 特征对(xi,yi)总数量
+        self._xyID = {}  # 对(x,y)对做的顺序编号(ID), Key是(xi,yi)对,Value是ID
+        self._C = 0  # 样本最大的特征数量,用于求参数时的迭代，见GIS原理说明
+        self._ep_ = []  # 样本分布的特征期望值
+        self._ep = []  # 模型分布的特征期望值
+        self._w = []  # 对应n个特征的权值，即特征函数的特征值
+        self._lastw = []  # 上一轮迭代的权值
+        self._EPS = 0.01  # 判断是否收敛的阈值
+    def load_data(self, filename):
+        for line in open(filename, "r"):
+            sample = line.strip().split("\t")
+            if len(sample) < 2:  # 至少：标签+一个特征
+                continue
+            y = sample[0]
+            X = sample[1:]
+            self._samples.append(sample)  # labe + features
+            self._Y.add(y)  # label
+            for x in set(X):  # set给X去重, 计算模型中某一特征发生的次数，每个模型中，该特征都是唯一的，相当于特征函数
+                self._numXY[(x, y)] += 1
+    def _initparams(self):
+        self._N = len(self._samples)
+        self._n = len(self._numXY)
+        self._C = max([len(sample) - 1 for sample in self._samples])
+        self._w = [0.0] * self._n
+        self._lastw = self._w[:]
+        self._sample_ep()
+    def _convergence(self):
+	'''
+		判断前后两次特征值的精度是否达到要求
+	'''
+        for w, lw in zip(self._w, self._lastw):
+            if math.fabs(w - lw) >= self._EPS:
+                return False
+        return True
+    def _sample_ep(self):
+	    '''
+          特征函数关于经验分布的期望值   	    
+	    '''
+        self._ep_ = [0.0] * self._n
+        print self._numXY
+        for i, xy in enumerate(self._numXY):
+            # i是idx，xy=Key是(xi,yi)对，self._numXY[xy]=Value是count(xi,yi)
+            # 如：i=0 xy=('rainy', 'no') self._numXY[('rainy', 'no')]=2
+            self._ep_[i] = self._numXY[xy] * 1.0 / self._N
+            self._xyID[xy] = i
+    def _zx(self, X):
+		'''
+		获取模型中每个影响因子对结果的影响概率，若给定模型中的影响因子在经验分布中对结果没影响，则将其对结果的影响均分（yes0.5，,no0.5）
+		'''
+        ZX = 0.0
+        for y in self._Y:
+            sum = 0.0
+            for x in X:
+                if (x, y) in self._numXY:
+                    sum += self._w[self._xyID[(x, y)]]
+            ZX += math.exp(sum)
+        return ZX
+    def _pyx(self, X):
+        # calculate p(y|x)，得到与结果对应的概率值[('yes', 0.0144),('no', 0.956)]
+        ZX = self._zx(X)
+        results = []
+        for y in self._Y:
+            sum = 0.0
+            for x in X:
+                if (x, y) in self._numXY:  # 这个判断相当于指示函数的作用
+                    sum += self._w[self._xyID[(x, y)]]
+            pyx = 1.0 / ZX * math.exp(sum)
+            results.append((y, pyx))
+        return results
+    def _model_ep(self):
+    '''
+       计算特征函数关于模型的期望值	
+    '''
+        self._ep = [0.0] * self._n
+        for sample in self._samples:
+            X = sample[1:]
+            pyx = self._pyx(X)
+            for y, p in pyx:
+                for x in X:
+                    if (x, y) in self._numXY:
+                        self._ep[self._xyID[(x, y)]] += p * 1.0 / self._N
+    def train(self, maxiter=1000):
+        self._initparams()
+        for i in range(0, maxiter):
+            print "Iter:%d..." % i
+            self._lastw = self._w[:]  # 保存上一轮权值
+            self._model_ep()
+            # 更新每个特征的权值
+            for i, w in enumerate(self._w):
+                self._w[i] += 1.0 / self._C * math.log(self._ep_[i] / self._ep[i])
+            print self._w
+            # 检查是否收敛
+            if self._convergence():
+                break
+    def predict(self, input):
+        X = input.strip().split("\t")
+        prob = self._pyx(X)
+        return prob
+if __name__ == "__main__":
+    maxent = MaxEnt()
+    maxent.load_data('data.txt')
+    maxent.train()
+    print maxent.predict("sunny\thot\thigh\tFALSE")
+    print maxent.predict("overcast\thot\thigh\tFALSE")
+    print maxent.predict("sunny\tcool\thigh\tTRUE")
+    sys.exit(0)
