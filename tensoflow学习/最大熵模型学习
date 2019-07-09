@@ -80,7 +80,7 @@ class MaxEnt:
             ZX += math.exp(sum)
         return ZX
     def _pyx(self, X):
-        # calculate p(y|x)，得到与结果对应的概率值[('yes', 0.0144),('no', 0.956)]
+        # calculate p(y|x)，得到的是所有条件下y发生的概率，得到与结果对应的概率值[('yes', 0.0144),('no', 0.956)]
         ZX = self._zx(X)
         results = []
         for y in self._Y:
