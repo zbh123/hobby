@@ -11,3 +11,5 @@
 7、各组件功能的简单实现，将引用函数的print内容打印出来，需要使用Qt中的pyqtSignal和Qthread
 8、PyQt4安装，要安装的：1、对应版本的sip 1.14.6，2、visual studio 2015， 3、安装与Python版本对应的PyQt4
 9、PyQt4获取的文件名或路径，需要str（）将QString格式的变量转成字符串格式，否则，读取文件的函数不支持读取QString
+10、使用pyinstaller打包过程中，使用规则：pyinstaller -F -w *.py(单个文件打包工作)， pyinstaller -D -w *.py -p *.py -p *.py(多个文件打包)
+使用-D打包完成后，可在cmd中运行*.exe，查看错误，或者-debug，双击打开软件显示具体的报错信息进行调试，期间或许要安装很多的支持包。
