@@ -10,3 +10,4 @@
 6、UI界面的制作，可以直接使用PyQt4自带的designer编辑界面，生成ui文件，然后用pyuic4 *.ui -o *.py转成py文件，然后为UI界面的各组件赋予相应的功能
 7、各组件功能的简单实现，将引用函数的print内容打印出来，需要使用Qt中的pyqtSignal和Qthread
 8、PyQt4安装，要安装的：1、对应版本的sip 1.14.6，2、visual studio 2015， 3、安装与Python版本对应的PyQt4
+9、PyQt4获取的文件名或路径，需要str（）将QString格式的变量转成字符串格式，否则，读取文件的函数不支持读取QString
