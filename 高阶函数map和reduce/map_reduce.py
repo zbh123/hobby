@@ -48,6 +48,8 @@ test_list = [['N1', 'N2', 'N3'], ['F1', 'F2', 'F3'], ['D1', 'D2'],['A2']]
 b = reduce(lambda list1,list2: [l1.strip()+'_'+l2.strip() for l1 in list1 for l2 in list2], test_list)
 b是N、F、D、A的全排列如：N1_F1_D1_A2, N2_F1_D1_A2
 
+#递归：
+reduce(lambda x, y : x*y, range(1, 5))
 
 
 
