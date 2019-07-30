@@ -10,7 +10,7 @@ print(time.asctime(time.localtime()))    # 返回时间格式Sun May  7 22:15:09
 print(time.ctime())                      # 返回时间格式Sun May  7 22:15:09 2017
 print(time.strftime('%Y-%m-%d'))         #默认当前时间 2017-05-07
 print(time.strftime('%Y-%m-%d',time.localtime())) #默认当前时间 2017-05-07
-
+end = time.mktime(time.strptime('2019-1-1_10-5-6', "%Y-%m-%d_%H-%M-%S")) #将固定格式的时间转成时间戳的形式
 string_struct = time.strptime("2016/05/22","%Y/%m/%d") # 将日期字符串 转成 struct时间对象格式
 print(string_struct)                     # 返回struct time对象格式 time.struct_time(tm_year=2016, tm_mon=5, tm_mday=22, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=6, tm_yday=143, tm_isdst=-1)
 
