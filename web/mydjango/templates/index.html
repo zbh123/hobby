@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+    <form action="login" method="post">{% csrf_token %}
+        <h3 align="center">Application</h3>
+        <table align="center">
+            <tbody>
+            {% if name %}
+            <tr><td align="center"><b>User:{{ name }}</b></td><td align="right"><i><a href="logout">logout</a></i></td></tr>
+            {% else %}
+            <tr><td>Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name"></td></tr>
+            <tr><td>Password:&nbsp;&nbsp;&nbsp;<input type="password" name="pwd"><br></td></tr>
+            {% endif %}
+            <tr><td>
+                <select name="test">
+                    {% for item in result_list %}
+                        <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+            </td></tr>
+            <tr><td align="center"><input align="center" type="submit"><input align="center" type="reset" value="Reset"></td></tr>
+            </tbody>
+        </table>
+    </form>
+<p>If you do not have account, please <a href="register.html">register</a></p>
+{% if job_dict %}
+    <form action="cancel" method="post">
+    <h3 align="center">Detail</h3>
+    <table align="center" border="1" width="80%">
+        <tr>
+            {% for item in head_key %}
+            <th align="center">{{ item }}</th>
+            {% endfor %}
+        </tr>
+        {% for key, values in show_dict.items %}
+            <tr>
+                <td align="center">{{ key }}</td>
+                <td align="center">{{ values.name }}</td>
+                <td align="center">{{ values.start }}</td>
+                <td align="center">{{ values.end }}</td>
+                <td align="center">{{ values.user }}</td>
+                <td align="center"><a href="cancel?job_name={{ values.name }}">Release</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </form>
+{% endif %}
+</body>
+</html>
