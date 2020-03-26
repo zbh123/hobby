@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+<p align="center"><b>This is RPA flow Table</b></p>
+{% if flow_dict %}
+    <form action="cancel" method="post">
+    <h3 align="center">Detail</h3>
+    <table align="center" border="1" width="80%">
+        <tr>
+            {% for item in head_key %}
+            <th align="center">{{ item }}</th>
+            {% endfor %}
+        </tr>
+        {% for key, values in flow_dict.items %}
+            <tr>
+                <td align="center">{{ key }}</td>
+                <td align="center">{{ values.office }}</td>
+                <td align="center">{{ values.flow_name }}</td>
+                <td align="center">{{ values.finish }}</td>
+                <td align="center">{{ values.time_rpa }}</td>
+                <td align="center">{{ values.time_person }}</td>
+                <td align="center">{{ values.introduce }}</td>
+                <td align="center">{{ values.remark }}</td>
+<!--                <td align="center"><a href="cancel?job_name={{ values.name }}">Release</a></td>-->
+            </tr>
+        {% endfor %}
+    </table>
+    </form>
+{% endif %}
+</body>
+</html>
