@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        #box1{
+            width:100px;
+            height:100px;
+            background-color:red;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div class="ap"></div>
+    <div class="ap"></div>
+    <p>sdsdfbgdf</p>
+    <script type="text/javascript">
+        //jquery都写在下面的函数中，相当于window.onload,当页面加载完毕，执行代码
+        alert("hh")
+        $(document).ready(function(){
+            alert("看看")
+//---------基本选择器-----------------
+            //------id选择器-------------
+            //DOM对象
+            var jsDiv = document.getElementById("box1")
+            //jQuery的对象,  .之间的功能同上，之后是添加div的html内容，封装了一个函数
+            var $jqDiv = $("#box1").html("看看")
+
+            //相互转换JQ 转成 DOM,两种方法
+            var jsDiv1 = $jqDiv[0]
+            var jsDiv2 = $jqDiv.get[0]
+            //DOM转成jq
+            $jqDiv1 = $(jsDiv)
+            //-------------------------------------------
+
+            //---------元素选择器----------------
+            var $jqDivs = $("div")
+            //可以设置两个标签的内容
+            $jqDivs.html("看看")
+            //---------------------------------
+
+            //---------类选择器----------------
+            var $jqDivs = $(".ap1")
+            //可以设置两个标签的内容
+            $jqDivs.html("看看")
+            //---------------------------------
+
+            //---------复合选择器----------------
+            //设置所有的标签内容，其中，是或的关系
+            var $jqObj = $(".ap1,p").html('sffs')
+            //---------------------------------
+
+            //-------------通配符选择器-------------
+            var $jqObj1 = $("*")
+//---------------基本选择器--------------------
+
+        })
+        alert("hh")
+    </script>
+
+    <div id="box3">
+        <p>sdsdfbgdf</p>
+        <div>
+            <p>fffffffff</p>
+        </div>
+    </div>
+    <div class="ap"></div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //------------祖先选择器旗下所有p标签都改--------------
+            var $jqobj = $("#box3 p").html('aaaaaaaaaa')
+            //------------------------
+
+            //----------------parent < child 直接下属标签修改-------------
+             var $jqobj1 = $("#box3<p")
+            //---------------------------------------------
+            //--------------------prev next紧挨着前后的标签会改-----------------
+              var $jqobj2 = $("#box3+div").html('bbbbbbbbbb')
+            //-----------------------------------------------------
+            //--------------prev ~ next all修改其后的所有标签--------------
+            var $jqobj2 = $("#box3~div").html('bbbbbbbbbb')
+        })
+
+
+    </script>
+
+</body>
+</html>

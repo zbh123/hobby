@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <style type="text/css">
+        *{
+            padding:0px;
+            margin:0px;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:absolute;
+        }
+    </style>
+</head>
+<body style="height:3000px; position:relative;">
+    <div id="box"></div>
+    <script type="text/javascript">
+        var jsDiv = document.getElementById("box")
+        basex = 0
+        basey = 0
+        movex = 0
+        movey = 0
+        jsDiv.addEventListener("mousedown", function(e){
+
+            //鼠标点击的事件属性
+            var ev = e || window.event
+            //鼠标点击时的位置
+            basex = ev.pageX
+            basey = ev.pageY
+
+            document.onmousemove = function(e){
+                var ee = e || window.event
+
+                //鼠标移动的位置
+                movex = ee.pageX - basex
+                basex = ee.pageX
+
+                movey = ee.pageY - basey
+                basey = ee.pageY
+                jsDiv.style.left = jsDiv.offsetLeft + movex + "px"
+                jsDiv.style.top = jsDiv.offsetTop + movey + "px"
+            }
+        },false)
+        jsDiv.addEventListener("mouseup",function(){
+            document.onmousemove = null
+        },false)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{% load static from staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--移动端设置-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.min.css' %}">-->
+    <!--上下两者区别在于，上面是已经下载到本地的main/css目录下，下面的是直接引入网址版的-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'main/css/swiper.min.css' %}">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'main/css/reset.min.css' %}">-->
+    <link href="https://cdn.bootcss.com/minireset.css/0.0.2/minireset.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/base.min.css' %}">
+
+    <!--<script type="text/javascript" charset="utf-8" src="{% static 'main/js/jquery-3.1.1.min.js'%}"></script>-->
+    <script type="text/javascript" charset="utf-8" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!--<script type="text/javascript" charset="utf-8" src="{% static 'main/js/bootstrap.min.js'%}"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--<script type="text/javascript" charset="utf-8" src="{% static 'main/js/swiper.min.js'%}"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'main/js/base.js'%}"></script>
+
+    {% block linkscript %}
+    {% endblock linkscript %}
+</head>
+<body>
+    <header></header>
+    <div>
+        {% block base%}
+        {% endblock base%}
+    </div>
+    <!--配置页脚-->
+    <footer>
+        <a class="home" href="/home/">
+            <dl>
+                <!--放置图片-->
+                <dt><span></span></dt>
+                <dd>主页</dd>
+            </dl>
+        </a>
+         <a class="market" href="/market/">
+            <dl>
+                <!--放置图片-->
+                <dt><span></span></dt>
+                <dd>闪送超市</dd>
+            </dl>
+        </a>
+        <a class="cart" href="/cart/">
+            <dl>
+                <!--放置图片-->
+                <dt><span></span></dt>
+                <dd>购物车</dd>
+            </dl>
+        </a>
+        <a class="mine" href="/mine/">
+            <dl>
+                <!--放置图片-->
+                <dt><span></span></dt>
+                <dd>我的</dd>
+            </dl>
+        </a>
+    </footer>
+</body>
+</html>

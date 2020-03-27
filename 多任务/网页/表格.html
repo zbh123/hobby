@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <style type="text/css">
+        .d{
+           width:300px;
+           height:90px;
+           border-spacing:0;
+        }
+        .d td{
+            border-bottom:1px solid; #只设置表格底部的线，其他不显示
+        }
+
+    </style>
+</head>
+<body>
+    <table border="1" cellspacing="1" cellpadding="5" >
+
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+        <thead>
+        页眉
+        </thead>
+        <tbody>
+            <tr style="background-color:red;">
+                <td>tom</td>
+                <td>18</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>jery</td>
+                <td>19</td>
+                <td>女</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            页脚
+        </tfoot>
+
+    </table>
+    <table class="d">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>

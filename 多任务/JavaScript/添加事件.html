@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加事件</title>
+</head>
+<body>
+    <div id="box1" onclick="alert('看看')"></div>
+    <!--当给函数传递this值时，表示传递的是该标签，不需要在getElement了-->
+    <div id="box2" onclick="func(this)"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+    <script type="text/javascript">
+        //都默认包含this属性，在函数中默认this代表window
+        function func(self){
+            self.style.backgroundColor = "blue"
+            alert('看看')
+        }
+        var div3 = document.getElementById("box3")
+        div3.onclick = function(){
+            self.style.backgroundColor = "black"
+            alert('看看')
+        }
+        //清除事件
+        div3.onclick = null
+        var div4 = document.getElementById("box4")
+        function f(){
+            self.style.backgroundColor = "red"
+            alert('看看')
+        }
+        div4.addEventListener("click",f,false)
+        div4.removeEventListener("click",f,false)
+    </script>
+</body>
+</html>

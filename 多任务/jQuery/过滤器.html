@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div><p></p></div>
+    <p class="pp">aaaaaaaaaaaaaaaaaaa</p>
+    <p class="pp">bbbbbbbbbbbbbbbbbbb</p>
+    <h1 class="pp">cccccccccccc</h1>
+    <h1>eeeeeeeee</h1>
+    <h1>dddddddd</h1>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        //------------简单过滤器first第一个选的元素，last最后一个，odd奇数的，even偶数的，eq（index）等于给定索引的，lt（index）小于索引，gt（index）大于索引
+        //------：header所有标题的,:not(selector)去除给定选择器的
+            var $jqObj = $(".pp:first").html('cccccccccccc')
+            var $jqObj = $(".pp:even").html('cccccccccccc')
+            var $jqObj = $(".pp:even").addClass('aap') //用来添加类
+            $jqObj.removeClass('aap')//移除类
+            var $jqObj = $(":header").html('cccccccccccc')
+            var $jqObj = $(".pp:header").html('cccccccccccc')//class为pp和header同时满足
+            var $jqObj = $("p:not(.pp)").html('cccccccccccc')//所有p标签，不是pp类的，and关系
+
+
+         //内容过滤器，通过DOM内容，选择匹配内容的标签
+         //contain包含内容的
+            var $jqObj = $("p:contains('aaa')") //在p标签中查找内容包含aaa的标签
+         //匹配空元素p:empty
+            var $jqObj = $("p:empty").addClass("aap")
+        //匹配选择器中含有匹配元素的元素，匹配的是两个标签
+            var $jqObj = $("div:has(p)").addClass("aap")
+        //匹配所有非空的p:parent
+            var $jqObj = $("p:parent").addClass("aap")
+        })
+        //----------可见性过滤器-----------------
+        //隐藏和可见两种状态visible和hidden
+            var $jqObj = $("input:hidden")
+            var $jqObj = $("input:visible")
+         //获取对象的值（只能取一个值），为对象赋值（可给多个元素赋值）
+            var $jqObj = $("input:visible:eq(1)")//此时取得是第二个值
+            $jqObj.val()
+            $jqObj.val('111111')
+
+
+
+    </script>
+
+</body>
+</html>

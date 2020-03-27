@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM</title>
+    <script type="text/javascript">
+        function func(){
+            console.log('看看')
+            window.location.href = "red.html"
+            window.location.reload()
+        }
+         function func1(){
+         #跳转到上一页面
+            window.history.go(-1)
+        }
+         function func1(){
+         #跳转到上一页面
+            window.open('*.html',"blank", "width=100px, height=100px, left=0px, top=0px")
+        }
+    </script>
+</head>
+<body style="height:100px;background-color:red">
+    <button onclick="func()">跳转到红页面</button>
+    <button onclick="func1()">跳转到上一页面</button>
+    <button onclick="func3()">跳转到上一页面</button>
+    <button onclick="func4()">跳转到上一页面</button>
+    <script type="text/javascript">
+        //当页面完全加载成功触发改事件
+        window.onload = function(){
+            alert('看看')
+        }
+        var time = window.setInterval(function(){
+            console.log('定时')
+        },2000)
+        function func1(){
+            //清除定时器
+            window.clearInterval(time)
+        }
+        function func2(){
+            var time = window.setInterval(function(){
+                console.log('定时')
+        },2000)
+        }
+
+    </script>
+</body>
+</html>

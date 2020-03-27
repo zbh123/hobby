@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+    <!--背景-->
+        *{
+            margin:0;
+            padding:0
+        }
+        #mainScreen{
+            width: 500px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .bg{
+            width: 500px;
+            height: 600px;
+            position: absolute;
+            background-image: url(1.jpg);
+        }
+        #bg2{
+            top: -600px;
+        }
+        #airplane{
+            width: 100px;
+            height: 120px;
+            background-image: url(2.jpg);
+            background-size:100px 120px;
+            position: absolute;
+            left: 200px;
+            top: 480px;
+        }
+        .bullet{
+            position:absolute;
+            width:5px;
+            height:10px;
+            background-image:url(3.jpg);
+            background-size:5px 10px;
+            background-color:red;
+        }
+        .tank{
+            position:absolute;
+            width:40px;
+            height:40px;
+            background-image:url(4.jpg);
+            background-size:40px 40px;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="mainScreen">
+        <div id="bg1" class="bg"></div>
+        <div id="bg2" class="bg"></div>
+
+        <div id="airplane"></div>
+    </div>
+</body>
+<script type="text/javascript">
+    var mainScreen = document.getElementById("mainScreen")
+    //让背景动起来
+    var jsBg1 = document.getElementById("bg1")
+    var jsBg2 = document.getElementById("bg2")
+    var timerBg = setInterval(function(){
+        jsBg1.style.top = jsBg1.offsetTop + 1 +"px"
+        jsBg2.style.top = jsBg2.offsetTop + 1 +"px"
+        if(jsBg1.offsetTop >= 600){
+            jsBg1.style.top = "-600px"
+        }
+        if(jsBg2.offsetTop >= 600){
+            jsBg2.style.top = "-600px"
+         }
+    },10)
+
+
+
+
+
+    //让飞机动起来
+    //拖拽效果
+    var airplane = document.getElementById('airplane')
+    mainScreen.appendChild(airplane)
+    basex = 0
+    basey = 0
+
+    airplane.addEventListener("mousedown", function(e){
+        var ev = e || window.event
+        basex = ev.pageX;
+        basey = ev.pageY;
+        movex = 0
+        movey = 0
+        //点中之后，不能放开
+        mainScreen.addEventListener("mousemove",function(e){
+            var en = e || window.event
+            document.onmousemove = function(e){
+            var ee = e || window.event
+            movex = ee.pageX - basex
+            basex = ee.pageX
+            movey = ee.pageY - basey
+            basey = ee.pageY
+
+            airplane.style.left = airplane.offsetLeft + movex + "px"
+            airplane.style.top = airplane.offsetTop + movey + "px"
+        }
+    },false)
+
+        //其中一种方法，鼠标移开，飞机可以停下
+        <!--document.onmousemove = function(e){-->
+            <!--var ee = e || window.event-->
+            <!--movex = ee.pageX - basex-->
+            <!--basex = ee.pageX-->
+            <!--movey = ee.pageY - basey-->
+            <!--basey = ee.pageY-->
+
+            <!--airplane.style.left = airplane.offsetLeft + movex + "px"-->
+            <!--airplane.style.top = airplane.offsetTop + movey + "px"-->
+        <!--}-->
+    },false)
+    airplane.addEventListener("mouseup", function(){
+        document.onmousemove = null
+    },false)
+
+
+    //设置子弹
+
+    var timerBullet = setInterval(function(){
+        var bullet = document.createElement("div")
+        mainScreen.appendChild(bullet)
+        bullet.className = "bullet"
+        bullet.style.left = airplane.offsetLeft + 52 + "px"
+        bullet.style.top = airplane.offsetTop - 10 + "px"
+    //让子弹飞
+        var timerBulletFly = setInterval(function(){
+            bullet.style.top = bullet.offsetTop - 8 + "px"
+            if(bullet.offsetTop <=　-20){
+                clearInterval(timerBulletFly)
+                mainScreen.removeChild(bullet)
+            }
+        },50)
+        bullet.timer = timerBulletFly
+    },100)
+
+    //设置坦克
+    function randomNum(min, max){
+        return parseInt(Math.random()*(max-min)+min)
+    }
+    var timertank = setInterval(function(){
+        var tank = document.createElement("div")
+        mainScreen.appendChild(tank)
+        tank.className = "tank"
+        tank.style.left = randomNum(0, 460) + "px"
+        tank.style.top = "0px"
+    //坦克飞
+        var timerTankFly = setInterval(function(){
+            tank.style.top = tank.offsetTop + 10 + "px"
+            if(tank.offsetTop >=　640){
+                clearInterval(timerTankFly)
+                mainScreen.removeChild(tank)
+            }
+        },50)
+        tank.timer = timerTankFly
+    },1000)
+
+    var timerPZJC = setInterval(function(){
+        var allTanks = document.getElementsByClassName("tank")
+        var allBullets = document.getElementsByClassName("bullet")
+        for (var i =0; i < allBullets.length; i++){
+            for(var j=0; j<allTanks.length; j++){
+                var b = allBullets[i]
+                var t = allTanks[j]
+                if(pzjcFunc(b, t)){
+                    clearInterval(b.timer)
+                    clearInterval(t.timer)
+                    mainScreen.removeChild(b)
+                    mainScreen.removeChild(t)
+                    break
+                }else if(pzjcFunc(airplane, t)){
+                    mainScreen.removeChild(t)
+                    mainScreen.removeChild(airplane)
+                }
+        }
+    }
+    },100)
+
+
+
+    //检测碰撞
+    function pzjcFunc(obj1, obj2){
+        var obj1Left = obj1.offsetLeft
+        var obj1Width = obj1Left + obj1.offsetWidth
+        var obj1Top = obj1.offsetTop
+        var obj1Height = obj1Top + obj1.offsetHeight
+
+        var obj2Left = obj2.offsetLeft
+        var obj2Width = obj2Left + obj2.offsetWidth
+        var obj2Top = obj2.offsetTop
+        var obj2Height = obj2Top + obj2.offsetHeight
+
+        if(!(obj1Left > obj2Width ||　obj1Width < obj2Left || obj1Top > obj2Height || obj1Height < obj2Top)){
+            return true
+        }else{
+            return false
+            }
+    }
+</script>
+</html>

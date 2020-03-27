@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单练习</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width:500px;
+            height:800px;
+            background-color:aliceblue;
+            margin:0 auto
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box" align="center">
+        <form action="#" method="post">
+            <fieldset>
+                <legend >基本信息</legend>
+                <label for="name">姓名：</label>
+                <input type="text" name="name" id="name" value="" placeholder="请输入姓名">
+                <br>
+                <label for="age">年龄：</label>
+                <input type="text" name="age" id="age" value="" placeholder="请输入年龄">
+                <br>
+                <!--<label>出生日期：</label>-->
+                <!--<input type="date" name="birthday" id="birthday" value="">-->
+                <label>出生日期</label>
+                    <select>
+                        <option>1999</option>
+                        <option>2000</option>
+                        <option>2001</option>
+                    </select>
+                    <span>年</span>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                    <span>月</span>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                    <span>日</span>
+                <fieldset>
+                    <legend>其他信息</legend>
+                    <span>你喜欢这个表单吗？</span><br>
+                    <input type="radio" name="like" id="like1" value="1">
+                    <label for="like1">喜欢</label>
+                    <input type="radio" name="like" id="like2" value="0">
+                    <label for="like2">不喜欢</label>
+                    <br>
+                    <span>你喜欢什么东西？</span><br>
+                    <input type="checkbox" name="ch" id="ch1" value="1">
+                    <label for="ch1">权利</label>
+                    <input type="checkbox" name="ch" id="ch2" value="2">
+                    <label for="ch1">金钱</label>
+                    <input type="checkbox" name="ch" id="ch3" value="3">
+                    <label for="ch1">美女</label><br>
+
+                    <span>你的建议</span><br>
+                    <textarea name="" rows="5" cols="30"></textarea><br>
+                    <input type="submit" name="" value="提交">
+                </fieldset>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

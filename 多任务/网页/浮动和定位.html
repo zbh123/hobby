@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动</title>
+    <style type="text/css">
+        #div1{
+            width:50px;
+            height:60px;
+            background-color:blue;
+            <!--float:left;-->
+        }
+        #div2{
+            width:70px;
+            height:80px;
+            background-color:yellow;
+            float:right;
+        }
+        #div3{
+            width:80px;
+            height:50px;
+            background-color:red;
+            float:left;
+        }
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width:500px;
+            height:500px;
+            background-color:red;
+            position:relative;
+        }
+        #div4{
+            width:350px;
+            height:350px;
+            background-color:blue;
+            position:absolute;
+            left:50px;
+            top:50px
+        }
+        #div5{
+            width:150px;
+            height:150px;
+            background-color:yellow;
+            position:absolute;
+            left:50px;
+            top:50px
+        }
+        #div6{
+            width:100px;
+            height:200px;
+            background-color:black;
+            position:fixed;
+            left:500px;
+            bottom:200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div2">123</div>
+    <div id="div3">456</div>
+    <div id="div1">789</div>
+    <br>
+    <br>
+    <br>
+    <div id="box">
+        <div id="div4">
+            <div id="div5"></div>
+        </div>
+        <!--<div id="div5"></div>-->
+        <!--<div id="div6"></div>-->
+    </div>
+    <div style="width:100px;height:1000px"></div>
+    <div id="div6"></div>
+</body>
+</html>

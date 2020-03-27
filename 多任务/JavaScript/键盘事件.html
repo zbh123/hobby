@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+</head>
+<body>
+        <ul>
+        <li>鼠标进入红色</li>
+        <li>鼠标离开蓝色</li>
+        <li>鼠标按下字体大两倍</li>
+        <li>鼠标抬起字体小两倍</li>
+    </ul>
+    <script type="text/javascript">
+        var lis = document.getElementsByTagName('li')
+        document.addEventListener("keydown", function(e){
+            var event = e || window.event
+            console.log(event.altKey,event.ctrlKey,event.shiftKey,event.key,event.keyCode)
+        },false)
+        document.addEventListener("keyup", function(e){
+            var event = e || window.event
+            console.log(event.altKey,event.ctrlKey,event.shiftKey,event.key,event.keyCode)
+        },false)
+        <!--按键盘上的非功能按键触发事件，shift等不能触发-->
+        document.addEventListener("keypress", function(e){
+            var event = e || window.event
+            console.log(event.altKey,event.ctrlKey,event.shiftKey,event.key,event.keyCode)
+        },false)
+    </script>
+</body>
+</html>

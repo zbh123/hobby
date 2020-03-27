@@ -1,0 +1,71 @@
+{% extends 'axf/base.html'%}
+
+{% load static from staticfiles%}
+{% block linkscript %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}">
+<script type="text/javascript" charset="utf-8" src="{% static 'home/js/home.js'%}"></script>
+{% endblock linkscript %}
+
+{% block base%}
+<div id="home">
+    <!--轮播-->
+    <section class="swiper-container" id="topSwiper">
+        <div class="swiper-wrapper">
+            {% for item in list_img %}
+            <div class="swiper-slide">
+                <a href="#"><img src="{{item}}"/></a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination swiper-pagination-clickable-bullets"></div>
+    </section>
+    <section class="topMenu">
+        <!--导航-->
+        <nav>
+            <ul>
+                {% for key, value in list_nav.items %}
+                <li>
+                    <a href="#">
+                        <img src="{{value}}">
+                        <span>{{key}}</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <menu class="swiper-container" id="swiperMenu">
+            <ul class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-40px, 0px, 0px);">
+                {% for item in list_menu %}
+                <li class="swiper-slide">
+                    <a href="#"><img src="{{item}}"/></a>
+                </li>
+                {% endfor %}
+            </ul>
+        </menu>
+    </section>
+    <section class="CVS">
+        <h2>
+            <img src="{{shop1_img}}" alt="{{shop1_name}}">
+        </h2>
+        <fieldset>
+            {% for key, value in list_nav.items %}
+                <a href="#">
+                    <img src="{{value}}" alt="{{key}}">
+                </a>
+            {% endfor %}
+        </fieldset>
+        <ul>
+            {% for key, value in list_nav.items %}
+            <li>
+            <a href="#">
+                    <img src="{{value}}">
+                    <span>{{key}}</span>
+                </a>
+                </li>
+            {% endfor %}
+        </ul>
+        
+    </section>
+</div>
+
+{% endblock base%}

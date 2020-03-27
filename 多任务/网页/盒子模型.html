@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型</title>
+    <style type="text/css">
+        #box1{
+        width: 100px;
+        height:100px;
+        background-color: red;
+        padding-left: 10px; #左边界增加10，padding内边距，设置的是距离
+        }
+
+        #box3{
+        width: 100px;
+        height:100px;
+        background-color: blue;
+        margin-top: 10px;  #上边距增加10，空余位置，设置的是距离
+        }
+
+        #box5{
+        width: 100px;
+        height:100px;
+        background-color: pink;
+        border: solid red 5px;   #实体外边框，设置的是框
+        }
+
+        #box6{
+        width: 100px;
+        height:100px;
+        padding: 10px;
+        margin: 10px;
+        border: solid yellow 5px;
+        background-color: dodgerblue;
+        }
+
+        #box7{
+        width: 150px;
+        height:150px;
+        background-color: peachpuff;
+        padding:30px
+        }
+
+        #box8{
+        width: 150px;
+        height:150px;
+        background-color: peachpuff;
+        margin-bottom:20px;
+        }
+
+        #box9{
+        width: 150px;
+        height:150px;
+        background-color: peachpuff;
+        float: left;
+        <!--display:inline-block;-->
+
+        }
+
+        #box10{
+        width: 150px;
+        height:150px;
+        background-color: peachpuff;
+        float: left;
+        <!--display:inline-block;-->
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        123
+    </div>
+    <div id="box3">
+        456
+    </div>
+    <div id="box5">
+        789
+    </div>
+    <div id="box6">
+        789
+    </div>
+    <div id="box7">
+        <div style="width:100px;height:100px;background-color:red;">1011</div>
+    </div>
+    <p style="width:100px;height:100px;background-color:red;border:solid pink 5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">
+        https://www.cnblogs.com/hdwang...  - 百度快照Jenkins官方文档_w3cschool
+    </p>
+    <div id="box8">
+        789
+    </div>
+    <div id="box9">
+        789
+    </div>
+    <div id="box10">
+        789
+    </div>
+</body>
+</html>

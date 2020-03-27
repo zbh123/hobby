@@ -1,0 +1,17 @@
+Tue, 24 Mar 2020 10:52:34,_internal.py[line:122] INFO  * Restarting with stat
+Tue, 24 Mar 2020 10:52:35,_internal.py[line:122] WARNING  * Debugger is active!
+Tue, 24 Mar 2020 10:52:35,_internal.py[line:122] INFO  * Debugger PIN: 269-629-245
+Tue, 24 Mar 2020 10:52:35,_internal.py[line:122] INFO  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+Tue, 24 Mar 2020 10:57:31,_internal.py[line:122] INFO  * Detected change in 'D:\\pyfile\\github_files\\hobby\\web\\flask\\flask_test.py', reloading
+Tue, 24 Mar 2020 10:57:31,_internal.py[line:122] INFO  * Restarting with stat
+Tue, 24 Mar 2020 10:57:32,_internal.py[line:122] WARNING  * Debugger is active!
+Tue, 24 Mar 2020 10:57:32,_internal.py[line:122] INFO  * Debugger PIN: 269-629-245
+Tue, 24 Mar 2020 10:57:32,_internal.py[line:122] INFO  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+Tue, 24 Mar 2020 10:57:52,_internal.py[line:122] INFO 10.25.108.41 - - [24/Mar/2020 10:57:52] "[32mGET /index HTTP/1.1[0m" 308 -
+Tue, 24 Mar 2020 10:57:52,_internal.py[line:122] INFO 10.25.108.41 - - [24/Mar/2020 10:57:52] "[1m[35mGET /index/ HTTP/1.1[0m" 500 -
+Tue, 24 Mar 2020 10:57:52,_internal.py[line:122] INFO 10.25.108.41 - - [24/Mar/2020 10:57:52] "[37mGET /index/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+Tue, 24 Mar 2020 10:57:52,_internal.py[line:122] INFO 10.25.108.41 - - [24/Mar/2020 10:57:52] "[37mGET /index/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+Tue, 24 Mar 2020 10:57:52,_internal.py[line:122] INFO 10.25.108.41 - - [24/Mar/2020 10:57:52] "[37mGET /index/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+Tue, 24 Mar 2020 10:57:52,_internal.py[line:122] INFO 10.25.108.41 - - [24/Mar/2020 10:57:52] "[37mGET /index/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+Tue, 24 Mar 2020 10:57:52,_internal.py[line:122] INFO 10.25.108.41 - - [24/Mar/2020 10:57:52] "[37mGET /index/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+Tue, 24 Mar 2020 10:57:52,_internal.py[line:122] INFO 10.25.108.41 - - [24/Mar/2020 10:57:52] "[37mGET /index/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -

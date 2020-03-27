@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>飞翔</title>
+    <style type="text/css">
+        #box{
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+
+    </style>
+</head>
+<body style="height:1000px;position:relative;">
+    <div id="box">
+
+    </div>
+    <button onclick="fly()" style="position:absolute;left:150px;top:150px">飞吧</button>
+    <script type="text/javascript">
+        function fly(){
+            var jsDiv = document.getElementById("box")
+            console.log(jsDiv)
+            var timer = window.setInterval(move, 100)
+            function move(){
+                var currentLeft = parseInt(window.getComputedStyle(jsDiv, null).left);
+                jsDiv.style.left = (currentLeft + 5) + "px";
+                var currentTop = parseInt(window.getComputedStyle(jsDiv, null).top);
+                jsDiv.style.top = (currentTop + 5) + "px";
+            }
+        }
+
+    </script>
+</body>
+</html>

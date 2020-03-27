@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建节点</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>select</title>
+     <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="box1"></div>
+</body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+         <!--
+         append(content)为所有匹配的元素的内部追加内容
+         appendTo(content)将所有匹配的元素添加到另一个元素集合中
+         prepend(content)为所有匹配的元素的内部在首部追加内容
+         prependTo(content)将所有匹配的元素添加到另一个元素集合中的前面
+         after在每个匹配的元素之后插入内容
+         insertAfter
+         before
+         insertBefore
+         -->
+         //元素节点
+            var $jsp = $("<p></p>")
+            var $box1 = $("box1")
+        //文本节点
+            var $jsp2 = $("<p>文本节点</p>")
+         //属性节点
+            var $jsp3 = $("<p title='nice'>属性节点</p>")
+            $("div").append($jsp3)
+            $("box1").append($jsp3)
+            $("jsp").appendTo($jsp3)
+
+
+
+            $box1.after($jsp)
+            $jsp.insertAfter($box1)
+
+         <!--
+         删除节点
+         remove()用于从DOM中删除匹配的元素
+         detach()删除之后还能保留
+         empty()删除内容
+         -->
+         var $p1 = $("div p:first").remove()
+         var $p2 = $("div p:first")
+         $p2.detach()
+         $p2.empty()
+
+
+
+         <!--
+         复制节点
+         clone()
+         clone(true)把事件处理程序一块复制
+         -->
+         $("#box1 p:eq(1)").bind("click",function(){
+            alert("看看")
+            $(this).clone().insertAfter($(this))
+         })
+
+         <!--
+         替换节点
+         replaceAll(selector)用匹配的选择器替换指定的选择器
+         replaceWith(content)
+         -->
+
+            $("box1").replaceWith("<div>hh</div>")
+            $("<div>good</div>").replaceAll("div")
+        })
+         <!--
+         遍历节点
+         each()
+         -->
+         $("p").each(function(){
+            $(this).attr("title","第"+(index+1)+"个标签")
+         })
+
+
+
+
+         })
+    </script>
+
+</html>

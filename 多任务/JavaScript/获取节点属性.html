@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取节点属性</title>
+</head>
+<body>
+    <div id="box1">
+        <p>第一个</p>
+        <p>第二个</p>
+        <p>第三个</p>
+    </div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <input id="put" type="text" name="in" placeholder="kankan">
+    <script type="text/javascript">
+        <!--获取元素节点-->
+        var jsDiv1 = document.getElementById("box1")
+        var jsDiv2 = document.getElementById("box2")
+        var jsDiv3 = document.getElementById("box3")
+        var jsInput = document.getElementById("put")
+        <!--获取属性节点-->
+        var s = jsInput.name
+
+        console.log(jsDiv1.nodeName, jsDiv1.nodeType, jsDiv1.nodeValue)
+        console.log(jsInput.nodeName, jsInput.nodeType, jsInput.nodeValue)
+        <!--获取元素所有子节点-->
+        var allChild = jsDiv1.childNodes
+        console.log(allChild)
+        <!--获取元素节点的第一个子节点-->
+        var firstChild = jsDiv1.firstChild
+        console.log(firstChild)
+        <!--获取元素节点的最后一个子节点-->
+        var lastChild = jsDiv1.lastChild
+        console.log(lastChild)
+        <!--获取元素节点的文档的根节点，相当于document-->
+        var rootNode = jsDiv1.ownerDocument
+        console.log(rootNode)
+        <!--获取当前节点的父节点-->
+        var parentNode = jsDiv1.parentNode
+        console.log(parentNode)
+
+        //box2
+        <!--获取当前节点的前一个同级节点-->
+        var previousNode = jsDiv2.previousSibling
+        console.log(previousNode)
+        <!--获取当前节点的后一个同级节点-->
+        var nextNode = jsDiv2.nextSibling
+        console.log(nextNode)
+
+        //input
+        <!--获取当前节点的所有属性节点-->
+        var allAttributesArray = jsInput.attributes
+        console.log(allAttributesArray)
+
+    </script>
+
+
+    <!--动态创建标签-->
+    <script type="text/javascript">
+        var div = document.getElementById("box1")
+        var a = document.createElement('p')
+        a.innerHTML = "kanakn"
+        a.style.backgroundColor = "red"
+        //插入到子节点中
+        div.appendChild(a)
+        //插入到上一个子节点中
+        div.insertBefore(a, div.lastChild)
+        //替换节点
+        div.replaceChild(a, div.lastChild)
+        //删除节点
+        div.removeChild(a, div.lastChild)
+        //复制节点
+        var newDiv = div.cloneNode(true)
+
+    </script>
+
+
+</body>
+</html>

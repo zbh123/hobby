@@ -82,28 +82,28 @@ def index():
     return render_template('index.html', res_list=res_list, res_dict=res_dict, head=head, name=name)
 
 
-@app.route('/login/', method=['POST', 'GET'])
-def login():
-    if request.method=='POST':
-        try:
-            user = request.form['name']
-            passwd = request.form['pwd']
-            if not authentical(user, passwd):
-                error = 'Invalid username or password'
-                return error
-        except:
-            if 'name' in session:
-                user = session['name']
-        start = time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime())
-        sql = 'Insert into user (name, start) values (\'%s\',\'%s\')'%(user, start)
-        excute_sql(sql)
-        return redirect(url_for('index'))
-
-
-@app.route('/cancel', methods=['GET'])
-def cancel():
-    name = request.args.get('name', '')
-    return redirect(url_for('index'))
+# @app.route('/login/', method=['POST', 'GET'])
+# def login():
+#     if request.method=='POST':
+#         try:
+#             user = request.form['name']
+#             passwd = request.form['pwd']
+#             if not authentical(user, passwd):
+#                 error = 'Invalid username or password'
+#                 return error
+#         except:
+#             if 'name' in session:
+#                 user = session['name']
+#         start = time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime())
+#         sql = 'Insert into user (name, start) values (\'%s\',\'%s\')'%(user, start)
+#         excute_sql(sql)
+#         return redirect(url_for('index'))
+#
+#
+# @app.route('/cancel', methods=['GET'])
+# def cancel():
+#     name = request.args.get('name', '')
+#     return redirect(url_for('index'))
 
 
 @app.route('/register/', methods=['POST', 'GET'])
@@ -122,4 +122,4 @@ def register():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port='8080')

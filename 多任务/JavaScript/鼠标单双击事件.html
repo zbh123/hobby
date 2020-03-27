@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标事件</title>
+</head>
+<body>
+    <div id="in" style="width:100px;height:100px;background-color:red">
+
+    </div>
+    <script type="text/javascript">
+        var inp = document.getElementById('in')
+        var time
+        inp.addEventListener("click",function(){
+            clearTimeout(time)
+            time = setTimeout(function(){
+                console.log('单击')
+            },300)
+        },false)
+        inp.addEventListener("dblclick",function(){
+            clearTimeout(time)
+            console.log('双击')
+        },false)
+    </script>
+</body>
+</html>

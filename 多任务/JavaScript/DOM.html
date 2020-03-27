@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+    <div id="idDiv"></div>
+
+    <div id="classDiv"></div>
+    <div id="classDiv"></div>
+    <div id="classDiv"></div>
+    <input type="text" name="inputText">
+    <input type="text" name="inputText">
+    <input type="text" name="inputText">
+
+
+    <script type="text/javascript">
+        //找到要操作的标签对象
+        var jsDiv = document.getElementById("idDiv")\
+        console.log(jsDiv)
+        console.log(jsDiv)
+
+        var jsDivsLArr = document.getElementByClassName("classDiv")
+        console.log(jsDivsLArr)
+
+        var jsInpsArr = document.getElementByName("inputText")
+        console.log(jsInpsArr)
+
+        var jsAlltab = document.getElementByTabName("div")
+
+    </script>
+
+
+    <!--获取属性标签-->
+    <button onclick="func()">按钮</button>
+    <input type="text" id="in" placeholder="Your Name" my="Mine">
+
+
+    <script type="text/javascript">
+        //找到要操作的标签对象
+        var jsInput = document.getElementById("in")
+        //获取节点的标准属性
+        console.log(jsInput.placeholder)
+        //获取节点的自定义属性
+        console.log(jsInput.getAttribute("my"))
+        //修改节点属性值
+        function func(){
+            jsInput.placeholder = "看看"
+            //修改自定义属性值
+            jsInput.setAttribute("my","me")
+            //删除自定义属性值
+            jsInput.removeAttribute("placeholder")
+            //增加自定义属性值
+            jsInput.abc = "hh"
+                    }
+    </script>
+        <!--获取文本节点-->
+        <div id="box">
+            我说文本
+        </div>
+        <script type="text/javascript">
+            var jsDiv = document.getElementById("box")
+            //只获取标签里面的文本
+            console.log(jsDiv.innerHTML)
+            //获取整个标签
+            console.log(jsDiv.outerHTML)
+            //只获取标签里的文本
+            console.log(jsDiv.innerText)
+            //修改标签的文本
+            jsDiv.innerHTML = "<h1>good</h1>"
+        </script>
+        <!--行内样式表的读写-->
+        <div id="box" style="width:100px;height:100px;background-color:red"> </div>
+        <button onclick="changeColor()">换颜色</button>
+        <script type="text/javascript">
+            var jsDiv = document.getElementById("box")
+            function changeColor(){
+                jsDiv.style.backgroundColor = "blue"
+                jsDiv.style.width = "200px"
+                jsDiv.style["height"] = "200px"
+                //当css样式在外部文件中时,获取某一属性值
+                var a = window.getComputedStyle(jsDiv, null).backgroundColor
+            }
+
+        </script>
+
+
+</body>
+</html>

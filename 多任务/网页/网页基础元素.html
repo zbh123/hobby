@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础</title>
+    <!--内部样式-->
+    <style type="text/css">
+    <!--给所有选择器p标签定制样式-->
+    <!--两个选择器有相同的属性，可以使用class属性.p1,.p2-->
+    <!--选择器有包含属性时，可以使用class属性 p.p2-->
+        p{
+            color:red
+        }
+    </style>
+    <!--外部样式-->
+    <link rel="stylesheet" type="text/css" href="css/style.css(css文件的绝对路径)"
+</head>
+<body>
+    <!--行内样式-->
+    <p>我</p>
+    <p style="color:blue;">我</p>
+
+
+
+    <!--注释-->
+    <!--标题标签-->
+    <a href="#锚点">超链接锚点</a>
+    <h1>七</h1>
+    <h2>七</h2>
+    <h3>七</h3>
+    <h4>七</h4>
+    <h5>七</h5>
+    <a name="锚点"></a> <!--锚点-->
+    <h6>七</h6>
+    <!--换行标签-->
+    <br>
+
+    <!--段落标签-->
+    <p>天亦有情天亦老，我自无情笑沧桑。</p>
+    <!--水平线标签-->
+    <hr>
+    <p>重义寡情我奈何</p>
+    <!--字体样式标签-->
+    <!--加粗-->
+    <strong>我自我</strong>
+    <b>我自我</b>
+    <!--倾斜-->
+    <em>太上曰</em>
+    <i>太上曰</i>
+    <!--特殊符号-->
+    <p>&nbsp;空格</p>
+    <p>&gt;大于号</p>
+    <p>&lt;小于号</p>
+    <p>&quot;引号</p>
+    <p>&copy;版权符号</p>
+    <!--图像标签-->
+    <img src="图片路径" alt="图片加载失败显示的信息" title="鼠标在图片上时显示的内容" width="宽" height="高">
+    <br>
+    <img src="1.jpg" alt="图片加载失败" title="看看" >
+    <!--链接标签-->
+    <a href="https://www.baidu.com" target="_blank">百度一下</a>
+    <a href="1.jpg" target="_blank">看看</a><br>
+    <a href="https://www.baidu.com" target="_blank"><img src="1.jpg" alt="图片加载失败" title="看看"></a>
+    <!--无序列表 ul-->
+    <ul type="circle">
+        <li><a href="#">看看</a></li>
+        <li><a href="##">看看</a></li>
+        <li><a href="###">看看</a></li>
+    </ul>
+    <!--有序列表 ol-->
+    <ol>
+        <li><a href="#">看看</a></li>
+        <li><a href="##">看看</a></li>
+        <li><a href="###">看看</a></li>
+    </ol>
+    <!--定义列表-->
+    <dl>
+        <dl>学院1</dl>
+        <dt>地址1</dt>
+        <dd>地址2</dd>
+        <dt>学院2</dt>
+    </dl>
+    <table align="center" border="5" cellspacing="1" cellpadding="5">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">第一行第一列</td>
+            <td>第一行第二列</td>
+            <td>第一行第三列</td>
+        </tr>
+        <tr>
+            <td>第二行第一列</td>
+            <td>第二行第二列</td>
+            <td rowspan="2" valign="center">第二行第三列</td>
+        </tr>
+        <tr>
+            <td>第三行第一列</td>
+            <td>第三行第二列</td>
+            <td>第三行第三列</td>
+        </tr>
+    </table>
+</body>
+</html>

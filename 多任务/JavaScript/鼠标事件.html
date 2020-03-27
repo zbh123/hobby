@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标事件</title>
+    <style type="text/css">
+        li {
+            width:150px;
+            height:30px;
+                    }
+    </style>
+</head>
+<body style="height:3000px;">
+    <ul>
+        <li>鼠标进入红色</li>
+        <li>鼠标离开蓝色</li>
+        <li>鼠标按下字体大两倍</li>
+        <li>鼠标抬起字体小两倍</li>
+    </ul>
+    <script type="text/javascript">
+        var lis = document.getElementsByTagName('li')
+        for (var i=0; i<lis.length; i++){
+            lis[i].addEventListener("mouseover",function(){
+                this.style.backgroundColor = "red"
+            },false)
+            lis[i].addEventListener("mouseout",function(){
+                this.style.backgroundColor = "blue"
+            },false)
+            lis[i].addEventListener("mousedown",function(){
+                this.style.fontSize = parseInt(getComputedStyle(this,null).fontSize) * 2 +"px"
+            },false)
+            lis[i].addEventListener("mouseup",function(){
+                this.style.fontSize = parseInt(getComputedStyle(this, null).fontSize)/2 + "px"
+            },false)
+        }
+        document.addEventListener("mousemove", function(){
+            console.log("鼠标移动")
+        },false)
+    </script>
+    <script type="text/javascript">
+        var jsDiv = document.getElementById("box");
+        jsDiv.onclick = function(e){
+            var evt = window.event || e
+            console.log(evt)
+            //浏览器可视窗口坐标
+            console.log(evt.clientX, evt.clientY)
+            //页面坐标
+            console.log(evt.pageX, evt.pageY)
+            //电脑屏幕坐标
+            console.log(evt.screenX, evt.screenY)
+            //按键
+            console.log(evt.button)
+
+        }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        <!--通配选择器-->
+        *{
+            padding:0;
+            margin:0;
+        }
+        <!--class选择器-->
+        .p1{
+            background-color:pink;
+        }
+        <!--标签选择器-->
+        p{
+            background-color:pink;
+        }
+        <!--交集选择器-->
+        h1.a{
+            background-color:red
+        }
+        <!--并集选择器-->
+        p, h1, .p1{
+            background-color:pink;
+        }
+        <!--后代选择器-->
+        #box1 p{
+            color:red;
+        }
+        <!--子选择器-->
+        #box2>p{
+            color:blue
+        }
+        <!--伪类选择器基本用在a标签中-->
+        a:link{
+            color:yellow;
+        }
+        a:visited{
+            color:red;
+        }
+        a:hover{
+            color:blue;
+        }
+        a:active{
+            color:pink;
+        }
+    </style>
+</head>
+<body>
+    <p class="p1">看卡</p>
+    <p class="p1">看卡</p>
+    <p class="p1">看卡</p>
+    <h1 class="a">111</h1>
+    <h1>222</h1>
+    <h1>333</h1>
+    <div id="box1">
+        <p>hjsgfd</p>
+        <div>
+            <p>sgdfhfg</p>
+        </div>
+    </div>
+    <div id="box2">
+        <p>hjsgfd</p>
+        <div>
+            <p>sgdfhfg</p>
+        </div>
+    </div>
+    <a href="www.baidu.com">百度</a>
+</body>
+</html>

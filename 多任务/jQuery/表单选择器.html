@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单选择器</title>
+     <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <form>
+        复选框：<input type="checkbox">
+        单选按钮：<input type="radio">
+        图像域：<input type="image"><br>
+        文件域：<input type="file"><br>
+        密码域：<input type="password"><br>
+        文本框：<input type="text" width="150px"><br>
+        按钮：<input type="button" value="按钮"><br>
+        重置：<input type="reset" value=""><br>
+        提交：<input type="submit" value=""><br>
+        隐藏域：<input type="hidden" value="隐藏元素"><br>
+            <div id="testDiv"><font color="blue">隐藏域的值</font></div>
+    </form>
+</body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //form和：之间有空格，空格表示后代
+            var $jsObj = $("form :input")
+            var $jsObj1 = $("form :text")
+            $jsObj1.attr("value","设置值")
+        })
+
+    </script>
+
+</html>
