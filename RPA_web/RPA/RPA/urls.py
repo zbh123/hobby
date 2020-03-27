@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path(r'table/', views.table, name='table'),
+    path(r'ip_address/', views.ip_display, name='ip'),
 ]

@@ -14,3 +14,12 @@ class Rpa(models.Model):
 
     def __str__(self):
         return self.flow_name
+
+
+class IP(models.Model):
+    office = models.CharField(max_length=100)
+    username = models.CharField(max_length=50)
+    ip_address = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.username
