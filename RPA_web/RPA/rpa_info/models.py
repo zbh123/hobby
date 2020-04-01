@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -23,3 +24,12 @@ class IP(models.Model):
 
     def __str__(self):
         return self.username
+
+
+class Time(models.Model):
+    flow = models.CharField(max_length=100)
+    time_rpa = models.CharField(max_length=50)
+    time_person = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.flow

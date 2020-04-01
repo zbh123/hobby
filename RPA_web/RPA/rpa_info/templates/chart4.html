@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RPA汇总图</title>
+    <script src="{% static 'js/echarts.js' %}"></script>
+</head>
+<body>
+<h5 align="right"><a href="{% url 'index' %}">返回</a></h5>
+<h5 align="right"><a href=" {% url 'table' %}">流程汇总</a></h5>
+<div style="width:100%" align="center">
+    <div id="line_chart" style="width:1200px;height:400px;" align="center"></div>
+    <div id="pie_chart" style="width:800px;height:400px;"></div>
+    <div id="bar_chart" style="width:1200px;height:400px;"></div>
+</div>
+
+</body>
+<script type="text/javascript">
+    //--------bar chart-------
+    // 初始化图表标签
+    var lineChart = echarts.init(document.getElementById('line_chart'));
+    option = {
+    xAxis: {
+        type: 'category',
+        data: {{flow_name | safe}}
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: {{ratio_list | safe}},
+        type: 'line',
+        smooth: true
+    }]
+};
+    lineChart.setOption(option);
+
+    //--------pie chart-------
+    var pieChart = echarts.init(document.getElementById('pie_chart'));
+    option = {
+    title: {
+        text: 'RPA统计',
+        subtext: 'RPA',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: {{office_name|safe}}
+    },
+    series: [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '60%'],
+            data: {{office_table|safe}},
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+    pieChart.setOption(option);
+
+<!-- bar_chart_compare   -->
+var barChart = echarts.init(document.getElementById('bar_chart'));
+var posList = [
+    'left', 'right', 'top', 'bottom',
+    'inside',
+    'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+    'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+];
+
+barChart.configParameters = {
+    rotate: {
+        min: -90,
+        max: 90
+    },
+    align: {
+        options: {
+            left: 'left',
+            center: 'center',
+            right: 'right'
+        }
+    },
+    verticalAlign: {
+        options: {
+            top: 'top',
+            middle: 'middle',
+            bottom: 'bottom'
+        }
+    },
+    position: {
+        options: echarts.util.reduce(posList, function (map, pos) {
+            map[pos] = pos;
+            return map;
+        }, {})
+    },
+    distance: {
+        min: 0,
+        max: 100
+    }
+};
+
+barChart.config = {
+    rotate: 90,
+    align: 'left',
+    verticalAlign: 'middle',
+    position: 'insideBottom',
+    distance: 15,
+    onChange: function () {
+        var labelOption = {
+            normal: {
+                rotate: app.config.rotate,
+                align: app.config.align,
+                verticalAlign: app.config.verticalAlign,
+                position: app.config.position,
+                distance: app.config.distance
+            }
+        };
+        myChart.setOption({
+            series: [{
+                label: labelOption
+            }, {
+                label: labelOption
+            }]
+        });
+    }
+};
+
+
+var labelOption = {
+    show: true,
+    position: barChart.config.position,
+    distance: barChart.config.distance,
+    align: barChart.config.align,
+    verticalAlign: barChart.config.verticalAlign,
+    rotate: barChart.config.rotate,
+    formatter: '{c}  {name|{a}}',
+    fontSize: 12,
+    rich: {
+        name: {
+            textBorderColor: '#fff'
+        }
+    }
+};
+
+option = {
+    color: ['#003366','#e5323e'],
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        data: ['RPA', 'Person']
+    },
+    toolbox: {
+        show: true,
+        orient: 'vertical',
+        left: 'right',
+        top: 'center',
+        feature: {
+            mark: {show: true},
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    xAxis: [
+        {
+            type: 'category',
+            axisTick: {show: false},
+            data: {{flow_name|safe}}
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            name: 'RPA',
+            type: 'bar',
+            barGap: 0,
+            label: labelOption,
+            data: {{rpa_time | safe}}
+        },
+        {
+            name: 'PERSON',
+            type: 'bar',
+            label: labelOption,
+            data: {{person_time | safe}}
+        }
+    ]
+};
+barChart.setOption(option);
+</script>
+</html>
+

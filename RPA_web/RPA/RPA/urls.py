@@ -22,5 +22,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path(r'table/', views.table, name='table'),
     path(r'ip_address/', views.ip_display, name='ip'),
-    path(r'chart/', views.chart, name='chart'),
+    # path(r'chart/', views.chart, name='chart'),
+    # path(r'chart1/', views.chart_1, name='chart1'),
+    path(r'chart2/', views.chart_2, name='chart2'),
+    # path(r'chart3/', views.chart_3, name='chart3'),
+    path(r'chart4/', views.chart_4, name='chart4'),
 ]
