@@ -21,6 +21,11 @@
     // 初始化图表标签
     var lineChart = echarts.init(document.getElementById('line_chart'));
     option = {
+    title: {
+        text: 'RPA用时对比',
+        subtext: 'ratio(rpa/person)',
+        left: 'center'
+    },
     xAxis: {
         type: 'category',
         data: {{flow_name | safe}}
