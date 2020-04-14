@@ -70,7 +70,7 @@ def ip_display(request):
             ip_infor_dict[i] = {'id': id, 'office': office, 'username': username, 'address': address}
         head_key = ['ID', '部门', '用户名', 'IP地址']
         param = {'ip_infor_dict': ip_infor_dict, 'head_key': head_key}
-        return render(request, '测试.html', param)
+        return render(request, 'ip_address.html', param)
 
 
 def randomcolor():
