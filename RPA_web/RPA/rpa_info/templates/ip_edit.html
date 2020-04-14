@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增交易网IP数据</title>
+</head>
+<style>
+    .divcss01{
+        margin:0 auto;
+        width:15%;
+        text-align:center;
+    }
+    .divcss02{
+        margin:0 auto;
+    }
+
+</style>
+<body>
+<h3 align="center">请输入数据信息:</h3>
+<form method="post">{% csrf_token %}
+    <div align="center" class="divcss01">
+        <div align="left"><b>部 门：</b></div>
+        <input id="office" type="text" name="office" placeholder="请输入部门" required/>
+    </div>
+    <br>
+    <div align="center" class="divcss01">
+        <div align="left"><b>用 户：</b></div>
+        <input id="username" type="text" name="username" placeholder="请输出使用者" required/>
+    </div>
+    <br>
+    <div align="center" class="divcss01">
+        <div align="left"><b>IP地址：</b></div>
+        <input id="ip_address" type="text" name="ip_address" placeholder="请输入显示IP" required/>
+    </div>
+    <br><br><br>
+    <div align="center" class="divcss02">
+        <input id="submit" type="submit" value="提交"><input id="cancel" type="submit" value="取消">
+    </div>
+</form>
+</body>
+<!-- jQuery 3 -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/layer.js' %}"></script>
+<script type="text/javascript">
+ var index = parent.layer.getFrameIndex(window.name);
+ $('#submit').click(function(){
+    var office = document.getElementById("office").value
+    if(office == "" || office == null || office == undefined)
+    {
+        alert('部门项为必填项')
+        location.href = "{% url 'ip_edit' %}";
+        return false
+    }
+    var username = document.getElementById("username").value
+    if(username == "" || username == null || username == undefined)
+    {
+        alert('用户项为必填项')
+        location.href = "{% url 'ip_edit' %}";
+        return false
+    }
+    var ip_address = document.getElementById("ip_address").value
+    if(ip_address == "" || ip_address == null || ip_address == undefined)
+    {
+        alert('IP地址项为必填项')
+        location.href = "{% url 'ip_edit' %}";
+        return false
+    }
+    var url = {% url 'ip_edit' %};
+    $.ajax({
+       url:url,
+       type:"post",
+       data:{
+             "office":office,
+             "username":username,
+             "ip_address":ip_address,
+              csrfmiddlewaretoken: '{{ csrf_token }}',
+       },
+       datatype:"json",
+       success:function (data) {
+            if(data.is_select)
+            {
+                alert('添加成功')
+                parent.layer.close(index);
+                location.href = "{% url 'ip' %}";
+            }
+            else
+            {
+                alert('数据已存在，请重新填报')
+                parent.layer.close(index);
+                location.href = "{% url 'ip' %}";
+            }
+
+          },
+       error:function(data)
+       {
+          alert("请求出错");
+       }
+    });
+    return false;
+ });
+//关闭iframe
+$('#cancel').click(function(){
+    parent.layer.close(index);
+    });
+
+
+</script>
+
+</html>

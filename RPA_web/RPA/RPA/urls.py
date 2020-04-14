@@ -14,17 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.views.generic.base import RedirectView
 from django.urls import path
 from rpa_info import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(r'favicon/.ico/', RedirectView.as_view(url=r"{% static 'img/bitbug_favicon.ico' %}")),
     path('', views.index, name='index'),
     path(r'table/', views.table, name='table'),
     path(r'ip_address/', views.ip_display, name='ip'),
     # path(r'chart/', views.chart, name='chart'),
     # path(r'chart1/', views.chart_1, name='chart1'),
-    path(r'chart2/', views.chart_2, name='chart2'),
+    path(r'chart_pie/', views.chart_2, name='chart2'),
     # path(r'chart3/', views.chart_3, name='chart3'),
-    path(r'chart4/', views.chart_4, name='chart4'),
+    path(r'chart_gather/', views.chart_4, name='chart4'),
+    path(r'test/', views.test, name='test'),
+    path(r'ip_edit/', views.ip_edit, name='ip_edit'),
 ]
