@@ -1,12 +1,12 @@
 # -*- coding:utf-8 -*-
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
 from django.http import JsonResponse
 from django.db.models import Count
 import os, json
-import time
+import time, datetime
 import sys
 import random
-from .models import Rpa, IP, Time
+from .models import Rpa, IP, Time, User
 from collections import OrderedDict
 import queue
 
@@ -81,77 +81,77 @@ def randomcolor():
     return "#" + color
 
 
-def chart(request):
-    office_list = Rpa.objects.values('office').distinct()
-    print(office_list, len(office_list))
-    office_table = []
-    for i in range(len(office_list)):
-        office = str(list(office_list[i].values()))
-        office = office.split("'")[1]
-        print(office, type(office), '1111')
-        n = Rpa.objects.filter(office=str(office)).count()
-        print(n)
-        # office_dict[office] = n
-        if (len(office_table) == 0):
-            office_table = [{'value': n, 'color': randomcolor(), 'label': office}]
-        else:
-            office_table.append({'value': n, 'color': randomcolor(), 'label': office})
-    print(json.dumps(office_table, ensure_ascii=False))
-    return render(request, 'flow_chart.html', {'office_table': json.dumps(office_table, ensure_ascii=False)})
+# def chart(request):
+#     office_list = Rpa.objects.values('office').distinct()
+#     print(office_list, len(office_list))
+#     office_table = []
+#     for i in range(len(office_list)):
+#         office = str(list(office_list[i].values()))
+#         office = office.split("'")[1]
+#         print(office, type(office), '1111')
+#         n = Rpa.objects.filter(office=str(office)).count()
+#         print(n)
+#         # office_dict[office] = n
+#         if (len(office_table) == 0):
+#             office_table = [{'value': n, 'color': randomcolor(), 'label': office}]
+#         else:
+#             office_table.append({'value': n, 'color': randomcolor(), 'label': office})
+#     print(json.dumps(office_table, ensure_ascii=False))
+#     return render(request, 'flow_chart.html', {'office_table': json.dumps(office_table, ensure_ascii=False)})
 
 
-def chart_1(request):
-    office_list = Rpa.objects.values('office').distinct()
-    print(office_list, len(office_list))
-    office_table = []
-    for i in range(len(office_list)):
-        office = str(list(office_list[i].values()))
-        office = office.split("'")[1]
-        print(office, type(office), '1111')
-        n = Rpa.objects.filter(office=str(office)).count()
-        print(n)
-        # office_dict[office] = n
-        if (len(office_table) == 0):
-            office_table = [{'label': office, 'data': n, 'color': randomcolor()}]
-        else:
-            office_table.append({'label': office, 'data': n, 'color': randomcolor()})
-    print(json.dumps(office_table, ensure_ascii=False))
-    return render(request, 'chart_1.html', {'office_table': json.dumps(office_table, ensure_ascii=False)})
+# def chart_1(request):
+#     office_list = Rpa.objects.values('office').distinct()
+#     print(office_list, len(office_list))
+#     office_table = []
+#     for i in range(len(office_list)):
+#         office = str(list(office_list[i].values()))
+#         office = office.split("'")[1]
+#         print(office, type(office), '1111')
+#         n = Rpa.objects.filter(office=str(office)).count()
+#         print(n)
+#         # office_dict[office] = n
+#         if (len(office_table) == 0):
+#             office_table = [{'label': office, 'data': n, 'color': randomcolor()}]
+#         else:
+#             office_table.append({'label': office, 'data': n, 'color': randomcolor()})
+#     print(json.dumps(office_table, ensure_ascii=False))
+#     return render(request, 'chart_1.html', {'office_table': json.dumps(office_table, ensure_ascii=False)})
 
 
 def chart_2(request):
     office_list = Rpa.objects.values('office').distinct()
-    print(office_list, len(office_list))
+    # print(office_list, len(office_list))
     office_table = []
     for i in range(len(office_list)):
         office = str(list(office_list[i].values()))
         office = office.split("'")[1]
         print(office, type(office), '1111')
         n = Rpa.objects.filter(office=str(office)).count()
-        print(n)
+        # print(n)
         # office_dict[office] = n
         if (len(office_table) == 0):
             office_table = [[n, randomcolor(), office]]
         else:
             office_table.append([n, randomcolor(), office])
-    print(json.dumps(office_table, ensure_ascii=False))
+    # print(json.dumps(office_table, ensure_ascii=False))
     return render(request, 'chart_pie.html', {'office_table': json.dumps(office_table, ensure_ascii=False)})
 
 
-def chart_3(request):
-    flow_name_list = []
-    rpa_time = []
-    person_time = []
-    flow_list = Time.objects.all().values()
-    for i in range(len(flow_list)):
-        id, flow_name, time_rpa, time_person = flow_list[i].values()
-        if time_rpa != None and time_person != None:
-            rpa_time.append(time_rpa)
-            person_time.append(time_person)
-            flow_name_list.append(flow_name)
-    param = {'flow_name': flow_name_list, 'rpa_time': rpa_time, 'person_time': person_time}
-    print(param)
-    return render(request, 'chart_3.html', param)
+# def chart_3(request):
+#     flow_name_list = []
+#     rpa_time = []
+#     person_time = []
+#     flow_list = Time.objects.all().values()
+#     for i in range(len(flow_list)):
+#         id, flow_name, time_rpa, time_person = flow_list[i].values()
+#         if time_rpa != None and time_person != None:
+#             rpa_time.append(time_rpa)
+#             person_time.append(time_person)
+#             flow_name_list.append(flow_name)
+#     param = {'flow_name': flow_name_list, 'rpa_time': rpa_time, 'person_time': person_time}
+#     print(param)
+#     return render(request, 'chart_3.html', param)
 
 
 def chart_4(request):
@@ -183,7 +183,7 @@ def chart_4(request):
     param = {'flow_name': flow_name_list, 'rpa_time': rpa_time, 'person_time': person_time,
              'office_table': json.dumps(office_table, ensure_ascii=False),
              'ratio_list': ratio_list, 'office_name': office_name}
-    print(param)
+    # print(param)
     return render(request, 'chart_gather.html', param)
 
 
@@ -224,7 +224,7 @@ def add_task(task_queue):
         }
         office, username, ip_address = task_queue.get()
         num = IP.objects.filter(office=office, username=username, ip_address=ip_address).count()
-        print(num, 1111)
+        # print(num, 1111)
         if num != 0:
             data['is_select'] = 0
         else:
@@ -243,14 +243,14 @@ def ip_edit(request):
         username = request.POST.get('username')
         ip_address = request.POST.get('ip_address')
         # task_queue.put([office, username, ip_address])
-        print(office, username, ip_address)
+        # print(office, username, ip_address)
         # print(task_queue.qsize())
         data = {
             'code': 200,
             'msg': '请求成功'
         }
         num = IP.objects.filter(office=office, username=username, ip_address=ip_address).count()
-        print(num, 1111)
+        # print(num, 1111)
         # time.sleep(2)
         if num != 0:
             data['is_select'] = 0
@@ -263,3 +263,30 @@ def ip_edit(request):
             data['is_select'] = 1
         return JsonResponse(data)
     return render(request, 'ip_edit.html')
+
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        passwd = request.POST.get('passwd')
+        print(username, passwd)
+        num = User.objects.filter(username=username, passwd=passwd).count()
+        info = User.objects.get(username=username)
+        print(info)
+        if num > 0:
+            info = User.objects.get(username=username)
+            info.login_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            info.save()
+            request.session['is_login'] = 1
+            request.session['username'] = username
+            return redirect('/table/')
+    return render(request, 'login.html')
+
+
+def logout(request):
+    try:
+        request.session['is_login'] = 0
+        del request.session['username']
+    except KeyError:
+        pass
+    return redirect('/ip_address/')

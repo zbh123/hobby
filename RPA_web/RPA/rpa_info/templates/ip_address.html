@@ -43,6 +43,11 @@
 </section>
 <h5 align="right"><a href="{% url 'index' %}">返回</a></h5>
 <h5 align="right"><a href=" {% url 'table' %}">流程汇总</a></h5>
+{% if request.session.is_login %}
+<h5 align="right"><i>{{request.session.username}}</i><a href=" {% url 'logout' %}">退出</a></h5>
+{% else %}
+<h5 align="right"><a href=" {% url 'login' %}">登录</a></h5>
+{% endif %}
 <!-- Main content -->
 <section class="content">
     <div class="row">
@@ -59,7 +64,9 @@
                             {% for item in head_key %}
                             <th align="center">{{ item }}</th>
                             {% endfor %}
+                            {% if request.session.is_login %}
                             <th align="center">编辑内容</th>
+                            {% endif %}
                         </tr>
                         </thead>
                         <tbody>
@@ -69,8 +76,10 @@
                             <td align="left" width="10%">{{ values.office }}</td>
                             <td align="left" width="15%">{{ values.username }}</td>
                             <td align="left" width="10%">{{ values.address }}</td>
+                            {% if request.session.is_login %}
                             <td align="left" width="10%" id={{values.id}}><a href="javascript:void(0)"
                                                                              onclick="editTd({{values.id}})">编辑</a></td>
+                            {% endif %}
                         </tr>
                         {% endfor %}
                         </tbody>
