@@ -31,6 +31,7 @@ urlpatterns = [
     path(r'chart_gather/', views.chart_4, name='chart4'),
     path(r'test/', views.test, name='test'),
     path(r'ip_edit/', views.ip_edit, name='ip_edit'),
+    path(r'flow_edit/', views.flow_edit, name='flow_edit'),
     path(r'login/', views.login, name='login'),
     path(r'logout/', views.logout, name='logout'),
 ]

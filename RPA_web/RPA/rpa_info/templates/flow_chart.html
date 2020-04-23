@@ -20,14 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/_all-skins.min.css' %}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
-    <!-- Google Font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body>
 <!-- Content Header (Page header) -->
@@ -83,39 +76,6 @@
     var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
     var pieChart       = new Chart(pieChartCanvas)
     var PieData        = {{ office_table | safe}}
-<!--    console.log(pieData)-->
-<!--    var PieData        = [-->
-<!--      {-->
-<!--        value    : 700,-->
-<!--        color    : '#f56954',-->
-<!--        label    : 'Chrome'-->
-<!--      },-->
-<!--      {-->
-<!--        value    : 500,-->
-<!--        color    : '#00a65a',-->
-<!--        label    : 'IE'-->
-<!--      },-->
-<!--      {-->
-<!--        value    : 400,-->
-<!--        color    : '#f39c12',-->
-<!--        label    : 'FireFox'-->
-<!--      },-->
-<!--      {-->
-<!--        value    : 600,-->
-<!--        color    : '#00c0ef',-->
-<!--        label    : 'Safari'-->
-<!--      },-->
-<!--      {-->
-<!--        value    : 300,-->
-<!--        color    : '#3c8dbc',-->
-<!--        label    : 'Opera'-->
-<!--      },-->
-<!--      {-->
-<!--        value    : 100,-->
-<!--        color    : '#d2d6de',-->
-<!--        label    : 'Navigator'-->
-<!--      }-->
-<!--    ]-->
     console.log(PieData)
     var pieOptions     = {
       //Boolean - Whether we should show a stroke on each segment

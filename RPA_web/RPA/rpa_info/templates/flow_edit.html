@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增流程数据</title>
+</head>
+<style>
+    .divcss01{
+        margin:0 auto;
+        width:15%;
+        text-align:center;
+    }
+    .divcss02{
+        margin:0 auto;
+    }
+
+</style>
+<body>
+<h3 align="center">请输入数据信息:</h3>
+<form method="post">{% csrf_token %}
+    <div align="center" class="divcss01">
+        <div align="left"><b>部 门：</b></div>
+        <input id="office" type="text" name="office" placeholder="请输入部门" required/>
+    </div>
+    <br>
+    <div align="center" class="divcss01">
+        <div align="left"><b>流程名称：</b></div>
+        <input id="flow_name" type="text" name="flow_name" placeholder="请输出流程名称" required/>
+    </div>
+    <br>
+    <div align="center" class="divcss01">
+        <div align="left"><b>完成情况：</b></div>
+        <input id="finish" type="text" name="finish" placeholder="请输入完成情况(整数)" required/>
+    </div>
+        <br>
+    <div align="center" class="divcss01">
+        <div align="left"><b>RPA用时：</b></div>
+        <input id="time_rpa" type="text" name="time_rpa" placeholder="请输入RPA用时" required/>
+    </div>
+        <br>
+    <div align="center" class="divcss01">
+        <div align="left"><b>人工用时：</b></div>
+        <input id="time_person" type="text" name="time_person" placeholder="请输入人工用时" required/>
+    </div>
+        <br>
+    <div align="center" class="divcss01">
+        <div align="left"><b>简介：</b></div>
+        <input id="introduce" type="text" name="introduce" placeholder="请输入流程简介" required/>
+    </div>
+        <br>
+    <div align="center" class="divcss01">
+        <div align="left"><b>备注：</b></div>
+        <input id="remark" type="text" name="remark" placeholder="请输入备注" required/>
+    </div>
+    <br><br><br>
+    <div align="center" class="divcss02">
+        <input id="submit" type="submit" value="提交"><input id="cancel" type="submit" value="取消">
+    </div>
+</form>
+</body>
+<!-- jQuery 3 -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/layer.js' %}"></script>
+<script type="text/javascript">
+ var index = parent.layer.getFrameIndex(window.name);
+ $('#submit').click(function(){
+    var office = document.getElementById("office").value
+    if(office == "" || office == null || office == undefined)
+    {
+        alert('部门项为必填项')
+        location.href = "{% url 'flow_edit' %}";
+        return false
+    }
+    var flow_name = document.getElementById("flow_name").value
+    if(flow_name == "" || flow_name == null || flow_name == undefined)
+    {
+        alert('流程名为必填项')
+        location.href = "{% url 'flow_edit' %}";
+        return false
+    }
+    var finish = document.getElementById("finish").value
+    if(finish == "" || finish == null || finish == undefined)
+    {
+        alert('完成情况为必填项')
+        location.href = "{% url 'flow_edit' %}";
+        return false
+    }
+    var time_rpa = document.getElementById("time_rpa").value
+    var time_person = document.getElementById("time_person").value
+    var introduce = document.getElementById("introduce").value
+    var remark = document.getElementById("remark").value
+    var url = {% url 'flow_edit' %};
+    $.ajax({
+       url:url,
+       type:"post",
+       data:{
+             "office":office,
+             "flow_name":flow_name,
+             "finish":finish,
+             "time_rpa":time_rpa,
+             "time_person":time_person,
+             "introduce":introduce,
+             "remark":remark,
+              csrfmiddlewaretoken: '{{ csrf_token }}',
+       },
+       datatype:"json",
+       success:function (data) {
+            if(data.is_select)
+            {
+                alert('添加成功')
+                parent.layer.close(index);
+                location.href = "{% url 'table' %}";
+            }
+            else
+            {
+                alert('数据已存在，请重新填报')
+                parent.layer.close(index);
+                location.href = "{% url 'table' %}";
+            }
+
+          },
+       error:function(data)
+       {
+          alert("请求出错");
+       }
+    });
+    return false;
+ });
+//关闭iframe
+$('#cancel').click(function(){
+    parent.layer.close(index);
+    });
+
+
+</script>
+
+</html>
