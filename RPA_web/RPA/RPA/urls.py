@@ -21,7 +21,7 @@ from rpa_info import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'favicon/.ico/', RedirectView.as_view(url=r"{% static 'img/bitbug_favicon.ico' %}")),
-    path('', views.index, name='index'),
+    path('', views.table, name='index'),
     path(r'table/', views.table, name='table'),
     path(r'ip_address/', views.ip_display, name='ip'),
     # path(r'chart/', views.chart, name='chart'),

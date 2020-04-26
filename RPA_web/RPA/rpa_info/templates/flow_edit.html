@@ -14,23 +14,26 @@
     .divcss02{
         margin:0 auto;
     }
-
+    div.rrequired:before {
+        content: '* ';
+        color: red;
+    }
 </style>
 <body>
 <h3 align="center">请输入数据信息:</h3>
 <form method="post">{% csrf_token %}
     <div align="center" class="divcss01">
-        <div align="left"><b>部 门：</b></div>
+        <div align="left" class="rrequired"><b>部 门：</b></div>
         <input id="office" type="text" name="office" placeholder="请输入部门" required/>
     </div>
     <br>
     <div align="center" class="divcss01">
-        <div align="left"><b>流程名称：</b></div>
+        <div align="left" class="rrequired"><b>流程名称：</b></div>
         <input id="flow_name" type="text" name="flow_name" placeholder="请输出流程名称" required/>
     </div>
     <br>
     <div align="center" class="divcss01">
-        <div align="left"><b>完成情况：</b></div>
+        <div align="left" class="rrequired"><b>完成情况：</b></div>
         <input id="finish" type="text" name="finish" placeholder="请输入完成情况(整数)" required/>
     </div>
         <br>

@@ -31,17 +31,46 @@ def index(request):
 
 
 def table(request):
-    flow_dict = OrderedDict()
-    flow_list = Rpa.objects.all().values()
-    # print(len(flow_list),flow_list)
-    for i in range(len(flow_list)):
-        id, office, flow_name, finish, time_rpa, time_person, introduce, remark = flow_list[i].values()
-        # print(id, office, flow_name, finish, time_rpa, time_person, introduce, remark)
-        flow_dict[i] = {'id': id, 'office': office, 'flow_name': flow_name, 'finish': finish, 'time_rpa': time_rpa,
-                        'time_person': time_person, 'introduce': introduce, 'remark': remark}
-    head_key = ['ID', 'Office', 'Flow_name', 'Finish (%)', 'Time_rpa(m)', 'Time_person(m)', 'Introduce', 'Remark']
-    param = {'flow_dict': flow_dict, 'head_key': head_key}
-    return render(request, 'data_table.html', param)
+    if request.method == 'POST':
+        id = int(request.POST.get('id', '-1'))
+        office = request.POST.get('office')
+        flow_name = request.POST.get('flow_name')
+        finish = request.POST.get('finish')
+        if not is_number(finish):
+            finish = 0
+        time_rpa = request.POST.get('time_rpa')
+        time_person = request.POST.get('time_person')
+        introduce = request.POST.get('introduce')
+        remark = request.POST.get('remark')
+        operate = request.POST.get('operate')
+        print(office, flow_name, finish, time_rpa)
+        if operate == 'update':
+            new_param = Rpa.objects.get(id=id)
+            new_param.office = office
+            new_param.flow_name = flow_name
+            new_param.finish = finish
+            new_param.time_rpa = time_rpa
+            new_param.time_person = time_person
+            new_param.introduce = introduce
+            new_param.remark = remark
+            # new_param.done()
+            new_param.save()
+        elif operate == 'delete':
+            Rpa.objects.get(id=id).delete()
+        result = '执行成功'
+        return HttpResponse({"result": json.dumps(result, ensure_ascii=False)})
+    else:
+        flow_dict = OrderedDict()
+        flow_list = Rpa.objects.all().values()
+        # print(len(flow_list),flow_list)
+        for i in range(len(flow_list)):
+            id, office, flow_name, finish, time_rpa, time_person, introduce, remark = flow_list[i].values()
+            # print(id, office, flow_name, finish, time_rpa, time_person, introduce, remark)
+            flow_dict[i] = {'id': id, 'office': office, 'flow_name': flow_name, 'finish': finish, 'time_rpa': time_rpa,
+                            'time_person': time_person, 'introduce': introduce, 'remark': remark}
+        head_key = ['ID', 'Office', 'Flow_name', 'Finish (%)', 'Time_rpa(m)', 'Time_person(m)', 'Introduce', 'Remark']
+        param = {'flow_dict': flow_dict, 'head_key': head_key}
+        return render(request, 'data_table.html', param)
 
 
 def ip_display(request):
@@ -263,6 +292,61 @@ def ip_edit(request):
             data['is_select'] = 1
         return JsonResponse(data)
     return render(request, 'ip_edit.html')
+
+
+def is_number(s):
+    try:
+        int(s)
+        return True
+    except ValueError:
+        pass
+
+    try:
+        import unicodedata
+        unicodedata.numeric(s)
+        return True
+    except (TypeError, ValueError):
+        pass
+
+    return False
+
+
+def flow_edit(request):
+    if request.method == 'POST':
+        office = request.POST.get('office')
+        flow_name = request.POST.get('flow_name')
+        finish = request.POST.get('finish')
+        if not is_number(finish):
+            finish = 0
+        time_rpa = request.POST.get('time_rpa')
+        time_person = request.POST.get('time_person')
+        introduce = request.POST.get('introduce')
+        remark = request.POST.get('remark')
+        # task_queue.put([office, username, ip_address])
+        print(office, flow_name, finish, time_rpa, time_person)
+        # print(task_queue.qsize())
+        data = {
+            'code': 200,
+            'msg': '请求成功'
+        }
+        num = Rpa.objects.filter(office=office, flow_name=flow_name).count()
+        # print(num, 1111)
+        # time.sleep(2)
+        if num != 0:
+            data['is_select'] = 0
+        else:
+            Rpa.objects.create(
+                office=office,
+                flow_name=flow_name,
+                finish=finish,
+                time_rpa=time_rpa,
+                time_person=time_person,
+                introduce=introduce,
+                remark=remark
+            )
+            data['is_select'] = 1
+        return JsonResponse(data)
+    return render(request, 'flow_edit.html')
 
 
 def login(request):

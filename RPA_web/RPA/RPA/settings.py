@@ -67,7 +67,8 @@ TEMPLATES = [
         },
     },
 ]
-
+# delete seesion when chrome shutdown
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 WSGI_APPLICATION = 'RPA.wsgi.application'
 
 
