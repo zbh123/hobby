@@ -12,4 +12,6 @@
 8、PyQt4安装，要安装的：1、对应版本的sip 1.14.6，2、visual studio 2015， 3、安装与Python版本对应的PyQt4
 9、PyQt4获取的文件名或路径，需要str（）将QString格式的变量转成字符串格式，否则，读取文件的函数不支持读取QString
 10、使用pyinstaller打包过程中，使用规则：pyinstaller -F -w *.py(单个文件打包工作)， pyinstaller -D -w *.py -p *.py -p *.py(多个文件打包)
-使用-D打包完成后，可在cmd中运行*.exe，查看错误，或者-debug，双击打开软件显示具体的报错信息进行调试，期间或许要安装很多的支持包。
+使用-D打包完成后，可在cmd中运行*.exe，查看错误，或者-debug，双击打开软件显示具体的报错信息进行调试，期间或许要安装很多的支持包。加上-F只生成一个exe文件
+加上--icon=1234.ico或-i 1423.ico生成exe文件的图标，-w取消生成cmd窗口。调试的时候在cmd窗口执行exe文件。此外打包的多个py文件里面不能有多个if __name__ == '__main__':
+只保留主py文件的
