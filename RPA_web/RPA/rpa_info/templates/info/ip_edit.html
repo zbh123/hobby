@@ -53,24 +53,24 @@
     if(office == "" || office == null || office == undefined)
     {
         alert('部门项为必填项')
-        location.href = "{% url 'ip_edit' %}";
+        location.href = "{% url 'info:ip_edit' %}";
         return false
     }
     var username = document.getElementById("username").value
     if(username == "" || username == null || username == undefined)
     {
         alert('用户项为必填项')
-        location.href = "{% url 'ip_edit' %}";
+        location.href = "{% url 'info:ip_edit' %}";
         return false
     }
     var ip_address = document.getElementById("ip_address").value
     if(ip_address == "" || ip_address == null || ip_address == undefined)
     {
         alert('IP地址项为必填项')
-        location.href = "{% url 'ip_edit' %}";
+        location.href = "{% url 'info:ip_edit' %}";
         return false
     }
-    var url = {% url 'ip_edit' %};
+    var url = '{% url 'info:ip_edit' %}';
     $.ajax({
        url:url,
        type:"post",
@@ -86,13 +86,13 @@
             {
                 alert('添加成功')
                 parent.layer.close(index);
-                location.href = "{% url 'ip' %}";
+                location.href = "{% url 'info:ip' %}";
             }
             else
             {
                 alert('数据已存在，请重新填报')
                 parent.layer.close(index);
-                location.href = "{% url 'ip' %}";
+                location.href = "{% url 'info:ip' %}";
             }
 
           },

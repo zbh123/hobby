@@ -70,7 +70,7 @@ def table(request):
                             'time_person': time_person, 'introduce': introduce, 'remark': remark}
         head_key = ['ID', 'Office', 'Flow_name', 'Finish (%)', 'Time_rpa(m)', 'Time_person(m)', 'Introduce', 'Remark']
         param = {'flow_dict': flow_dict, 'head_key': head_key}
-        return render(request, 'data_table.html', param)
+        return render(request, 'info/data_table.html', param)
 
 
 def ip_display(request):
@@ -99,7 +99,7 @@ def ip_display(request):
             ip_infor_dict[i] = {'id': id, 'office': office, 'username': username, 'address': address}
         head_key = ['ID', '部门', '用户名', 'IP地址']
         param = {'ip_infor_dict': ip_infor_dict, 'head_key': head_key}
-        return render(request, 'ip_address.html', param)
+        return render(request, 'info/ip_address.html', param)
 
 
 def randomcolor():
@@ -164,7 +164,7 @@ def chart_2(request):
         else:
             office_table.append([n, randomcolor(), office])
     # print(json.dumps(office_table, ensure_ascii=False))
-    return render(request, 'chart_pie.html', {'office_table': json.dumps(office_table, ensure_ascii=False)})
+    return render(request, 'info/chart_pie.html', {'office_table': json.dumps(office_table, ensure_ascii=False)})
 
 
 # def chart_3(request):
@@ -213,7 +213,7 @@ def chart_4(request):
              'office_table': json.dumps(office_table, ensure_ascii=False),
              'ratio_list': ratio_list, 'office_name': office_name}
     # print(param)
-    return render(request, 'chart_gather.html', param)
+    return render(request, 'info/chart_gather.html', param)
 
 
 def test(request):
@@ -242,7 +242,7 @@ def test(request):
             ip_infor_dict[i] = {'id': id, 'office': office, 'username': username, 'address': address}
         head_key = ['ID', '部门', '用户名', 'IP地址']
         param = {'ip_infor_dict': ip_infor_dict, 'head_key': head_key}
-        return render(request, '测试.html', param)
+        return render(request, 'info/测试.html', param)
 
 
 def add_task(task_queue):
@@ -291,7 +291,7 @@ def ip_edit(request):
             )
             data['is_select'] = 1
         return JsonResponse(data)
-    return render(request, 'ip_edit.html')
+    return render(request, 'info/ip_edit.html')
 
 
 def is_number(s):
@@ -346,7 +346,7 @@ def flow_edit(request):
             )
             data['is_select'] = 1
         return JsonResponse(data)
-    return render(request, 'flow_edit.html')
+    return render(request, 'info/flow_edit.html')
 
 
 def login(request):
@@ -355,16 +355,14 @@ def login(request):
         passwd = request.POST.get('passwd')
         print(username, passwd)
         num = User.objects.filter(username=username, passwd=passwd).count()
-        info = User.objects.get(username=username)
-        print(info)
         if num > 0:
             info = User.objects.get(username=username)
             info.login_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             info.save()
             request.session['is_login'] = 1
             request.session['username'] = username
-            return redirect('/table/')
-    return render(request, 'login.html')
+            return redirect('/info/table/')
+    return render(request, 'info/login.html')
 
 
 def logout(request):
@@ -373,4 +371,5 @@ def logout(request):
         del request.session['username']
     except KeyError:
         pass
-    return redirect('/ip_address/')
+    return redirect('/info/ip_address/')
+

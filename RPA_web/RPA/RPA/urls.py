@@ -14,24 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls import include
 from django.views.generic.base import RedirectView
 from django.urls import path
-from rpa_info import views
+import rpa_info, rpa_request
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'favicon/.ico/', RedirectView.as_view(url=r"{% static 'img/bitbug_favicon.ico' %}")),
-    path('', views.table, name='index'),
-    path(r'table/', views.table, name='table'),
-    path(r'ip_address/', views.ip_display, name='ip'),
-    # path(r'chart/', views.chart, name='chart'),
-    # path(r'chart1/', views.chart_1, name='chart1'),
-    path(r'chart_pie/', views.chart_2, name='chart2'),
-    # path(r'chart3/', views.chart_3, name='chart3'),
-    path(r'chart_gather/', views.chart_4, name='chart4'),
-    path(r'test/', views.test, name='test'),
-    path(r'ip_edit/', views.ip_edit, name='ip_edit'),
-    path(r'flow_edit/', views.flow_edit, name='flow_edit'),
-    path(r'login/', views.login, name='login'),
-    path(r'logout/', views.logout, name='logout'),
+    path(r'info/', include(('rpa_info.urls', "info"), namespace="info")),
+    path(r'request/', include(('rpa_request.urls', "request"), namespace="request")),
 ]

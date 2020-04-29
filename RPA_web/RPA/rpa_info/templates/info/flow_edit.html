@@ -39,22 +39,22 @@
         <br>
     <div align="center" class="divcss01">
         <div align="left"><b>RPA用时：</b></div>
-        <input id="time_rpa" type="text" name="time_rpa" placeholder="请输入RPA用时" required/>
+        <input id="time_rpa" type="text" name="time_rpa" placeholder="请输入RPA用时" />
     </div>
         <br>
     <div align="center" class="divcss01">
         <div align="left"><b>人工用时：</b></div>
-        <input id="time_person" type="text" name="time_person" placeholder="请输入人工用时" required/>
+        <input id="time_person" type="text" name="time_person" placeholder="请输入人工用时" />
     </div>
         <br>
     <div align="center" class="divcss01">
         <div align="left"><b>简介：</b></div>
-        <input id="introduce" type="text" name="introduce" placeholder="请输入流程简介" required/>
+        <input id="introduce" type="text" name="introduce" placeholder="请输入流程简介" />
     </div>
         <br>
     <div align="center" class="divcss01">
         <div align="left"><b>备注：</b></div>
-        <input id="remark" type="text" name="remark" placeholder="请输入备注" required/>
+        <input id="remark" type="text" name="remark" placeholder="请输入备注" />
     </div>
     <br><br><br>
     <div align="center" class="divcss02">
@@ -72,28 +72,28 @@
     if(office == "" || office == null || office == undefined)
     {
         alert('部门项为必填项')
-        location.href = "{% url 'flow_edit' %}";
+        location.href = "{% url 'info:flow_edit' %}";
         return false
     }
     var flow_name = document.getElementById("flow_name").value
     if(flow_name == "" || flow_name == null || flow_name == undefined)
     {
         alert('流程名为必填项')
-        location.href = "{% url 'flow_edit' %}";
+        location.href = "{% url 'info:flow_edit' %}";
         return false
     }
     var finish = document.getElementById("finish").value
     if(finish == "" || finish == null || finish == undefined)
     {
         alert('完成情况为必填项')
-        location.href = "{% url 'flow_edit' %}";
+        location.href = "{% url 'info:flow_edit' %}";
         return false
     }
     var time_rpa = document.getElementById("time_rpa").value
     var time_person = document.getElementById("time_person").value
     var introduce = document.getElementById("introduce").value
     var remark = document.getElementById("remark").value
-    var url = {% url 'flow_edit' %};
+    var url = '{% url 'info:flow_edit' %}';
     $.ajax({
        url:url,
        type:"post",
@@ -113,13 +113,13 @@
             {
                 alert('添加成功')
                 parent.layer.close(index);
-                location.href = "{% url 'table' %}";
+                location.href = "{% url 'info:table' %}";
             }
             else
             {
                 alert('数据已存在，请重新填报')
                 parent.layer.close(index);
-                location.href = "{% url 'table' %}";
+                location.href = "{% url 'info:table' %}";
             }
 
           },

@@ -1,14 +1,13 @@
-<!DOCTYPE html>
+{% extends 'info/base.html' %}
 {% load staticfiles%}
-<html>
-<head>
+ {% block title %}RPA流程汇总{% endblock %}
+    {% block meta %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RPA流程汇总</title>
-    <link rel="shortcut icon" href="{% static 'img/bitbug_favicon.ico' %}" type="image/x-icon">
-    <link rel="icon" href="{% static 'img/bitbug_favicon.ico' %}" type="image/x-icon">
-    <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    {% endblock %}
+    {% block style %}
+    <!-- Tell the browser to be responsive to screen width -->
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
     <!-- Font Awesome -->
@@ -22,67 +21,73 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/_all-skins.min.css' %}">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Google Font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
+    {% endblock %}
+{% block body%}
 <body>
+{% endblock %}
+{% block content %}
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1 align="center">
         中泰证券科技研发二部RPA组
-        <small>RPA交易网IP使用者汇总</small>
+        <small>RPA流程汇总</small>
     </h1>
 </section>
-<h5 align="right"><a href="{% url 'index' %}">返回</a></h5>
-<h5 align="right"><a href=" {% url 'table' %}">流程汇总</a></h5>
-{% if request.session.is_login %}
-<h5 align="right"><i>{{request.session.username}}</i><a href=" {% url 'logout' %}">退出</a></h5>
-{% else %}
-<h5 align="right"><a href=" {% url 'login' %}">登录</a></h5>
-{% endif %}
+<h5 align="right"><a href="{% url 'info:index' %}">返回</a></h5>
+<h5 align="right"><a href="{% url 'info:ip' %}">IP分配</a></h5>
+<h5 align="right"><a href="{% url 'info:chart2' %}">汇总饼状图</a></h5>
+<h5 align="right"><a href="{% url 'info:chart4' %}">汇总图</a></h5>
 <!-- Main content -->
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <div class="box-title">交易网IP地址分配</div>
+                    <h3 class="box-title">流程汇总</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table id="example1" class="table table-bordered">
                         <thead>
                         <tr align="center" data-bgColor="blue">
-                            {% for item in head_key %}
-                            <th align="center">{{ item }}</th>
-                            {% endfor %}
+                            <th align="right" width="5%">ID</th>
+                            <th align="right" width="10%">部门</th>
+                            <th align="right" width="15%">流程名称</th>
+                            <th align="right" width="10%">完成情况(%)</th>
+                            <th align="right" width="10%">RPA用时(分钟)</th>
+                            <th align="right" width="10%">人工用时(分钟)</th>
+                            <th align="right" width="15%">简介</th>
+                            <th align="right" width="15%">备注</th>
                             {% if request.session.is_login %}
                             <th align="center">编辑内容</th>
                             {% endif %}
                         </tr>
                         </thead>
                         <tbody>
-                        {% for key, values in ip_infor_dict.items %}
+                        {% for key, values in flow_dict.items %}
                         <tr>
                             <td align="left" width="5%">{{ key }}</td>
                             <td align="left" width="10%">{{ values.office }}</td>
-                            <td align="left" width="15%">{{ values.username }}</td>
-                            <td align="left" width="10%">{{ values.address }}</td>
+                            <td align="left" width="15%">{{ values.flow_name }}</td>
+                            <td align="left" width="10%">{{ values.finish }}</td>
+                            <td align="left" width="10%">{{ values.time_rpa }}</td>
+                            <td align="left" width="10%">{{ values.time_person }}</td>
+                            <td align="left" width="15%">{{ values.introduce }}</td>
+                            <td align="left" width="15%">{{ values.remark }}</td>
                             {% if request.session.is_login %}
-                            <td align="left" width="10%" id={{values.id}}><a href="javascript:void(0)"
+                                <td align="left" width="10%" id={{values.id}}><a href="javascript:void(0)"
                                                                              onclick="editTd({{values.id}})">编辑</a></td>
                             {% endif %}
                         </tr>
                         {% endfor %}
                         </tbody>
+                        <tfoot align="center">
+                        <tr>
+                            {% for item in head_key %}
+                            <th align="center">{{ item }}</th>
+                            {% endfor %}
+                        </tr>
+                        </tfoot>
                     </table>
                 </div>
                 <!-- /.box-body -->
@@ -93,16 +98,17 @@
     </div>
     <!-- /.row -->
 </section>
-<!-- /.content-wrapper -->
 <h5 align="center"><input id="AddData" type="button" value="增加内容"></h5>
+<!-- /.content-wrapper -->
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
         <strong>Copyright zhubh.</strong> All rights reserved.
     </div>
 
 </footer>
+{% endblock %}
 
-
+{% block script %}
 <!-- jQuery 3 -->
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -134,25 +140,32 @@
   })
   function saveTd(id) {
        var a = $("td[id='"+id+"']").siblings(); //td的兄弟节点
-       var td_office = a[1].children[0].value; //部门名称
-       var td_username = a[2].children[0].value; //使用者
-       var td_address = a[3].children[0].value; //IP地址
-       var url = {% url 'ip' %};
+       var td_office = a[1].children[0].value; //IP地址
+       var td_flow_name = a[2].children[0].value; //部门名称
+       var td_finish = a[3].children[0].value; //IP地址
+       var td_time_rpa = a[4].children[0].value; //使用者
+       var td_time_person = a[5].children[0].value; //IP地址
+       var td_introduce = a[6].children[0].value; //IP地址
+       var td_remark = a[7].children[0].value; //IP地址
+       var url = '{% url 'info:table' %}';
        $.ajax({
           url:url,
           type:"post",
           data:{
              "id":id,
              "office":td_office,
-             "username":td_username,
-             "address":td_address,
+             "flow_name":td_flow_name,
+             "finish":td_finish,
+             "time_rpa":td_time_rpa,
+             "time_person":td_time_person,
+             "introduce":td_introduce,
+             "remark":td_remark,
              "operate":"update",
               csrfmiddlewaretoken: '{{ csrf_token }}',
           },
           datatype:"json",
           success:function (result) {
                   console.log('成功')
-<!--                  location.href = "{% url 'ip' %}";-->
                    var b = $("td[id='"+id+"']"); //td
                    var a = b.siblings(); //td的兄弟节点
                    console.log(a)
@@ -160,10 +173,22 @@
                       a[1].innerHTML=td_office;
                    }
                    if(a[2].children.length===1){
-                      a[2].innerHTML=td_username;
+                      a[2].innerHTML=td_flow_name;
                    }
                    if(a[3].children.length===1){
-                      a[3].innerHTML=td_address;
+                      a[3].innerHTML=td_finish;
+                   }
+                   if(a[4].children.length===1){
+                      a[4].innerHTML=td_time_rpa;
+                   }
+                   if(a[5].children.length===1){
+                      a[5].innerHTML=td_time_person;
+                   }
+                   if(a[6].children.length===1){
+                      a[6].innerHTML=td_introduce;
+                   }
+                   if(a[7].children.length===1){
+                      a[7].innerHTML=td_remark;
                    }
                    //将编辑改成 保存和取消两个按钮
                    b[0].innerHTML="<td align='left' width='10%' id=" + id + " ><a href='javascript:void(0)' onclick='editTd(" + id + ")'>编辑</a></td>";
@@ -176,25 +201,31 @@
       function DeleteTd(id) {
        var a = $("td[id='"+id+"']").siblings(); //td的兄弟节点
        var td_office = a[1].children[0].value; //部门名称
-       var td_username = a[2].children[0].value; //使用者
-       var td_address = a[3].children[0].value; //IP地址
-       var url = {% url 'ip' %};
+       var td_flow_name = a[2].children[0].value; //使用者
+       var td_finish = a[3].children[0].value; //IP地址
+       var td_time_rpa = a[3].children[0].value; //IP地址
+       var td_time_person = a[3].children[0].value; //IP地址
+       var td_introduce = a[3].children[0].value; //IP地址
+       var td_remark = a[3].children[0].value; //IP地址
+       var url = '{% url 'info:table' %}';
        $.ajax({
           url:url,
           type:"post",
           data:{
              "id":id,
              "office":td_office,
-             "username":td_username,
-             "address":td_address,
+             "flow_name":td_flow_name,
+             "finish":td_finish,
+             "time_rpa":td_time_rpa,
+             "time_person":td_time_person,
+             "introduce":td_introduce,
+             "remark":td_remark,
              "operate":"delete",
               csrfmiddlewaretoken: '{{ csrf_token }}',
           },
           datatype:"json",
           success:function (result) {
                   console.log('成功')
-<!--                  location.href = "{% url 'ip' %}";-->
-<!--                  $(this).closest().remove();-->
             var b = $("td[id='"+id+"']").parent(); //td
             b.remove();
           },
@@ -204,7 +235,7 @@
        });
     }
   function CancelTd(id) {
-<!--    location.href = "{% url 'ip' %}";-->
+<!--    location.href = "{% url 'info:ip' %}";-->
    var b = $("td[id='"+id+"']"); //td
    var a = b.siblings(); //td的兄弟节点
    console.log(a)
@@ -217,6 +248,19 @@
    if(a[3].children.length===1){
       a[3].innerHTML=a[3].children[0].value;
    }
+   if(a[4].children.length===1){
+      a[4].innerHTML=a[4].children[0].value;
+   }
+   if(a[5].children.length===1){
+      a[5].innerHTML=a[5].children[0].value;
+   }
+   if(a[6].children.length===1){
+      a[6].innerHTML=a[6].children[0].value;
+   }
+   if(a[7].children.length===1){
+      a[7].innerHTML=a[7].children[0].value;
+   }
+
    //将编辑改成 保存和取消两个按钮
    b[0].innerHTML="<td align='left' width='10%' id=" + id + " ><a href='javascript:void(0)' onclick='editTd(" + id + ")'>编辑</a></td>";
   }
@@ -232,6 +276,18 @@
    if(a[3].children.length===0){
       a[3].innerHTML="<input type='text' value='"+a[3].innerText+"'/>";
    }
+   if(a[4].children.length===0){
+      a[4].innerHTML="<input type='text' value='"+a[4].innerText+"'/>";
+   }
+   if(a[5].children.length===0){
+      a[5].innerHTML="<input type='text' value='"+a[5].innerText+"'/>";
+   }
+   if(a[6].children.length===0){
+      a[6].innerHTML="<input type='text' value='"+a[6].innerText+"'/>";
+   }
+   if(a[7].children.length===0){
+      a[7].innerHTML="<input type='text' value='"+a[7].innerText+"'/>";
+   }
    //将编辑改成 保存和取消两个按钮
    b[0].innerHTML="<input type='button' onclick='saveTd(" + id + ")' value='保存'/><input type='button' onclick='DeleteTd(" + id + ")' value='删除'/><input type='button' onclick='CancelTd(" + id + ")' value='取消'/>";
  }
@@ -239,14 +295,13 @@
     $('#AddData').on('click', function(){
     layer.open({
       type: 2,
-      title: '新增交易网IP数据',
+      title: '新增流程数据',
       maxmin: true,
       shadeClose: true, //点击遮罩关闭层
-      area : ['800px' , '520px'],
-      content: '{% url 'ip_edit' %}'
+      area : ['800px' , '720px'],
+      content: '{% url 'info:flow_edit' %}'
     });
   });
+  </script>
+{% endblock %}
 
-</script>
-</body>
-</html>

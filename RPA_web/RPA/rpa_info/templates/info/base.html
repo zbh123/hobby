@@ -1,0 +1,71 @@
+<html lang="en-us">
+{% load staticfiles %}
+<head>
+    <title>{% block title %}RPA{% endblock %}</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="NONE,NOARCHIVE">
+
+    {% block meta %}
+    {% endblock %}
+    <link rel="shortcut icon" href="{% static 'img/bitbug_favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'img/bitbug_favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/_all-skins.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    {% block style %}
+    {% endblock %}
+
+</head>
+
+{% block body %}
+
+{% endblock %}
+<!-- Container -->
+<div id="container" class=" dashboard" data-admin-utc-offset="0">
+
+
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+
+            <h1 id="site-name"><a href="{url 'info:index'}">
+                <span style="font-family: Times New Roman;">RPA</span>
+                <span style="font-family: 楷体;">流程信息</span>
+            </a></h1>
+
+        </div>
+
+
+        <div id="user-tools" style="font-family: Times New Roman;">
+
+            Welcome,
+            {% if request.session.is_login %}
+            <strong style="font-family: Times New Roman;">{{request.session.username}}</strong>.
+            {% endif %}
+
+            <a href="{% url 'info:index' %}" style="font-family: Times New Roman;">View site</a> /
+            {% if request.session.is_login %}
+              <a href="{% url 'info:logout' %}" style="font-family: Times New Roman;">Log out</a>
+            {% else %}
+              <a href="{% url 'info:login' %}" style="font-family: Times New Roman;">Log in</a>
+            {% endif %}
+
+        </div>
+
+
+    </div>
+    <!-- END Header -->
+</div>
+<!-- Content -->
+    {% block content%}
+    {% endblock %}
+<!-- END Content -->
+
+
+
+
+{% block script %}
+{% endblock %}
+</body>
+</html>

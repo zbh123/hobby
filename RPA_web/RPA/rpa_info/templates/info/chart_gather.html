@@ -9,74 +9,12 @@
     <script src="{% static 'js/echarts.js' %}"></script>
 </head>
 <body>
-<h5 align="right"><a href="{% url 'index' %}">返回</a></h5>
-<h5 align="right"><a href=" {% url 'table' %}">流程汇总</a></h5>
+<h5 align="right"><a href="{% url 'info:index' %}">返回</a></h5>
+<h5 align="right"><a href=" {% url 'info:table' %}">流程汇总</a></h5>
 <div style="width:100%" align="center">
     <div id="line_chart" style="width:1200px;height:400px;" align="center"></div>
     <div id="pie_chart" style="width:800px;height:400px;"></div>
     <div id="bar_chart" style="width:1200px;height:400px;"></div>
-<!--    <div style="width: 245px; position: absolute; right: 5px; top: 0px; z-index: 1000;">-->
-<!--        <ul>-->
-<!--            <li class="cr number has-slider">-->
-<!--                <div><span class="property-name">rotate</span>-->
-<!--                    <div class="c">-->
-<!--                        <div><input type="text"></div>-->
-<!--                        <div class="slider">-->
-<!--                            <div class="slider-fg" style="width: 100%;"></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </li>-->
-<!--            <li class="cr string">-->
-<!--                <div><span class="property-name">align</span>-->
-<!--                    <div class="c"><select>-->
-<!--                        <option value="left">left</option>-->
-<!--                        <option value="center">center</option>-->
-<!--                        <option value="right">right</option>-->
-<!--                    </select></div>-->
-<!--                </div>-->
-<!--            </li>-->
-<!--            <li class="cr string">-->
-<!--                <div><span class="property-name">verticalAlign</span>-->
-<!--                    <div class="c"><select>-->
-<!--                        <option value="top">top</option>-->
-<!--                        <option value="middle">middle</option>-->
-<!--                        <option value="bottom">bottom</option>-->
-<!--                    </select></div>-->
-<!--                </div>-->
-<!--            </li>-->
-<!--            <li class="cr string">-->
-<!--                <div><span class="property-name">position</span>-->
-<!--                    <div class="c"><select>-->
-<!--                        <option value="left">left</option>-->
-<!--                        <option value="right">right</option>-->
-<!--                        <option value="top">top</option>-->
-<!--                        <option value="bottom">bottom</option>-->
-<!--                        <option value="inside">inside</option>-->
-<!--                        <option value="insideTop">insideTop</option>-->
-<!--                        <option value="insideLeft">insideLeft</option>-->
-<!--                        <option value="insideRight">insideRight</option>-->
-<!--                        <option value="insideBottom">insideBottom</option>-->
-<!--                        <option value="insideTopLeft">insideTopLeft</option>-->
-<!--                        <option value="insideTopRight">insideTopRight</option>-->
-<!--                        <option value="insideBottomLeft">insideBottomLeft</option>-->
-<!--                        <option value="insideBottomRight">insideBottomRight</option>-->
-<!--                    </select></div>-->
-<!--                </div>-->
-<!--            </li>-->
-<!--            <li class="cr number has-slider">-->
-<!--                <div><span class="property-name">distance</span>-->
-<!--                    <div class="c">-->
-<!--                        <div><input type="text"></div>-->
-<!--                        <div class="slider">-->
-<!--                            <div class="slider-fg" style="width: 15%;"></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--        <div class="close-button" style="width: 245px;">Close Controls</div>-->
-<!--    </div>-->
 </div>
 
 </body>

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rpa_info',
+    'rpa_request',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'RPA.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'rpa_info\\templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'rpa_info\\templates'), os.path.join(BASE_DIR, 'rpa_request\\templates\\request')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

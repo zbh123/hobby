@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'img/bitbug_favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'img/bitbug_favicon.ico' %}" type="image/x-icon">
+    <link href="{% static 'css/bootstrap.min.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" type="text/javascript" rel="stylesheet">
+    <link href="{% static 'css/bootsnav.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/normalize.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/css.css' %}" type="text/css" rel="stylesheet">
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/bootsnav.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery.js' %}" type="text/javascript"></script>
+    <!--[if IE]>
+    <script src="{% static 'js/html5.js' %}"></script>
+    <![endif]-->
+
+    <title>注册</title>
+</head>
+
+<body class="logobg_style">
+<div id="large-header" class="large-header login-page">
+    <canvas id="demo-canvas" width="1590" height="711"></canvas>
+    <div class="Retrieve_style">
+        <div class="Retrieve-content step-body" id="myStep">
+            <h1 class="title_name">用户注册</h1>
+            <div class="step-header">
+                <ul>
+                    <li><p>用户信息</p></li><li><p>确认密码</p></li><li><p>成功</p></li>
+                </ul>
+            </div>
+            <div class="step-content">
+                <div class="step-list login_padding">
+                    <form role="form" id="form_login" class="">
+                        <div class="form-group clearfix">
+                            <div class="input-group">
+                                <div class="input-group-addon">部门：</div>
+                                <input type="text" class="form-control" name="office" id="office"
+                                       placeholder="所属部门" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="input-group">
+                                <div class="input-group-addon">用户：</div>
+                                <input type="text" class="form-control" name="username" id="username"
+                                       placeholder="用户名" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="tishi"></div>
+                    </form>
+                    <div class="form-group">
+                        <button class="btn btn-danger btn-block btn-login" id="applyBtn">下一步</button>
+                    </div>
+
+                </div>
+                <div class="step-list">
+                    <form method="post" role="form" id="" class="login_padding">
+                        <div class="form-group clearfix">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="icon_password"></i>
+                                </div>
+                                <input type="password" class="form-control" name="password" id="password"
+                                       placeholder="设置密码" autocomplete="off">
+                            </div>
+
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="icon_password"></i>
+                                </div>
+                                <input type="password" class="form-control" name="confirmpwd" id="confirmpwd"
+                                       placeholder="确认密码" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="tishis"></div>
+                        <div class="form-group">
+                            <a href="javascript:void(0);" type="submit" class="btn btn-danger btn-block btn-login"
+                               id="submitBtn">下一步</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="step-list">
+                    <div class="ok_style center">
+                        <h2><img src="{% static 'img/ok.png' %}"></h2>
+                        <h5 class="color2 mtb20">你已成功注册会员<b id="sec">5</b>秒后跳转到首页</h5>
+                        <a href="JavaScript：ovid()" class="btn btn-danger">首页</a>
+                        <a href="JavaScript：ovid()" class="btn btn-primary">从新注册</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/TweenLite/TweenLite.min.js' %}"></script>
+<script src="{% static 'js/TweenLite/EasePack.min.js' %}"></script>
+<script src="{% static 'js/TweenLite/rAF.js' %}"></script>
+<script src="{% static 'js/TweenLite/demo-1.js' %}"></script>
+</body>
+</html>
+<script type="text/javascript">
+$(function() {
+		var step= $("#myStep").step({
+			animate:true,
+			initStep:1,
+			speed:1000
+		});
+		$("#preBtn").click(function(event) {
+			var yes=step.preStep();
+
+		});
+		$("#applyBtn").click(function(event) {
+
+		  var username = $.trim($("#username").val());
+		  var office = $.trim($("#office").val());
+		if ($.trim(office) == "") {
+			Tip('请填写所属部门！');
+			$("#office").focus();
+			return;
+		}
+
+		if ($.trim(username) == "") {
+			Tip('用户名未填写！');
+			$("#Verification").focus();
+			return;
+		}
+			var yes=step.nextStep();
+			return;
+		});
+		$("#submitBtn").click(function(event) {
+			  var txtconfirm = $.trim($("#confirmpwd").val());
+	          var txtPwd = $("#password").val();
+
+	          if ($.trim(txtPwd) == "") {
+
+	         	Tips('请输入你要设置的密码！');
+		       $("#txtPwd").focus();
+		      return;
+
+	            }
+			  if($.trim(txtconfirm) == "") {
+
+	         	Tips('请再次输入密码！');
+		       $("#txtconfirm").focus();
+		      return;
+
+	            }
+			  if( $.trim(txtconfirm) != $.trim(txtPwd) ) {
+
+	         	Tips('你输入的密码不匹配，请从新输入！');
+		       $("#txtconfirm").focus();
+		      return;
+	            }
+              var office = $.trim($("#office").val());
+              var username = $.trim($("#username").val());
+              var url = '{% url 'request:register' %}';
+              $.ajax({
+                   url:url,
+                   type:"post",
+                   data:{
+                         "office":office,
+                         "username":username,
+                         "txtPwd":txtPwd,
+                          csrfmiddlewaretoken: '{{ csrf_token }}',
+                   },
+                   datatype:"json",
+                   success:function (data) {
+                        if(data.is_select)
+                        {
+                            alert('添加成功')
+                            location.href = "{% url 'request:login' %}";
+                        }
+                        else
+                        {
+                            alert('用户已存在，请直接登录')
+                            location.href = "{% url 'request:login' %}";
+                        }
+
+                      },
+                   error:function(data)
+                   {
+                      alert("请求出错");
+                   }
+<!--                   return false;-->
+             });
+			  var yes=step.nextStep();
+
+		});
+		$("#goBtn").click(function(event) {
+			var yes=step.goStep(3);
+		});
+	});
+
+
+(function (factory) {
+    "use strict";
+    if (typeof define === 'function') {
+        // using CMD; register as anon module
+      define.cmd&&define('jquery-step', ['jquery'], function (require, exports, moudles) {
+            var $=require("jquery");
+            factory($);
+            return $;
+        });
+      define.amd&&define(['jquery'], factory);
+    } else {
+        // no CMD; invoke directly
+        factory( (typeof(jQuery) != 'undefined') ? jQuery : window.Zepto );
+    }
+}
+
+(function($){
+  $.fn.step = function(options) {
+      var opts = $.extend({}, $.fn.step.defaults, options);
+      var size=this.find(".step-header li").length;
+      var barWidth=opts.initStep<size?100/(2*size)+100*(opts.initStep-1)/size : 100;
+      var curPage=opts.initStep;
+
+      this.find(".step-header").prepend("<div class=\"step-bar\"><div class=\"step-bar-active\"></div></div>");
+      this.find(".step-list").eq(opts.initStep-1).show();
+      if (size<opts.initStep) {
+        opts.initStep=size;
+      }
+      if (opts.animate==false) {
+        opts.speed=0;
+      }
+      this.find(".step-header li").each(function (i, li) {
+        if (i<opts.initStep){
+          $(li).addClass("step-active");
+        }
+        //$(li).prepend("<span>"+(i+1)+"</span>");
+        $(li).append("<span>"+(i+1)+"</span>");
+    });
+    this.find(".step-header li").css({
+      "width": 100/size+"%"
+    });
+    this.find(".step-header").show();
+    this.find(".step-bar-active").animate({
+        "width": barWidth+"%"},
+        opts.speed, function() {
+
+    });
+
+      this.nextStep=function() {
+        if (curPage>=size) {
+          return false;
+        }
+        return this.goStep(curPage+1);
+      }
+
+      this.preStep=function() {
+        if (curPage<=1) {
+          return false;
+        }
+        return this.goStep(curPage-1);
+      }
+
+      this.goStep=function(page) {
+        if (page ==undefined || isNaN(page) || page<0) {
+          if(window.console&&window.console.error){
+            console.error('the method goStep has a error,page:'+page);
+          }
+        return false;
+        }
+        curPage=page;
+        this.find(".step-list").hide();
+        this.find(".step-list").eq(curPage-1).show();
+        this.find(".step-header li").each(function (i, li) {
+          $li=$(li);
+          $li.removeClass('step-active');
+          if (i<page){
+            $li.addClass('step-active');
+            if(opts.scrollTop){
+             $('html,body').animate({scrollTop:0}, 'slow');
+            }
+        }
+      });
+      barWidth=page<size?100/(2*size)+100*(page-1)/size : 100;
+        this.find(".step-bar-active").animate({
+          "width": barWidth+"%"},
+          opts.speed, function() {
+
+        });
+        return true;
+      }
+      return this;
+  };
+
+  $.fn.step.defaults = {
+      animate:true,
+      speed:500,
+    initStep:1,
+    scrollTop:true
+  };
+})
+ );
+
+</script>
