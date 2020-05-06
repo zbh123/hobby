@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = '7$qy1coy_i@ss6m!*_hqcp=510sq=6=27$lq9r#ppv-93lsi&p'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*', ]
-
 
 # Application definition
 
@@ -39,13 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rpa_info',
     'rpa_request',
+    'rpa_command',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -56,7 +55,9 @@ ROOT_URLCONF = 'RPA.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'rpa_info\\templates'), os.path.join(BASE_DIR, 'rpa_request\\templates\\request')],
+        'DIRS': [os.path.join(BASE_DIR, 'rpa_info\\templates'),
+                 os.path.join(BASE_DIR, 'rpa_request\\templates\\request'),
+                 os.path.join(BASE_DIR, 'rpa_command\\templates\\command')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,8 +72,7 @@ TEMPLATES = [
 # delete seesion when chrome shutdown
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 WSGI_APPLICATION = 'RPA.wsgi.application'
-
-
+APPEND_SLASH = False
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -82,7 +82,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'Data\\rpa_flow.db'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -102,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -115,7 +113,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

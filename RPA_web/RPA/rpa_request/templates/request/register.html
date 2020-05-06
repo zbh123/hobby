@@ -1,32 +1,10 @@
-<!DOCTYPE html>
+{% extends 'request/base.html'%}
 {% load staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{% static 'img/bitbug_favicon.ico' %}" type="image/x-icon">
-    <link rel="icon" href="{% static 'img/bitbug_favicon.ico' %}" type="image/x-icon">
-    <link href="{% static 'css/bootstrap.min.css' %}" type="text/css" rel="stylesheet">
-    <link href="{% static 'css/font-awesome.min.css' %}" type="text/javascript" rel="stylesheet">
-    <link href="{% static 'css/bootsnav.css' %}" type="text/css" rel="stylesheet">
-    <link href="{% static 'css/normalize.css' %}" type="text/css" rel="stylesheet">
-    <link href="{% static 'css/css.css' %}" type="text/css" rel="stylesheet">
-    <script src="{% static 'js/jquery-1.11.0.min.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/bootsnav.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/jquery.js' %}" type="text/javascript"></script>
-    <!--[if IE]>
-    <script src="{% static 'js/html5.js' %}"></script>
-    <![endif]-->
+    {% block title%}注册{% endblock %}
 
-    <title>注册</title>
-</head>
 
-<body class="logobg_style">
-<div id="large-header" class="large-header login-page">
-    <canvas id="demo-canvas" width="1590" height="711"></canvas>
+{% block content %}
     <div class="Retrieve_style">
         <div class="Retrieve-content step-body" id="myStep">
             <h1 class="title_name">用户注册</h1>
@@ -98,13 +76,9 @@
             </div>
         </div>
     </div>
-</div>
-<script src="{% static 'js/TweenLite/TweenLite.min.js' %}"></script>
-<script src="{% static 'js/TweenLite/EasePack.min.js' %}"></script>
-<script src="{% static 'js/TweenLite/rAF.js' %}"></script>
-<script src="{% static 'js/TweenLite/demo-1.js' %}"></script>
-</body>
-</html>
+{% endblock %}
+
+{% block scripts%}
 <script type="text/javascript">
 $(function() {
 		var step= $("#myStep").step({
@@ -302,3 +276,4 @@ $(function() {
  );
 
 </script>
+{% endblock %}

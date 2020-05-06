@@ -1,3 +1,5 @@
+
+
 """RPA URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,15 +15,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.conf.urls import include
 from django.views.generic.base import RedirectView
 from django.urls import path
-import rpa_info, rpa_request, rpa_command
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path(r'info/', include(('rpa_info.urls', "info"), namespace="info")),
-    path(r'request/', include(('rpa_request.urls', "request"), namespace="request")),
-    path(r'command/', include(('rpa_command.urls', "command"), namespace="command")),
+    path(r'favicon/.ico/', RedirectView.as_view(url=r"{% static 'img/bitbug_favicon.ico' %}")),
+    path(r'startflow', views.StartFlow.as_view(), name='startflow'),
 ]

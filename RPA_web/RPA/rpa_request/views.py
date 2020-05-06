@@ -62,3 +62,7 @@ def register(request):
             data['is_select'] = 1
         return JsonResponse(data)
     return render(request, 'request/register.html')
+
+
+def test(request):
+    return render(request, 'request/测试.html')
