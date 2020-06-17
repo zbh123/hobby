@@ -2,6 +2,7 @@ import time
 import random
 import pickle
 import os
+
 '''
 
 人
@@ -26,6 +27,7 @@ import os
 行为：管理员界面， 管理员登录， 系统功能界面
 
 '''
+
 
 class Admin(object):
     def __init__(self):
@@ -52,6 +54,7 @@ class Admin(object):
         print('*                                           *')
         print('*                                           *')
         print('*********************************************')
+
     def adminOption(self):
         inputAdmin = input("输入管理员账号")
         if self.admin != inputAdmin:
@@ -65,12 +68,15 @@ class Admin(object):
         time.sleep(2)
         return 0
 
+
 class Card(object):
     def __init__(self, cardId, cardPasswd, cardMoney):
         self.cardId = cardId
         self.cardPasswd = cardPasswd
         self.cardMoney = cardMoney
         self.cardLock = False
+
+
 class User(object):
     def __init__(self, name, idCard, phone, card):
         self.name = name
@@ -81,9 +87,10 @@ class User(object):
 
 class ATM(object):
     def __init__(self, allUser):
-        self.allUser = allUser #卡号-用户
+        self.allUser = allUser  # 卡号-用户
+
     def creatUser(self):
-        #向用户字典中添加一对键值对（卡号-用户）
+        # 向用户字典中添加一对键值对（卡号-用户）
         name = input('请输入您的姓名：')
         idCard = input('请输入您的身份证号：')
         phone = input('请输入您的手机号：')
@@ -92,7 +99,7 @@ class ATM(object):
             print('金额有误，开户失败')
             return -1
         onePasswd = int(input('请设置密码：'))
-        #验证密码
+        # 验证密码
         if not self.checkPasswd(onePasswd):
             print('密码错误，开户失败')
             return -1
@@ -102,16 +109,17 @@ class ATM(object):
         user = User(name, idCard, phone, card)
         self.allUser[cardStr] = user
         print('开户成功！！！')
-        print('您的卡号是：%s'%cardStr)
+        print('您的卡号是：%s' % cardStr)
 
-    #查询
+    # 查询
     def searchUserInfo(self):
         cardNum = input('请输入卡号：')
         user = self.allUser.get(cardNum)
         if not self.checkInfo(user):
             return -1
-        print('账号： %s     余额：%d'%(user.card.cardId, user.card.cardMoney))
-    #取款
+        print('账号： %s     余额：%d' % (user.card.cardId, user.card.cardMoney))
+
+    # 取款
     def getMoney(self):
         cardNum = input('请输入卡号：')
         user = self.allUser.get(cardNum)
@@ -123,8 +131,9 @@ class ATM(object):
             print('余额不足，取款失败')
             return -1
         user.card.cardMoney -= tmpMoney
-        print('取款成功，剩余金额 %d'%user.card.cardMoney)
-    #存款
+        print('取款成功，剩余金额 %d' % user.card.cardMoney)
+
+    # 存款
     def saveMoney(self):
         cardNum = input('请输入卡号：')
         user = self.allUser.get(cardNum)
@@ -137,10 +146,12 @@ class ATM(object):
             return -1
         user.card.cardMoney += tmpMoney
         print('存款成功，剩余金额 %d' % user.card.cardMoney)
-    #转账
+
+    # 转账
     def transferMoney(self):
         pass
-    #改密码
+
+    # 改密码
     def changePasswd(self):
         cardNum = input('请输入卡号：')
         user = self.allUser.get(cardNum)
@@ -150,11 +161,12 @@ class ATM(object):
         newPasswdConfirm = input('请确认密码：')
         if newPasswd != newPasswdConfirm:
             print('两次密码输入不同，请重新操作')
-            changePasswd()
+            self.changePasswd()
         else:
             user.card.cardPasswd = newPasswd
             print('改密成功，新密码是' + user.card.cardPasswd)
-    #锁定账户
+
+    # 锁定账户
     def lockUser(self):
         cardNum = input('请输入卡号：')
         user = self.allUser.get(cardNum)
@@ -166,7 +178,8 @@ class ATM(object):
             return -1
         user.card.cardLock = True
         print('锁定成功')
-    #解锁账户
+
+    # 解锁账户
     def unlockUser(self):
         cardNum = input('请输入卡号：')
         user = self.allUser.get(cardNum)
@@ -185,23 +198,26 @@ class ATM(object):
             return -1
         user.card.cardLock = False
         print('解锁成功')
-    #办理新卡
+
+    # 办理新卡
     def newCard(self):
         pass
-    #销户
+
+    # 销户
     def killUser(self):
         cardNum = input('请输入卡号：')
         user = self.allUser.get(cardNum)
         if not self.checkInfo(user):
             return -1
         confirminfo = input('请确认是否销户，确认销户请输入Y，取消销户请输入N：')
-        if confirminfo == 'N' or confirminfo =='Not':
+        if confirminfo == 'N' or confirminfo == 'Not':
             print('取消操作成功')
             return -1
         deleteInfo = self.allUser.pop(cardNum)
         print('销户成功')
         print(deleteInfo)
-    #验证密码
+
+    # 验证密码
     def checkPasswd(self, realPasswd):
         for i in range(3):
             tmpPasswd = int(input("请输入密码："))
@@ -209,25 +225,27 @@ class ATM(object):
                 print('密码正确')
                 return 1
         return False
+
     def randomCardId(self):
         str = ""
         for i in range(6):
             ty = random.randrange(3)
             ty = 2
-            if ty == 0 :
-                #随机生成大写字母
-                ch = chr(random.randrange(ord('A'),ord('Z')+1))
+            if ty == 0:
+                # 随机生成大写字母
+                ch = chr(random.randrange(ord('A'), ord('Z') + 1))
                 str += ch
             elif ty == 1:
-                #随机生成小写字母
-                ch = chr(random.randrange(ord('a'),ord('z')+1))
+                # 随机生成小写字母
+                ch = chr(random.randrange(ord('a'), ord('z') + 1))
                 str += ch
             else:
-                #随机生成数字
-                ch = chr(random.randrange(ord('0'),ord('9')+1))
+                # 随机生成数字
+                ch = chr(random.randrange(ord('0'), ord('9') + 1))
                 str += ch
         if not self.allUser.get(str):
             return str
+
     def checkInfo(self, user):
         if not user:
             print('卡号不存在')
@@ -244,7 +262,7 @@ class ATM(object):
 
 
 def main():
-    #界面对象
+    # 界面对象
     view = Admin()
     view.printAdminView()
     if view.adminOption():
@@ -257,50 +275,50 @@ def main():
 
     while True:
         view.printSysFunctionView()
-        #等待用户操作
+        # 等待用户操作
         option = input("请输入操作")
         if option == "1":
-            #开户
+            # 开户
             print('开户')
             atm.creatUser()
         if option == "2":
-            #查询
+            # 查询
             print('查询')
             atm.searchUserInfo()
         if option == "3":
-            #取款
+            # 取款
             print('取款')
             atm.getMoney()
         if option == "4":
-            #存款
+            # 存款
             print('存款')
             atm.saveMoney()
         if option == "5":
-            #转账
+            # 转账
             print('转账')
         if option == "6":
-            #改密
+            # 改密
             print('改密')
             atm.changePasswd()
         if option == "7":
-            #锁定
+            # 锁定
             atm.lockUser()
             print('锁定')
         if option == "8":
-            #解锁
+            # 解锁
             atm.unlockUser()
             print('解锁')
         if option == "0":
-            #销户
+            # 销户
             atm.killUser()
             print('销户')
         if option == "quit":
-            #退出
+            # 退出
             if not view.adminOption():
                 print('退出')
-                filepath = os.path.join(os.getcwd(),"alluser.txt")
+                filepath = os.path.join(os.getcwd(), "alluser.txt")
                 print(filepath)
-                f = open(filepath,'wb')
+                f = open(filepath, 'wb')
                 pickle.dump(atm.allUser, f)
                 f.close()
 
@@ -311,9 +329,5 @@ def main():
         time.sleep(2)
 
 
-
-
 if __name__ == '__main__':
     main()
-
-

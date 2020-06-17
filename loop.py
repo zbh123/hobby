@@ -16,8 +16,8 @@ _fs = list_all_files(rootdir)
 _k = filter(lambda x:re.compile(r'stage2.txt').search(x),_fs)
 
 
-1 rootdir = 'F:\data'
-2 list = os.listdir(rootdir) #列出文件夹下所有的目录与文件
-3 for i in range(0,len(list)):
-4        path = os.path.join(rootdir,list[i])
-5        if os.path.isfile(path):
+# rootdir = 'F:\data'
+# list = os.listdir(rootdir) #列出文件夹下所有的目录与文件
+# for i in range(0,len(list)):
+#         path = os.path.join(rootdir,list[i])
+#        if os.path.isfile(path):

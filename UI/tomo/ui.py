@@ -10,12 +10,13 @@ except AttributeError:
 
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
+
+
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
-
 
 
 class Ui_Dialog(object):
@@ -25,7 +26,7 @@ class Ui_Dialog(object):
         self.buttonBox = QtGui.QDialogButtonBox(Dialog)
         self.buttonBox.setGeometry(QtCore.QRect(30, 240, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
 
         self.retranslateUi(Dialog)
@@ -36,12 +37,15 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
 
-#获取引入函数的print内容
+
+# 获取引入函数的print内容
 class EmittingStream(QtCore.QObject):
     textWritten = QtCore.pyqtSignal(str)
+
     def write(self, text):
         if text.strip('\n').strip():
             self.textWritten.emit("print Info: {}".format(str(text).strip('\n')))
+
 
 class TestDialog(QtGui.QTableWidget):
     def __init__(self):
@@ -69,21 +73,16 @@ class TestDialog(QtGui.QTableWidget):
         sys.stderr = sys.__stderr__
 
     def normalOutputWritten(self, text):
-        #cursor = self.firstUI.out.textCursor()
-        #cursor.movePosition(QtGui.QTextCursor.End)
-        #只能用append不能用setText，否则会让界面卡死
+        # cursor = self.firstUI.out.textCursor()
+        # cursor.movePosition(QtGui.QTextCursor.End)
+        # 只能用append不能用setText，否则会让界面卡死
         self.firstUI.out.append(text)
-        #self.firstUI.out.setTextCursor(cursor)
-        #self.firstUI.out.ensureCursorVisible()
+        # self.firstUI.out.setTextCursor(cursor)
+        # self.firstUI.out.ensureCursorVisible()
+
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
     dialog = TestDialog()
     dialog.show()
     sys.exit(app.exec_())
-
-
-
-
-
-

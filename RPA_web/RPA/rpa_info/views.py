@@ -66,10 +66,37 @@ def table(request):
         for i in range(len(flow_list)):
             id, office, flow_name, finish, time_rpa, time_person, introduce, remark = flow_list[i].values()
             # print(id, office, flow_name, finish, time_rpa, time_person, introduce, remark)
-            flow_dict[i] = {'id': id, 'office': office, 'flow_name': flow_name, 'finish': finish, 'time_rpa': time_rpa,
+            flow_dict[i+1] = {'id': id, 'office': office, 'flow_name': flow_name, 'finish': finish, 'time_rpa': time_rpa,
                             'time_person': time_person, 'introduce': introduce, 'remark': remark}
         head_key = ['ID', 'Office', 'Flow_name', 'Finish (%)', 'Time_rpa(m)', 'Time_person(m)', 'Introduce', 'Remark']
-        param = {'flow_dict': flow_dict, 'head_key': head_key}
+        flow_name_list = []
+        rpa_time = []
+        person_time = []
+        ratio_list = []
+        flow_list = Time.objects.all().values()
+        for i in range(len(flow_list)):
+            id, flow_name, time_rpa, time_person = flow_list[i].values()
+            if time_rpa != None and time_person != None:
+                rpa_time.append(time_rpa)
+                person_time.append(time_person)
+                flow_name_list.append(flow_name)
+                ratio_list.append(round(float(time_rpa) / float(time_person), 2))
+        office_list = Rpa.objects.values('office').distinct()
+        office_table = []
+        office_name = []
+        for i in range(len(office_list)):
+            office = str(list(office_list[i].values()))
+            office = office.split("'")[1]
+            n = Rpa.objects.filter(office=str(office)).count()
+            # office_dict[office] = n
+            office_name.append(office)
+            if len(office_table) == 0:
+                office_table = [{'value': n, 'name': office}]
+            else:
+                office_table.append({'value': n, 'name': office})
+        param = {'flow_name': flow_name_list, 'rpa_time': rpa_time, 'person_time': person_time,
+                 'office_table': json.dumps(office_table, ensure_ascii=False),
+                 'ratio_list': ratio_list, 'office_name': office_name, 'flow_dict': flow_dict, 'head_key': head_key}
         return render(request, 'info/data_table.html', param)
 
 
@@ -94,11 +121,12 @@ def ip_display(request):
     else:
         ip_infor_dict = OrderedDict()
         ip_list = IP.objects.all().values()
+        num = IP.objects.all().count()
         for i in range(len(ip_list)):
             id, office, username, address = ip_list[i].values()
-            ip_infor_dict[i] = {'id': id, 'office': office, 'username': username, 'address': address}
+            ip_infor_dict[i+1] = {'id': id, 'office': office, 'username': username, 'address': address}
         head_key = ['ID', '部门', '用户名', 'IP地址']
-        param = {'ip_infor_dict': ip_infor_dict, 'head_key': head_key}
+        param = {'ip_infor_dict': ip_infor_dict, 'head_key': head_key, 'num':num}
         return render(request, 'info/ip_address.html', param)
 
 
@@ -242,7 +270,7 @@ def test(request):
             ip_infor_dict[i] = {'id': id, 'office': office, 'username': username, 'address': address}
         head_key = ['ID', '部门', '用户名', 'IP地址']
         param = {'ip_infor_dict': ip_infor_dict, 'head_key': head_key}
-        return render(request, 'info/测试.html', param)
+        return render(request, 'info/test.html', param)
 
 
 def add_task(task_queue):

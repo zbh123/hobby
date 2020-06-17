@@ -905,7 +905,8 @@ class tomo():
                         if (j+1 <= self.ny-1 and k+1 <= self.nz-1):
                             v=v+self.vel[i][j+1][k+1];siren+=1
                         if (i+1 <= self.nx-1 and j+1 <= self.ny-1 and k+1 <= self.nz-1):
-                            v=v+self.vel[i+1][j+1][k+1];siren+=1
+                            v=v+self.vel[i+1][j+1][k+1];
+                            siren+=1
 
                         self.vel[i][j][k]=1.0 / (2 * siren) * v+0.5 * self.vel[i][j][k]
 

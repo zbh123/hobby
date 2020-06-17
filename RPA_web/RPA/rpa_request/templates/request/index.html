@@ -1,10 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'request/base.html' %}
+{% load staticfiles%}
 
-</body>
-</html>
+    {% block title%}首页{% endblock %}
+
+
+{% block content %}
+    <div class="login-form">
+        <div class="login-content">
+            <h1 class="title_name">RPA账户登录</h1>
+            <form method="post" role="form" id="form_login" class="login_padding" action="{% url 'request:login' %}">
+                <div class="form-group clearfix">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="icon_user"></i>
+                        </div>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="用户名"
+                               autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group clearfix">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="icon_password"></i>
+                        </div>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="密码"
+                               autocomplete="off">
+                    </div>
+                </div>
+                <div class="textright"><a href="#" class="forget">忘记密码？</a></div>
+                <div class="tishi"></div>
+                <div class="form-group">
+                    <a href="javascript:;" type="submit" class="btn btn-danger btn-block btn-login"
+                       onClick="cliLogin()">
+                        <i class="fa fa-sign-in"></i>
+                        登录
+                    </a>
+                </div>
+                <div class="textright"><a href="{% url 'request:register' %}" class="forget">立即注册</a></div>
+                <!-- Implemented in v1.1.4 -->
+                <div class="form-group">
+
+                </div>
+
+
+            </form>
+        </div>
+
+    </div>
+{% endblock%}
+
+{% block scripts%}
+<script>
+    $(document).ready(function(){
+if(screen.width < 780 && $(window).width() < 780)
+{
+	$(".content_list").hide();
+
+}else{
+	$(".content_list").show();
+}
+     $(window).resize(function(){
+	 $(".content_list").show();
+	 });
+});
+//登录操作
+function cliLogin() {
+	var txtUser = $.trim($("#username").val());
+	var txtPwd = $("#password").val();
+
+	if ($.trim(txtUser) == "") {
+		Tip('请输入用户名');
+		$("#txtUser").focus();
+		return;
+
+	}
+
+	if ($.trim(txtPwd) == "") {
+		Tip('请输入密码！');
+		$("#Userpwd").focus();
+		return;
+	}
+	url = '{% url 'request:login' %}'
+	$.ajax({
+        url:url,
+        type:"post",
+        data:{
+             "username":txtUser,
+             "passwd":txtPwd,
+             csrfmiddlewaretoken: '{{ csrf_token }}',
+             },
+        datatype:"json",
+        success:function (data) {
+            if(data.is_select)
+            {
+              alert('登录成功')
+              location.href = "{% url 'request:index' %}";
+            }
+            else
+            {
+               alert("用户名或密码错误");
+               location.href = "{% url 'request:login' %}";
+            }
+
+            },
+        error:function(data)
+        {
+            alert("登陆失败");
+        }
+     });
+	return false;
+}
+</script>
+{% endblock %}

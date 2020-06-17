@@ -57,9 +57,9 @@
                         {% for key, values in ip_infor_dict.items %}
                         <tr>
                             <td align="left" width="5%">{{ key }}</td>
-                            <td align="left" width="10%">{{ values.office }}</td>
-                            <td align="left" width="15%">{{ values.username }}</td>
-                            <td align="left" width="10%">{{ values.address }}</td>
+                            <td align="left" width="10%" id="{{values.office}}">{{ values.office }}</td>
+                            <td align="left" width="15%" id="{{values.username}}">{{ values.username }}</td>
+                            <td align="left" width="10%" id="{{values.address}}">{{ values.address }}</td>
                             <td align="left" width="10%" id={{values.id}}><a href="javascript:void(0)"
                                                                              onclick="editTd({{values.id}})">编辑</a></td>
                         </tr>
@@ -103,6 +103,7 @@
 <script src="{% static 'js/demo.js' %}"></script>
 <!-- page script -->
 <script src="{% static 'js/layer.js' %}"></script>
+<script src="{% static 'js/layui.js' %}"></script>
 <script type="text/javascript">
   $(function () {
     $('#example1').DataTable()
@@ -139,12 +140,15 @@
                    var a = b.siblings(); //td的兄弟节点
                    if(a[1].children.length===1){
                       a[1].innerHTML=td_office;
+                      a[1].id=td_office;
                    }
                    if(a[2].children.length===1){
                       a[2].innerHTML=td_username;
+                      a[2].id=td_username;
                    }
                    if(a[3].children.length===1){
                       a[3].innerHTML=td_address;
+                      a[3].value=td_address;
                    }
                    //将编辑改成 保存和取消两个按钮
                    b[0].innerHTML="<td align='left' width='10%' id=" + id + " ><a href='javascript:void(0)' onclick='editTd(" + id + ")'>编辑</a></td>";
@@ -186,13 +190,13 @@
    var b = $("td[id='"+id+"']"); //td
    var a = b.siblings(); //td的兄弟节点
    if(a[1].children.length===1){
-      a[1].innerHTML=a[1].children[0].value;
+      a[1].innerHTML=a[1].id;
    }
    if(a[2].children.length===1){
-      a[2].innerHTML=a[2].children[0].value;
+      a[2].innerHTML=a[2].id;
    }
    if(a[3].children.length===1){
-      a[3].innerHTML=a[3].children[0].value;
+      a[3].innerHTML=a[3].id;
    }
    //将编辑改成 保存和取消两个按钮
    b[0].innerHTML="<td align='left' width='10%' id=" + id + " ><a href='javascript:void(0)' onclick='editTd(" + id + ")'>编辑</a></td>";
@@ -201,13 +205,13 @@
    var b = $("td[id='"+id+"']"); //td
    var a = b.siblings(); //td的兄弟节点
    if(a[1].children.length===0){
-      a[1].innerHTML="<input type='text' value='"+a[1].innerText+"'/>";
+      a[1].innerHTML="<input type='text' value='"+a[1].id+"'/>";
    }
    if(a[2].children.length===0){
-      a[2].innerHTML="<input type='text' value='"+a[2].innerText+"'/>";
+      a[2].innerHTML="<input type='text' value='"+a[2].id+"'/>";
    }
    if(a[3].children.length===0){
-      a[3].innerHTML="<input type='text' value='"+a[3].innerText+"'/>";
+      a[3].innerHTML="<input type='text' value='"+a[3].id+"'/>";
    }
    //将编辑改成 保存和取消两个按钮
    b[0].innerHTML="<input type='button' onclick='saveTd(" + id + ")' value='保存'/><input type='button' onclick='DeleteTd(" + id + ")' value='删除'/><input type='button' onclick='CancelTd(" + id + ")' value='取消'/>";

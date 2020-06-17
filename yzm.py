@@ -14,4 +14,4 @@ for i in range(4):
     # else:
     #     temp = random.randint(0,9)
     # code += str(temp)
-print (code)
+print(code)

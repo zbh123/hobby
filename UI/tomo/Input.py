@@ -11,11 +11,14 @@ except AttributeError:
 
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
+
+
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
+
 
 class Ui_Form(QtGui.QWidget):
     def setupUi(self, Form):
@@ -256,10 +259,10 @@ class Ui_Form(QtGui.QWidget):
 
         self.reset.clicked.connect(self.clear)
         self.run.clicked.connect(self.thread_start)
-        self.shot_path.clicked.connect(lambda :self.get_file(self.shotpathEdit))
-        self.rec_path.clicked.connect(lambda :self.get_file(self.recpathEdit))
-        self.fb_path.clicked.connect(lambda :self.get_file(self.fb_fileEdit))
-        self.ele_path.clicked.connect(lambda :self.get_file(self.elevationEdit))
+        self.shot_path.clicked.connect(lambda: self.get_file(self.shotpathEdit))
+        self.rec_path.clicked.connect(lambda: self.get_file(self.recpathEdit))
+        self.fb_path.clicked.connect(lambda: self.get_file(self.fb_fileEdit))
+        self.ele_path.clicked.connect(lambda: self.get_file(self.elevationEdit))
 
     def update_file_list(self, file_inf):
         self.out.append(file_inf)
@@ -268,6 +271,7 @@ class Ui_Form(QtGui.QWidget):
         self.get_text()
         self.run.setEnabled(False)
         self.thread.start()
+        self.run.setEnabled(True)
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(_translate("Form", "Form", None))
@@ -382,15 +386,17 @@ class Ui_Form(QtGui.QWidget):
         if self.is_number(num) or os.path.exists(num):
             f.write(num + '\n')
         else:
-            self.out.append("%s need be number or path" % num)
+            self.out.append("%s must be number or path" % num)
 
-    #def start(self):
-        #self.get_text()
-        # from * import *
-        # *
+    # def start(self):
+    # self.get_text()
+    # from * import *
+    # *
+
 
 if __name__ == '__main__':
     import sys
+
     app = QtGui.QApplication(sys.argv)
     Form = QtGui.QWidget()
     ui = Ui_Form()
