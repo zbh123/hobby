@@ -1,0 +1,8 @@
+查看上交所浦江学院的教程脚本
+1、
+pip install jupyter
+安装完成之后，
+2、
+jupyter notebook
+打开网页，可以查看ipynb文件
+
