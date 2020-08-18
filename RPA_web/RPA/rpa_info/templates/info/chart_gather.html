@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-{% load staticfiles%}
+{% extends 'info/base.html' %}
+{% load static%}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>RPA汇总图</title>
-    <link rel="shortcut icon" href="{% static 'img/bitbug_favicon.ico' %}" type="image/x-icon">
-    <link rel="icon" href="{% static 'img/bitbug_favicon.ico' %}" type="image/x-icon">
-    <script src="{% static 'js/echarts.js' %}"></script>
-</head>
-<body>
-<h5 align="right"><a href="{% url 'info:index' %}">返回</a></h5>
-<h5 align="right"><a href=" {% url 'info:table' %}">流程汇总</a></h5>
+
+{% block title %}RPA流程汇总{% endblock %}
+
+
+
+{% block content %}
+<!--<h5 align="right"><a href="{% url 'info:index' %}">返回</a></h5>-->
+<!--<h5 align="right"><a href=" {% url 'info:table' %}">流程汇总</a></h5>-->
 <div style="width:100%" align="center">
     <div id="line_chart" style="width:1200px;height:400px;" align="center"></div>
     <div id="pie_chart" style="width:800px;height:400px;"></div>
     <div id="bar_chart" style="width:1200px;height:400px;"></div>
 </div>
-
-</body>
+{% endblock %}
+{% block script %}
+<script src="{% static 'js/echarts.js' %}"></script>
 <script type="text/javascript">
     //--------bar chart-------
     // 初始化图表标签
@@ -219,7 +218,7 @@ option = {
     ]
 };
 barChart.setOption(option);
-
 </script>
-</html>
+{% endblock %}
+
 

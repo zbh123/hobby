@@ -56,6 +56,16 @@
         <div align="left"><b>备注：</b></div>
         <input id="remark" type="text" name="remark" placeholder="请输入备注" />
     </div>
+    <br>
+    <div align="center" class="divcss01">
+        <div align="left" class="rrequired"><b>开始时间：</b></div>
+        <input id="start_time" type="text" name="start_time" placeholder="请输入备注" required/>
+    </div>
+    <br>
+    <div align="center" class="divcss01">
+        <div align="left"><b>结束时间：</b></div>
+        <input id="end_time" type="text" name="end_time" placeholder="请输入备注" />
+    </div>
     <br><br><br>
     <div align="center" class="divcss02">
         <input id="submit" type="submit" value="提交"><input id="cancel" type="submit" value="取消">
@@ -89,10 +99,19 @@
         location.href = "{% url 'info:flow_edit' %}";
         return false
     }
+    var start_time = document.getElementById("start_time").value
+    if(start_time == "" || start_time == null || start_time == undefined)
+    {
+        alert('完成情况为必填项')
+        location.href = "{% url 'info:flow_edit' %}";
+        return false
+    }
     var time_rpa = document.getElementById("time_rpa").value
     var time_person = document.getElementById("time_person").value
     var introduce = document.getElementById("introduce").value
     var remark = document.getElementById("remark").value
+    var start_time = document.getElementById("start_time").value
+    var end_time = document.getElementById("end_time").value
     var url = '{% url 'info:flow_edit' %}';
     $.ajax({
        url:url,
@@ -105,6 +124,8 @@
              "time_person":time_person,
              "introduce":introduce,
              "remark":remark,
+             "start_time":start_time,
+             "end_time":end_time,
               csrfmiddlewaretoken: '{{ csrf_token }}',
        },
        datatype:"json",

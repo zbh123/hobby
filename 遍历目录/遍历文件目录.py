@@ -12,7 +12,7 @@ def getAllDir(path,sp=''):
         else:
             print(sp + 'file name:' +fileName)
 
-getAllDir('D:\\ruanjian')
+# getAllDir('D:\\ruanjian')
 
 #深度遍历，栈模拟递归,深度根据栈先进后出的特点，先遍历一个文件的所有目录，再遍历同级其他目录
 import os
@@ -36,7 +36,7 @@ def getAllDirDE(path):
             else:
                 print('普通文件：'+ fileAbsPath)
 
-getAllDirDE('D:\\ruanjian')
+# getAllDirDE('D:\\ruanjian')
 
 
 
@@ -64,7 +64,7 @@ def getAllDirQU(path):
             else:
                 print('普通文件：' + fileAbsPath)
 
-getAllDirQU('D:\\ruanjian')
+getAllDirQU('D:\\pyfile\\PythonSuperMario-master\\PythonSuperMario-master')
 
 
 

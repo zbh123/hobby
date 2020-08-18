@@ -51,7 +51,7 @@
 			ready: function(e) {
 				var t = "layer",
 					i = "",
-					n = (a ? "../" : "../css/") + "layer.css";
+					n = "../../css/" + "layer.css";
 				return a ? layui.addcss(n, e, t) : o.link(n, e, t), this
 			},
 			alert: function(e, t, n) {

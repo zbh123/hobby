@@ -21,11 +21,14 @@ def index(request):
     flow_list = Rpa.objects.all().values()
     # print(len(flow_list),flow_list)
     for i in range(len(flow_list)):
-        id, office, flow_name, finish, time_rpa, time_person, introduce, remark = flow_list[i].values()
+        id, office, flow_name, finish, time_rpa, time_person, introduce, remark, start_time, end_time = flow_list[
+            i].values()
         # print(id, office, flow_name, finish, time_rpa, time_person, introduce, remark)
         flow_dict[i] = {'id': id, 'office': office, 'flow_name': flow_name, 'finish': finish, 'time_rpa': time_rpa,
-                        'time_person': time_person, 'introduce': introduce, 'remark': remark}
-    head_key = ['ID', 'Office', 'Flow_name', 'Finish (%)', 'Time_rpa(m)', 'Time_person(m)', 'Introduce', 'Remark']
+                        'time_person': time_person, 'introduce': introduce, 'remark': remark, 'start_time': start_time,
+                        'end_time': end_time}
+    head_key = ['ID', 'Office', 'Flow_name', 'Finish (%)', 'Time_rpa(m)', 'Time_person(m)', 'Introduce', 'Remark',
+                'Start_time', 'End_time']
     param = {'flow_dict': flow_dict, 'head_key': head_key}
     return render(request, 'index.html', param)
 
@@ -64,11 +67,14 @@ def table(request):
         flow_list = Rpa.objects.all().values()
         # print(len(flow_list),flow_list)
         for i in range(len(flow_list)):
-            id, office, flow_name, finish, time_rpa, time_person, introduce, remark = flow_list[i].values()
+            id, office, flow_name, finish, time_rpa, time_person, introduce, remark, start_time, end_time = flow_list[
+                i].values()
             # print(id, office, flow_name, finish, time_rpa, time_person, introduce, remark)
-            flow_dict[i+1] = {'id': id, 'office': office, 'flow_name': flow_name, 'finish': finish, 'time_rpa': time_rpa,
-                            'time_person': time_person, 'introduce': introduce, 'remark': remark}
-        head_key = ['ID', 'Office', 'Flow_name', 'Finish (%)', 'Time_rpa(m)', 'Time_person(m)', 'Introduce', 'Remark']
+            flow_dict[i + 1] = {'id': id, 'office': office, 'flow_name': flow_name, 'finish': finish,
+                                'time_rpa': time_rpa, 'time_person': time_person, 'introduce': introduce,
+                                'remark': remark, 'start_time': start_time, 'end_time': end_time}
+        head_key = ['ID', 'Office', 'Flow_name', 'Finish (%)', 'Time_rpa(m)', 'Time_person(m)', 'Introduce', 'Remark',
+                    'Start_time', 'End_time']
         flow_name_list = []
         rpa_time = []
         person_time = []
@@ -76,7 +82,7 @@ def table(request):
         flow_list = Time.objects.all().values()
         for i in range(len(flow_list)):
             id, flow_name, time_rpa, time_person = flow_list[i].values()
-            if time_rpa != None and time_person != None:
+            if time_rpa is not None and time_person is not None:
                 rpa_time.append(time_rpa)
                 person_time.append(time_person)
                 flow_name_list.append(flow_name)
@@ -124,9 +130,9 @@ def ip_display(request):
         num = IP.objects.all().count()
         for i in range(len(ip_list)):
             id, office, username, address = ip_list[i].values()
-            ip_infor_dict[i+1] = {'id': id, 'office': office, 'username': username, 'address': address}
+            ip_infor_dict[i + 1] = {'id': id, 'office': office, 'username': username, 'address': address}
         head_key = ['ID', '部门', '用户名', 'IP地址']
-        param = {'ip_infor_dict': ip_infor_dict, 'head_key': head_key, 'num':num}
+        param = {'ip_infor_dict': ip_infor_dict, 'head_key': head_key, 'num': num}
         return render(request, 'info/ip_address.html', param)
 
 
@@ -350,6 +356,8 @@ def flow_edit(request):
         time_person = request.POST.get('time_person')
         introduce = request.POST.get('introduce')
         remark = request.POST.get('remark')
+        start_time = request.POST.get('start_time')
+        end_time = request.POST.get('end_time')
         # task_queue.put([office, username, ip_address])
         print(office, flow_name, finish, time_rpa, time_person)
         # print(task_queue.qsize())
@@ -370,7 +378,9 @@ def flow_edit(request):
                 time_rpa=time_rpa,
                 time_person=time_person,
                 introduce=introduce,
-                remark=remark
+                remark=remark,
+                start_time=start_time,
+                end_time=end_time
             )
             data['is_select'] = 1
         return JsonResponse(data)
@@ -401,3 +411,6 @@ def logout(request):
         pass
     return redirect('/info/ip_address/')
 
+
+def base(request):
+    return render(request, 'info/base1.html')

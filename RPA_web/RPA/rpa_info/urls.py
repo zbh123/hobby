@@ -34,4 +34,5 @@ urlpatterns = [
     path(r'flow_edit/', views.flow_edit, name='flow_edit'),
     path(r'login/', views.login, name='login'),
     path(r'logout/', views.logout, name='logout'),
+    path(r'base/', views.base, name='base'),
 ]

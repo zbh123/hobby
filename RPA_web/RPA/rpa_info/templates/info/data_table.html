@@ -1,5 +1,5 @@
-{% extends 'info/base1.html' %}
-{% load staticfiles%}
+{% extends 'info/base.html' %}
+{% load static %}
 {% block title %}RPA流程汇总{% endblock %}
 {% block meta %}
 <meta charset="utf-8">
@@ -8,23 +8,31 @@
 {% endblock %}
 {% block style%}
  <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ionicons.min.css' %}">
+    <!-- DataTables -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/dataTables.bootstrap.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/AdminLTE.min.css' %}">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/_all-skins.min.css' %}">
 {% endblock %}
-{% block body%}
-<body>
-{% endblock %}
+
 {% block content %}
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1 align="center">
-        中泰证券科技研发二部RPA组
-        <small>RPA流程汇总</small>
+       RPA流程汇总
     </h1>
 </section>
-<h5 align="right"><a href="{% url 'info:index' %}">返回</a></h5>
-<h5 align="right"><a href="{% url 'info:ip' %}">IP分配</a></h5>
-<h5 align="right"><a href="{% url 'info:chart2' %}">汇总饼状图</a></h5>
-<h5 align="right"><a href="{% url 'info:chart4' %}">汇总图</a></h5>
+<!--<h5 align="right"><a href="{% url 'info:index' %}">返回</a></h5>-->
+<!--<h5 align="right"><a href="{% url 'info:ip' %}">IP分配</a></h5>-->
+<!--<h5 align="right"><a href="{% url 'info:chart2' %}">汇总饼状图</a></h5>-->
+<!--<h5 align="right"><a href="{% url 'info:chart4' %}">汇总图</a></h5>-->
 <!-- Main content -->
 <section class="content">
     <div class="row">
@@ -40,12 +48,14 @@
                         <tr align="center" data-bgColor="blue">
                             <th align="right" width="5%">ID</th>
                             <th align="right" width="10%">部门</th>
-                            <th align="right" width="15%">流程名称</th>
-                            <th align="right" width="10%">完成情况(%)</th>
-                            <th align="right" width="10%">RPA用时(分钟)</th>
-                            <th align="right" width="10%">人工用时(分钟)</th>
-                            <th align="right" width="15%">简介</th>
-                            <th align="right" width="15%">备注</th>
+                            <th align="right" width="10%">流程名称</th>
+                            <th align="right" width="5%">完成情况(%)</th>
+                            <th align="right" width="5%">RPA用时(分钟)</th>
+                            <th align="right" width="5%">人工用时(分钟)</th>
+                            <th align="right" width="10%">简介</th>
+                            <th align="right" width="10%">备注</th>
+                            <th align="right" width="10%">开始时间</th>
+                            <th align="right" width="10%">结束时间</th>
                             {% if request.session.is_login %}
                             <th align="center">编辑内容</th>
                             {% endif %}
@@ -56,12 +66,14 @@
                         <tr>
                             <td align="left" width="5%">{{ key }}</td>
                             <td align="left" width="10%">&nbsp;{{ values.office }}</td>
-                            <td align="left" width="15%">{{ values.flow_name }}</td>
-                            <td align="left" width="10%">{{ values.finish }}</td>
-                            <td align="left" width="10%">{{ values.time_rpa }}</td>
-                            <td align="left" width="10%">{{ values.time_person }}</td>
-                            <td align="left" width="15%">{{ values.introduce }}</td>
-                            <td align="left" width="15%">{{ values.remark }}</td>
+                            <td align="left" width="10%">{{ values.flow_name }}</td>
+                            <td align="left" width="5%">{{ values.finish }}</td>
+                            <td align="left" width="5%">{{ values.time_rpa }}</td>
+                            <td align="left" width="5%">{{ values.time_person }}</td>
+                            <td align="left" width="10%">{{ values.introduce }}</td>
+                            <td align="left" width="10%">{{ values.remark }}</td>
+                            <td align="left" width="10%">{{ values.start_time }}</td>
+                            <td align="left" width="10%">{{ values.end_time }}</td>
                             {% if request.session.is_login %}
                             <td align="left" width="10%" id={{values.id}}><a href="javascript:void(0)"
                                                                              onclick="editTd({{values.id}})">编辑</a></td>
@@ -88,20 +100,26 @@
 </section>
 <h5 align="center"><input id="AddData" type="button" value="增加内容"></h5>
 
-
-<div style="width:100%" align="center">
-    <div id="bar_chart" style="width:1200px;height:400px;"></div>
-</div>
-
 {% endblock %}
 
 {% block script %}
-<!-- page script -->
+<!-- jQuery 3 -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- DataTables -->
 <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
 <script src="{% static 'js/dataTables.bootstrap.min.js' %}"></script>
+<!-- SlimScroll -->
+<script src="{% static 'js/jquery.slimscroll.min.js' %}"></script>
+<!-- FastClick -->
+<script src="{% static 'js/fastclick.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'js/adminlte.min.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'js/demo.js' %}"></script>
+<!-- page script -->
 <script src="{% static 'js/layer.js' %}"></script>
-<script src="{% static 'js/layui.js' %}"></script>
-<script src="{% static 'js/echarts.js' %}"></script>
 <script type="text/javascript">
   $(function () {
     $('#example1').DataTable()
@@ -123,6 +141,8 @@
        var td_time_person = a[5].children[0].value; //IP地址
        var td_introduce = a[6].children[0].value; //IP地址
        var td_remark = a[7].children[0].value; //IP地址
+       var td_start_time = a[8].children[0].value; //IP地址
+       var td_end_time = a[9].children[0].value; //IP地址
        var url = '{% url 'info:table' %}';
        $.ajax({
           url:url,
@@ -136,6 +156,8 @@
              "time_person":td_time_person,
              "introduce":td_introduce,
              "remark":td_remark,
+             "remark":td_start_time,
+             "remark":td_end_time,
              "operate":"update",
               csrfmiddlewaretoken: '{{ csrf_token }}',
           },
@@ -166,6 +188,12 @@
                    if(a[7].children.length===1){
                       a[7].innerHTML=td_remark;
                    }
+                   if(a[8].children.length===1){
+                      a[8].innerHTML=td_remark;
+                   }
+                   if(a[9].children.length===1){
+                      a[9].innerHTML=td_remark;
+                   }
                    //将编辑改成 保存和取消两个按钮
                    b[0].innerHTML="<td align='left' width='10%' id=" + id + " ><a href='javascript:void(0)' onclick='editTd(" + id + ")'>编辑</a></td>";
           },
@@ -179,10 +207,10 @@
        var td_office = a[1].children[0].value; //部门名称
        var td_flow_name = a[2].children[0].value; //使用者
        var td_finish = a[3].children[0].value; //IP地址
-       var td_time_rpa = a[3].children[0].value; //IP地址
-       var td_time_person = a[3].children[0].value; //IP地址
-       var td_introduce = a[3].children[0].value; //IP地址
-       var td_remark = a[3].children[0].value; //IP地址
+       var td_time_rpa = a[4].children[0].value; //IP地址
+       var td_time_person = a[5].children[0].value; //IP地址
+       var td_introduce = a[6].children[0].value; //IP地址
+       var td_remark = a[7].children[0].value; //IP地址
        var url = '{% url 'info:table' %}';
        $.ajax({
           url:url,
@@ -236,6 +264,12 @@
    if(a[7].children.length===1){
       a[7].innerHTML=a[7].children[0].value;
    }
+   if(a[8].children.length===1){
+      a[8].innerHTML=a[8].children[0].value;
+   }
+   if(a[9].children.length===1){
+      a[9].innerHTML=a[9].children[0].value;
+   }
 
    //将编辑改成 保存和取消两个按钮
    b[0].innerHTML="<td align='left' width='10%' id=" + id + " ><a href='javascript:void(0)' onclick='editTd(" + id + ")'>编辑</a></td>";
@@ -263,6 +297,12 @@
    }
    if(a[7].children.length===0){
       a[7].innerHTML="<input type='text' value='"+a[7].innerText+"'/>";
+   }
+   if(a[8].children.length===0){
+      a[8].innerHTML="<input type='text' value='"+a[8].innerText+"'/>";
+   }
+   if(a[9].children.length===0){
+      a[9].innerHTML="<input type='text' value='"+a[9].innerText+"'/>";
    }
    //将编辑改成 保存和取消两个按钮
    b[0].innerHTML="<input type='button' onclick='saveTd(" + id + ")' value='保存'/><input type='button' onclick='DeleteTd(" + id + ")' value='删除'/><input type='button' onclick='CancelTd(" + id + ")' value='取消'/>";
