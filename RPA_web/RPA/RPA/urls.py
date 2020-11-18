@@ -21,7 +21,7 @@ import rpa_info, rpa_request, rpa_command
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'', include(('rpa_info.urls', "info"), namespace="info")),
+    # path(r'', include(('rpa_info.urls', "info"), namespace="info")),
     path(r'info/', include(('rpa_info.urls', "info"), namespace="info")),
     path(r'request/', include(('rpa_request.urls', "request"), namespace="request")),
     path(r'command/', include(('rpa_command.urls', "command"), namespace="command")),

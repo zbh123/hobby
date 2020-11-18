@@ -46,6 +46,8 @@ def table(request):
         introduce = request.POST.get('introduce')
         remark = request.POST.get('remark')
         operate = request.POST.get('operate')
+        start_time = request.POST.get('start_time')
+        end_time = request.POST.get('end_time')
         print(office, flow_name, finish, time_rpa)
         if operate == 'update':
             new_param = Rpa.objects.get(id=id)
@@ -56,6 +58,8 @@ def table(request):
             new_param.time_person = time_person
             new_param.introduce = introduce
             new_param.remark = remark
+            new_param.start_time = start_time
+            new_param.end_time = end_time
             # new_param.done()
             new_param.save()
         elif operate == 'delete':
@@ -193,7 +197,7 @@ def chart_2(request):
         n = Rpa.objects.filter(office=str(office)).count()
         # print(n)
         # office_dict[office] = n
-        if (len(office_table) == 0):
+        if len(office_table) == 0:
             office_table = [[n, randomcolor(), office]]
         else:
             office_table.append([n, randomcolor(), office])
@@ -222,14 +226,14 @@ def chart_4(request):
     rpa_time = []
     person_time = []
     ratio_list = []
-    flow_list = Time.objects.all().values()
-    for i in range(len(flow_list)):
-        id, flow_name, time_rpa, time_person = flow_list[i].values()
-        if time_rpa != None and time_person != None:
-            rpa_time.append(time_rpa)
-            person_time.append(time_person)
-            flow_name_list.append(flow_name)
-            ratio_list.append(round(float(time_rpa) / float(time_person), 2))
+    # flow_list = Time.objects.all().values()
+    # for i in range(len(flow_list)):
+    #     id, flow_name, time_rpa, time_person = flow_list[i].values()
+    #     if time_rpa is not None and time_person is not None:
+    #         rpa_time.append(time_rpa)
+    #         person_time.append(time_person)
+    #         flow_name_list.append(flow_name)
+    #         ratio_list.append(round(float(time_rpa) / float(time_person), 2))
     office_list = Rpa.objects.values('office').distinct()
     office_table = []
     office_name = []
@@ -243,6 +247,24 @@ def chart_4(request):
             office_table = [{'value': n, 'name': office}]
         else:
             office_table.append({'value': n, 'name': office})
+        info_list = Rpa.objects.filter(office=str(office)).values()
+        time_rpa_value = 0
+        time_person_value = 0
+        office_name_tmp = ''
+        for j in range(len(info_list)):
+            id, office, flow_name, finish, time_rpa, time_person, introduce, remark, start_time, end_time = info_list[
+                j].values()
+            if is_number(time_rpa) and time_rpa is not None:
+                time_rpa_value += float(time_rpa)
+                time_person_value += float(time_person)
+            office_name_tmp = office
+            # print(time_rpa_value, time_person_value)
+        if time_person_value != 0:
+            rpa_time.append(time_rpa_value)
+            person_time.append(time_person_value)
+            ratio_list.append(round(float(time_rpa_value) / float(time_person_value), 2))
+            flow_name_list.append(office_name_tmp)
+
     param = {'flow_name': flow_name_list, 'rpa_time': rpa_time, 'person_time': person_time,
              'office_table': json.dumps(office_table, ensure_ascii=False),
              'ratio_list': ratio_list, 'office_name': office_name}
@@ -330,19 +352,19 @@ def ip_edit(request):
 
 def is_number(s):
     try:
-        int(s)
-        return True
-    except ValueError:
-        pass
-
-    try:
-        import unicodedata
-        unicodedata.numeric(s)
+        float(s)
         return True
     except (TypeError, ValueError):
-        pass
+        return False
 
-    return False
+    # try:
+    #     import unicodedata
+    #     unicodedata.numeric(s)
+    #     return True
+    # except (TypeError, ValueError):
+    #     pass
+
+    # return False
 
 
 def flow_edit(request):

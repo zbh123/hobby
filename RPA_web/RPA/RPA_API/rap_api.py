@@ -49,18 +49,6 @@ def readInifile():
         os._exit(-1)
 
 
-def getToken():
-    '''获取token'''
-    with open(AomFile, 'r') as fp:
-        content = fp.readlines()
-    for line in content:
-        if line.startswith('FsRemoteID = '):
-            print(line.split('FsRemoteID = ')[-1].strip())
-            FsRemoteID = line.split('FsRemoteID = ')[-1].strip().replace('"', '')
-            return FsRemoteID
-    return False
-
-
 def CallFunc(url, body):
     '''请求后台'''
     try:
@@ -93,10 +81,20 @@ def parse_json(json_data, value_name="Value"):
 def runFlow():
     '''执行流程'''
     # sName = r'测试\录屏测试'
-    request_body = [{"Value": "TFlowDM", "Type": 4, "Name": IDD_DMName},
-                    {"Value": getToken(), "Type": 4, "Name": "Token"},
-                    {"Value": "ScriptStartFlow", "Type": 4, "Name": IDD_lpName},
-                    {"Value": FlowName, "Type": 4, "Name": "FlowPath"}
+    # request_body = [{"Value": "TFlowDM", "Type": 4, "Name": IDD_DMName},
+    #                 {"Value": 'zhubh', "Type": 4, "Name": "AppName"},
+    #                 {"Value": '2B710FC391E9413CAFFA048E91120257', "Type": 4, "Name": "AppPass"},
+    #                 {"Value": "ScriptStartFlow", "Type": 4, "Name": IDD_lpName},
+    #                 {"Value": FlowName, "Type": 4, "Name": "FlowPath"}
+    #                 ]
+    request_body = [{"Value": "TSchedulerDM", "Type": 4, "Name": IDD_DMName},
+                    {"Value": 'zhubh', "Type": 4, "Name": "AppName"},
+                    {"Value": '2B710FC391E9413CAFFA048E91120257', "Type": 4, "Name": "AppPass"},
+                    {"Value": "SetTaskInfo", "Type": 4, "Name": IDD_lpName},
+                    {"Value": FlowName, "Type": 4, "Name": "Name"},
+                    {"Value": '16:03:00', "Type": 4, "Name": "ExceTime"},
+                    {"Value": '2020-11-17', "Type": 4, "Name": "ExceDate"},
+                    {"Value": '2020-11-17 16:03:00', "Type": 4, "Name": "BeginTim"}
                     ]
     # print(request_body)
     resp_data = CallFunc(REQUEST_URL, request_body)

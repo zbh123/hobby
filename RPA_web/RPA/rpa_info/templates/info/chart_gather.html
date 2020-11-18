@@ -29,8 +29,13 @@
     },
     xAxis: {
         type: 'category',
-        data: {{flow_name | safe}}
+        data: {{flow_name | safe}},
+        axisLabel: {
+            interval:0,
+            rotate:40
+        }
     },
+
     yAxis: {
         type: 'value'
     },
@@ -193,7 +198,11 @@ option = {
         {
             type: 'category',
             axisTick: {show: false},
-            data: {{flow_name|safe}}
+            data: {{flow_name|safe}},
+            axisLabel: {
+                interval:0,
+                rotate:40
+            }
         }
     ],
     yAxis: [

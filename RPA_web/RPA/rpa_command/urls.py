@@ -22,4 +22,8 @@ from . import views
 urlpatterns = [
     path(r'favicon/.ico/', RedirectView.as_view(url=r"{% static 'img/bitbug_favicon.ico' %}")),
     path(r'startflow', views.StartFlow.as_view(), name='startflow'),
+    path(r'machinestatus', views.Machine_Status.as_view(), name='machinestatus'),
+    path(r'flowresult', views.FlowResult.as_view(), name='flowresult'),
+    path(r'stopflow', views.StopFlow.as_view(), name='stopflow'),
+    path(r'flowstatus', views.Flow_Status.as_view(), name='flowstatus'),
 ]

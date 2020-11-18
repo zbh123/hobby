@@ -77,6 +77,14 @@ APPEND_SLASH = False
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'test',
+    #     'USER': 'djrpa',
+    #     'PASSWORD': 'zts000',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
+    # },
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'Data\\rpa_flow.db'),

@@ -43,7 +43,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table id="example1" class="table table-bordered">
+                    <table id="example1" class="table table-bordered" width="100%">
                         <thead>
                         <tr align="center" data-bgColor="blue">
                             <th align="right" width="5%">ID</th>
@@ -56,16 +56,14 @@
                             <th align="right" width="10%">备注</th>
                             <th align="right" width="10%">开始时间</th>
                             <th align="right" width="10%">结束时间</th>
-                            {% if request.session.is_login %}
-                            <th align="center">编辑内容</th>
-                            {% endif %}
+                            <th align="right">编辑内容</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for key, values in flow_dict.items %}
                         <tr>
                             <td align="left" width="5%">{{ key }}</td>
-                            <td align="left" width="10%">&nbsp;{{ values.office }}</td>
+                            <td align="left" width="10%">{{ values.office }}</td>
                             <td align="left" width="10%">{{ values.flow_name }}</td>
                             <td align="left" width="5%">{{ values.finish }}</td>
                             <td align="left" width="5%">{{ values.time_rpa }}</td>
@@ -74,10 +72,8 @@
                             <td align="left" width="10%">{{ values.remark }}</td>
                             <td align="left" width="10%">{{ values.start_time }}</td>
                             <td align="left" width="10%">{{ values.end_time }}</td>
-                            {% if request.session.is_login %}
                             <td align="left" width="10%" id={{values.id}}><a href="javascript:void(0)"
                                                                              onclick="editTd({{values.id}})">编辑</a></td>
-                            {% endif %}
                         </tr>
                         {% endfor %}
                         </tbody>
@@ -86,6 +82,7 @@
                             {% for item in head_key %}
                             <th align="center">{{ item }}</th>
                             {% endfor %}
+                            <th align="right">Edit</th>
                         </tr>
                         </tfoot>
                     </table>
@@ -139,10 +136,10 @@
        var td_finish = a[3].children[0].value; //IP地址
        var td_time_rpa = a[4].children[0].value; //使用者
        var td_time_person = a[5].children[0].value; //IP地址
-       var td_introduce = a[6].children[0].value; //IP地址
-       var td_remark = a[7].children[0].value; //IP地址
-       var td_start_time = a[8].children[0].value; //IP地址
-       var td_end_time = a[9].children[0].value; //IP地址
+       var td_introduce = a[6].children[0].value; //简介
+       var td_remark = a[7].children[0].value; //备注
+       var td_start_time = a[8].children[0].value; //开始时间
+       var td_end_time = a[9].children[0].value; //结束时间
        var url = '{% url 'info:table' %}';
        $.ajax({
           url:url,
@@ -156,8 +153,8 @@
              "time_person":td_time_person,
              "introduce":td_introduce,
              "remark":td_remark,
-             "remark":td_start_time,
-             "remark":td_end_time,
+             "start_time":td_start_time,
+             "end_time":td_end_time,
              "operate":"update",
               csrfmiddlewaretoken: '{{ csrf_token }}',
           },
@@ -206,11 +203,11 @@
        var a = $("td[id='"+id+"']").siblings(); //td的兄弟节点
        var td_office = a[1].children[0].value; //部门名称
        var td_flow_name = a[2].children[0].value; //使用者
-       var td_finish = a[3].children[0].value; //IP地址
-       var td_time_rpa = a[4].children[0].value; //IP地址
-       var td_time_person = a[5].children[0].value; //IP地址
-       var td_introduce = a[6].children[0].value; //IP地址
-       var td_remark = a[7].children[0].value; //IP地址
+       var td_finish = a[3].children[0].value; //完成进度
+       var td_time_rpa = a[4].children[0].value; //rpa用时
+       var td_time_person = a[5].children[0].value; //人工用时
+       var td_introduce = a[6].children[0].value; //简介
+       var td_remark = a[7].children[0].value; //备注
        var url = '{% url 'info:table' %}';
        $.ajax({
           url:url,
@@ -271,7 +268,7 @@
       a[9].innerHTML=a[9].children[0].value;
    }
 
-   //将编辑改成 保存和取消两个按钮
+   //将保存和取消两个按钮改成编辑
    b[0].innerHTML="<td align='left' width='10%' id=" + id + " ><a href='javascript:void(0)' onclick='editTd(" + id + ")'>编辑</a></td>";
   }
   function editTd(id) {
@@ -284,13 +281,13 @@
       a[2].innerHTML="<input type='text' value='"+a[2].innerText+"'/>";
    }
    if(a[3].children.length===0){
-      a[3].innerHTML="<input type='text' value='"+a[3].innerText+"'/>";
+      a[3].innerHTML="<input type='text' size='5' value='"+a[3].innerText+"'/>";
    }
    if(a[4].children.length===0){
-      a[4].innerHTML="<input type='text' value='"+a[4].innerText+"'/>";
+      a[4].innerHTML="<input type='text' size='5%' value='"+a[4].innerText+"'/>";
    }
    if(a[5].children.length===0){
-      a[5].innerHTML="<input type='text' value='"+a[5].innerText+"'/>";
+      a[5].innerHTML="<input type='text' size='5%' value='"+a[5].innerText+"'/>";
    }
    if(a[6].children.length===0){
       a[6].innerHTML="<input type='text' value='"+a[6].innerText+"'/>";
@@ -299,10 +296,10 @@
       a[7].innerHTML="<input type='text' value='"+a[7].innerText+"'/>";
    }
    if(a[8].children.length===0){
-      a[8].innerHTML="<input type='text' value='"+a[8].innerText+"'/>";
+      a[8].innerHTML="<input type='date' value='"+a[8].innerText+"'/>";
    }
    if(a[9].children.length===0){
-      a[9].innerHTML="<input type='text' value='"+a[9].innerText+"'/>";
+      a[9].innerHTML="<input type='date' value='"+a[9].innerText+"'/>";
    }
    //将编辑改成 保存和取消两个按钮
    b[0].innerHTML="<input type='button' onclick='saveTd(" + id + ")' value='保存'/><input type='button' onclick='DeleteTd(" + id + ")' value='删除'/><input type='button' onclick='CancelTd(" + id + ")' value='取消'/>";

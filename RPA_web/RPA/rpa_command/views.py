@@ -7,15 +7,18 @@ from django.http import JsonResponse
 import datetime
 from urllib import request
 import json
-import os
+import os, sys
 import pretty_errors
+from .models import FlowStatus, MachineStatus
+import requests
 
 # Create your views here.
 pretty_errors.activate()
+# 一部接口
+api_flow = 'http://10.49.87.85:8080//vesta_rpa?method=callback'
 
 
-class StartFlow(View):
-
+class BaseInfo(View):
     def __init__(self):
         self.AomFile = r'C:\Users\zhubh\Desktop\agent\Temp\Temp\AomScript.py'
         self.FsServerIP = '10.29.132.76'
@@ -65,8 +68,51 @@ class StartFlow(View):
         except Exception as e:
             return str(e)
 
+
+class StartFlow(BaseInfo):
+
+    def save_param(self):
+        # 查询到的数据是二进制
+        json_bytes = self.request.body
+        print(json_bytes)
+        # 需要进行解码，转成字符串
+        json_str = json_bytes.decode('utf-8')
+        print(json_str)
+        # 在把字符串转换成json字典
+        data = json.loads(json_str)
+        FlowName = data.get('FlowName', '')
+        FlowNum = str(data.get('FlowNum', ''))
+        print(FlowName, FlowNum)
+        FlowNum = str(data.get('FlowNum', ''))
+
+        if 'TA' in FlowName:
+            ip = '10.29.182.49'
+        elif 'FA' in FlowName:
+            ip = '10.0.0.2'
+        # 根据机器IP获取机器状态
+        machine_status = MachineStatus.objects.filter(machine_ip=ip).values()
+        print(machine_status)
+        if machine_status[0]['machine_status'] != '0':
+            return '资源繁忙'
+        try:
+            FlowStatus.objects.create(
+                flow_name=FlowName,
+                flow_num=FlowNum,
+                machine_ip=ip
+            )
+        except:
+            return '流程号已存在'
+        new_param = MachineStatus.objects.get(machine_ip=ip)
+        new_param.machine_status = 1
+        new_param.save()
+        return 'True'
+
     def post(self, *args):
         '''执行流程'''
+        result_save = self.save_param()
+        if result_save != 'True':
+            result = {'result': result_save}
+            return HttpResponse(json.dumps(result))
         # sName = r'测试\录屏测试'
         # 查询到的数据是二进制
         json_bytes = self.request.body
@@ -78,20 +124,23 @@ class StartFlow(View):
         data = json.loads(json_str)
         FlowName = data.get('FlowName', '')
         print(FlowName)
-        if FlowName == '':
-            return HttpResponse('流程名称为空')
-        request_body = [{"Value": "TFlowDM", "Type": 4, "Name": self.IDD_DMName},
-                        {"Value": self.getToken(), "Type": 4, "Name": "Token"},
-                        {"Value": "ScriptStartFlow", "Type": 4, "Name": self.IDD_lpName},
-                        {"Value": FlowName, "Type": 4, "Name": "FlowPath"}
-                        ]
-        print(request_body)
-        resp_data = self.CallFunc(request_body)
-        # print(resp_data)
-        print(self.parse_json(resp_data, self.IDD_Return))
+        try:
+            request_body = [{"Value": "TFlowDM", "Type": 4, "Name": self.IDD_DMName},
+                            {"Value": 'zhubh', "Type": 4, "Name": "AppName"},
+                            {"Value": '2B710FC391E9413CAFFA048E91120257', "Type": 4, "Name": "AppPass"},
+                            {"Value": "ScriptStartFlow", "Type": 4, "Name": self.IDD_lpName},
+                            {"Value": FlowName, "Type": 4, "Name": "FlowPath"}
+                            ]
+            print(request_body)
+            resp_data = self.CallFunc(request_body)
+            # print(resp_data)
+            print(self.parse_json(resp_data, self.IDD_Return))
+        except Exception as e:
+            result = {'result': '流程名称不正确'}
+            return HttpResponse(json.dumps(result))
 
         return JsonResponse({
-            'flow_name': FlowName,
+            'FlowName': FlowName,
             'result': self.parse_json(resp_data, self.IDD_Return),
         }, status=201)
 
@@ -109,3 +158,157 @@ class StartFlow(View):
         # print(resp_data)
         print(self.parse_json(resp_data, self.IDD_Return))
         return HttpResponse('成功')
+
+
+class Machine_Status(View):
+    '''
+        获取机器状态
+    '''
+
+    def post(self, *args):
+        # 查询到的数据是二进制
+        json_bytes = self.request.body
+        # print(json_bytes)
+        # 需要进行解码，转成字符串
+        json_str = json_bytes.decode('utf-8')
+        print(json_str)
+        # 在把字符串转换成json字典
+        data = json.loads(json_str)
+
+        # 获取流程号
+        FlowNum = str(data.get('FlowNum', ''))
+        # 根据流程号获取机器ip
+        ip = FlowStatus.objects.filter(flow_num=FlowNum).values()
+        # print(ip)
+        # print(ip[0])
+        # 根据机器IP获取机器状态
+        machine_status = MachineStatus.objects.filter(machine_ip=ip[0]['machine_ip']).values()
+        result = {'FlowNum': FlowNum, 'result': machine_status[0]['machine_status']}
+        return HttpResponse(json.dumps(result))
+
+
+class FlowResult(View):
+    '''
+    设置流程状态，以及机器状态，即流程结果调用该接口，并将结果反馈给一部
+    '''
+
+    def post(self, *args):
+        # 查询到的数据是二进制
+        json_bytes = self.request.body
+        # print(json_bytes)
+        # 需要进行解码，转成字符串
+        json_str = json_bytes.decode('utf-8')
+        print(json_str)
+        # 在把字符串转换成json字典
+        data = json.loads(json_str.replace('\\', '\\\\'))
+        # 获取流程名和流程结果
+        FlowName = str(data.get('FlowName', ''))
+        flow_result = str(data.get('FlowResult', ''))
+        # 将流程结果保存到FlowStatus中
+        try:
+            flow = FlowStatus.objects.filter(flow_name=FlowName).order_by('-id')[0]
+            flow.result = flow_result
+            flow.save()
+        except Exception as e:
+            print('流程名不存在')
+            result = {'FlowName': FlowName, 'result': '流程名不存在'}
+            return HttpResponse(json.dumps(result))
+
+        # 根据流程名查找机器IP
+        flow_num = FlowStatus.objects.filter(flow_name=FlowName).order_by('-id').values()
+        print(flow_num)
+        # 根据机器IP修改MachineStatus的状态
+        machine_status = MachineStatus.objects.filter(machine_ip=flow_num[0]['machine_ip'])[0]
+        machine_status.machine_status = 0
+        machine_status.save()
+        if flow_result != 'True':
+            resultCode = '0000'
+        else:
+            resultCode = '1000'
+        resultMsg = flow_result
+
+        data = {"FlowNum": flow_num[0]['flow_num'], "FlowName": flow_num[0]['flow_name'], "resultCode": resultCode,
+                "resultMsg": resultMsg}
+        try:
+            response = requests.post(api_flow, data=json.dumps(data))
+        except Exception as e:
+            print('回调函数报错，错误内容：', e)
+        # data = response.json()
+        # print(data)
+        result = {'FlowName': FlowName, 'result': '成功'}
+        return HttpResponse(json.dumps(result))
+
+
+class StopFlow(BaseInfo):
+
+    def post(self, *args):
+        '''执行流程'''
+        # sName = r'测试\录屏测试'
+        # 查询到的数据是二进制
+        json_bytes = self.request.body
+        print(json_bytes)
+        # 需要进行解码，转成字符串
+        json_str = json_bytes.decode('utf-8')
+        print(json_str)
+        # 在把字符串转换成json字典
+        data = json.loads(json_str)
+        FlowNum = data.get('FlowNum', '')
+        print(FlowNum)
+        if FlowNum == '':
+            return HttpResponse('流程号为空')
+        flow_num = FlowStatus.objects.filter(flow_num=FlowNum).values()
+        print(flow_num)
+        FlowName = flow_num[0]['flow_name']
+        MachineIp = flow_num[0]['machine_ip']
+        print(FlowName)
+        request_body = [{"Value": "TFlowDM", "Type": 4, "Name": self.IDD_DMName},
+                        {"Value": 'zhubh', "Type": 4, "Name": "AppName"},
+                        {"Value": '2B710FC391E9413CAFFA048E91120257', "Type": 4, "Name": "AppPass"},
+                        {"Value": "ScriptStopFlow", "Type": 4, "Name": self.IDD_lpName},
+                        {"Value": FlowName, "Type": 4, "Name": "FlowPath"}
+                        ]
+        print(request_body)
+        resp_data = self.CallFunc(request_body)
+        # print(resp_data)
+        print(self.parse_json(resp_data, self.IDD_Return))
+
+        machine_status = MachineStatus.objects.filter(machine_ip=MachineIp)[0]
+        machine_status.machine_status = 0
+        machine_status.save()
+
+        return JsonResponse({
+            'FlowName': FlowName,
+            'result': self.parse_json(resp_data, self.IDD_Return),
+        }, status=201)
+
+
+class Flow_Status(View):
+    '''
+    设置流程状态，以及机器状态，即流程结果调用该接口，并将结果反馈给一部
+    '''
+
+    def post(self, *args):
+        # 查询到的数据是二进制
+        json_bytes = self.request.body
+        # print(json_bytes)
+        # 需要进行解码，转成字符串
+        json_str = json_bytes.decode('utf-8')
+        print(json_str)
+        # 在把字符串转换成json字典
+        data = json.loads(json_str.replace('\\', '\\\\'))
+        # 获取流程名和流程结果
+        FlowNum = str(data.get('FlowNum', ''))
+
+        # 将流程结果保存到FlowStatus中
+        try:
+            flow = FlowStatus.objects.filter(flow_name=FlowNum).order_by('-id')[0]
+            data = {"FlowNum": flow['flow_num'], "result": flow['result']}
+            # response = requests.post(api_flow, data=json.dumps(data))
+            return HttpResponse(json.dumps(data))
+        except Exception as e:
+            print('流程名不存在')
+            result = {'FlowNum': FlowNum, 'result': '流程不存在'}
+            return HttpResponse(json.dumps(result))
+
+
+
