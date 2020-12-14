@@ -1,0 +1,748 @@
+11/25/2020 08:35:57 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统日终清算, 流程执行结果：成功
+11/25/2020 08:35:57 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统日终清算, 流程执行成功
+11/25/2020 08:35:57 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/25/2020 08:35:59 AM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BA489B5DA0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/25/2020 08:37:45 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统日终清算, 流程执行结果：成功
+11/25/2020 08:37:46 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统日终清算, 流程执行成功
+11/25/2020 08:37:46 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/25/2020 08:37:48 AM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BA489E0128>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/25/2020 10:10:48 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【1_登记结算部_深圳通小站_文件传输】运行失败，失败信息：代销产品路径不存在，路径：D:\测试\S\招商银行\20201125\
+11/25/2020 10:10:49 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【1_登记结算部_深圳通小站_文件传输】运行失败，失败信息：代销产品路径不存在，路径：D:\测试\S\招商银行\20201125\不存在
+11/25/2020 10:13:54 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【1_登记结算部_深圳通小站_文件传输】运行失败，失败信息：产品实际数量:1，小于理论数量：2
+11/25/2020 10:13:54 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【1_登记结算部_深圳通小站_文件传输】运行失败，失败信息：产品实际数量:1，小于理论数量：2不存在
+11/25/2020 10:17:55 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【1_登记结算部_深圳通小站_文件传输】运行失败，失败信息：数据
+11/25/2020 10:17:55 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【1_登记结算部_深圳通小站_文件传输】运行失败，失败信息：数据不存在
+11/25/2020 10:25:22 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【2_托管部_深圳通小站_文件传输】运行失败，失败信息：代销产品路径不存在，路径：D:\测试\R\外包业务数据\[S盘send：机构名称\20201125\
+11/25/2020 10:25:22 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【2_托管部_深圳通小站_文件传输】运行失败，失败信息：代销产品路径不存在，路径：D:\测试\R\外包业务数据\[S盘send：机构名称\20201125\不存在
+11/25/2020 10:29:24 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【2_托管部_深圳通小站_文件传输】运行失败，失败信息：代销产品路径不存在，路径：
+11/25/2020 10:29:24 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【2_托管部_深圳通小站_文件传输】运行失败，失败信息：代销产品路径不存在，路径：不存在
+11/25/2020 10:35:19 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【2_托管部_深圳通小站_文件传输】运行失败，失败信息：true
+11/25/2020 10:35:19 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【2_托管部_深圳通小站_文件传输】运行失败，失败信息：true不存在
+11/25/2020 10:39:22 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【2_托管部_深圳通小站_文件传输】运行失败，失败信息：true
+11/25/2020 10:39:22 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【2_托管部_深圳通小站_文件传输】运行失败，失败信息：true不存在
+11/25/2020 10:41:30 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【3_直销申请数据准备】运行失败，失败信息：  不存在，且创建失败
+11/25/2020 10:41:30 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【3_直销申请数据准备】运行失败，失败信息：  不存在，且创建失败不存在
+11/25/2020 10:42:05 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【3_直销申请数据准备】运行失败，失败信息：  不存在，且创建失败
+11/25/2020 10:42:05 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【3_直销申请数据准备】运行失败，失败信息：  不存在，且创建失败不存在
+11/25/2020 10:44:30 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：成功
+11/25/2020 10:44:30 AM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/25/2020 10:59:18 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA基金行情导出完成_行情文件发送, 流程执行结果：成功
+11/25/2020 10:59:18 AM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/25/2020 11:25:21 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA清算数据导出完成_会计清算数据发送, 流程执行结果：NAS_D盘路径不存在，路径：D:\测试\TA数据2\20201125\
+11/25/2020 11:25:21 AM - WARNING - FlowResult post: 查询流程状态失败，流程名NAS_D盘路径不存在，路径：D:\测试\TA数据2\20201125\不存在
+11/25/2020 11:26:09 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA清算数据导出完成_会计清算数据发送, 流程执行结果：NAS_D盘路径不存在，路径：D:\测试\data\output\20201125\KJQS\
+11/25/2020 11:26:09 AM - WARNING - FlowResult post: 查询流程状态失败，流程名NAS_D盘路径不存在，路径：D:\测试\data\output\20201125\KJQS\不存在
+11/25/2020 11:28:48 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA清算数据导出完成_会计清算数据发送, 流程执行结果：成功
+11/25/2020 11:28:48 AM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/25/2020 12:12:35 PM - WARNING - Not Found: /
+11/25/2020 12:12:35 PM - WARNING - Not Found: /
+11/25/2020 12:12:35 PM - WARNING - Not Found: /
+11/25/2020 12:12:58 PM - WARNING - Not Found: /
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /web-console/ServerInfo.jsp
+11/25/2020 12:13:02 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:02 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:02 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:04 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:04 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:04 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:04 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:04 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:04 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:04 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:04 PM - WARNING - Not Found: /showcase.action
+11/25/2020 12:13:05 PM - WARNING - Not Found: /default.asp::$DATA
+11/25/2020 12:13:09 PM - WARNING - Not Found: /cgi-bin/search.php
+11/25/2020 12:13:09 PM - WARNING - Not Found: /cgi-bin/index.php
+11/25/2020 12:13:09 PM - WARNING - Not Found: /CrystalReportWebFormViewer/crystalimagehandler.aspx
+11/25/2020 12:13:09 PM - WARNING - Not Found: /CrystalReportWebFormViewer2/crystalimagehandler.aspx
+11/25/2020 12:13:09 PM - WARNING - Not Found: /crystalreportViewers/crystalimagehandler.aspx
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:09 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:10 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /index.php
+11/25/2020 12:13:11 PM - WARNING - Not Found: /WebResource.axd
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:11 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:12 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:13 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:14 PM - WARNING - Not Found: /
+11/25/2020 12:13:15 PM - WARNING - Not Found: /
+11/25/2020 12:13:15 PM - WARNING - Not Found: /
+11/25/2020 12:13:15 PM - WARNING - Not Found: /
+11/25/2020 12:13:15 PM - WARNING - Not Found: /
+11/25/2020 12:13:15 PM - WARNING - Not Found: /
+11/25/2020 12:13:15 PM - WARNING - Not Found: /
+11/25/2020 12:13:15 PM - WARNING - Not Found: /
+11/25/2020 12:13:15 PM - WARNING - Not Found: /http:/www.venustech.com.cn/
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:17 PM - WARNING - Not Found: /
+11/25/2020 12:13:19 PM - WARNING - Not Found: /http:/www.nessus.org/check_proxy.html
+11/25/2020 12:13:27 PM - WARNING - Not Found: /
+11/25/2020 12:13:27 PM - WARNING - Not Found: /
+11/25/2020 12:13:27 PM - WARNING - Not Found: /
+11/25/2020 12:13:27 PM - WARNING - Not Found: /
+11/25/2020 12:13:27 PM - WARNING - Not Found: /
+11/25/2020 12:13:27 PM - WARNING - Not Found: /
+11/25/2020 12:13:27 PM - WARNING - Not Found: /
+11/25/2020 12:13:27 PM - WARNING - Not Found: /
+11/25/2020 12:13:27 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:28 PM - WARNING - Not Found: /
+11/25/2020 12:13:29 PM - WARNING - Not Found: /
+11/25/2020 12:13:29 PM - WARNING - Not Found: /
+11/25/2020 12:13:29 PM - WARNING - Not Found: /
+11/25/2020 12:13:29 PM - WARNING - Not Found: /
+11/25/2020 12:13:29 PM - WARNING - Not Found: /
+11/25/2020 12:13:29 PM - WARNING - Not Found: /
+11/25/2020 12:13:29 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:30 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:31 PM - WARNING - Not Found: /
+11/25/2020 12:13:32 PM - WARNING - Not Found: /
+11/25/2020 12:13:32 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:33 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:34 PM - WARNING - Not Found: /
+11/25/2020 12:13:35 PM - WARNING - Not Found: /
+11/25/2020 12:13:35 PM - WARNING - Not Found: /
+11/25/2020 12:13:35 PM - WARNING - Not Found: /
+11/25/2020 12:13:35 PM - WARNING - Not Found: /
+11/25/2020 12:13:35 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:36 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:37 PM - WARNING - Not Found: /
+11/25/2020 12:13:38 PM - WARNING - Not Found: /
+11/25/2020 12:13:38 PM - WARNING - Not Found: /
+11/25/2020 12:13:38 PM - WARNING - Not Found: /
+11/25/2020 12:13:38 PM - WARNING - Not Found: /
+11/25/2020 12:13:38 PM - WARNING - Not Found: /
+11/25/2020 12:13:38 PM - WARNING - Not Found: /
+11/25/2020 12:13:38 PM - WARNING - Not Found: /
+11/25/2020 12:13:38 PM - WARNING - Not Found: /
+11/25/2020 12:13:38 PM - WARNING - Not Found: /
+11/25/2020 12:13:38 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:39 PM - WARNING - Not Found: /
+11/25/2020 12:13:40 PM - WARNING - Not Found: /
+11/25/2020 12:13:40 PM - WARNING - Not Found: /
+11/25/2020 12:13:40 PM - WARNING - Not Found: /
+11/25/2020 12:13:40 PM - WARNING - Not Found: /
+11/25/2020 12:13:40 PM - WARNING - Not Found: /
+11/25/2020 12:13:40 PM - WARNING - Not Found: /
+11/25/2020 12:13:40 PM - WARNING - Not Found: /
+11/25/2020 12:13:40 PM - WARNING - Not Found: /
+11/25/2020 13:55:35 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA辅助系统完整性校验, 流程执行结果：成功
+11/25/2020 13:55:35 PM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/25/2020 14:41:51 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA辅助系统完整性校验, 流程执行结果：成功
+11/25/2020 14:41:51 PM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/25/2020 15:17:28 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA辅助系统完整性校验, 流程执行结果：获取-------核对状态Option0------失败
+11/25/2020 15:17:28 PM - WARNING - FlowResult post: 查询流程状态失败，流程名获取-------核对状态Option0------失败不存在
+11/25/2020 15:21:30 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA辅助系统完整性校验, 流程执行结果：成功
+11/25/2020 15:21:30 PM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/25/2020 15:25:09 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA辅助系统完整性校验, 流程执行结果：获取-------核对状态Option0------失败
+11/25/2020 15:25:09 PM - WARNING - FlowResult post: 查询流程状态失败，流程名获取-------核对状态Option0------失败不存在
+11/25/2020 15:30:32 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA辅助系统完整性校验, 流程执行结果：成功
+11/25/2020 15:30:32 PM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/25/2020 15:42:30 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA辅助系统完整性校验, 流程执行结果：成功
+11/25/2020 15:42:30 PM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/25/2020 15:45:15 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA确认数据导出完成_确认数据发送, 流程执行结果：组件【6_1复制中泰证券代销确认数据并生成OK文件】运行失败，失败信息：发送文件目录不存在，请检查
+11/25/2020 15:45:15 PM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【6_1复制中泰证券代销确认数据并生成OK文件】运行失败，失败信息：发送文件目录不存在，请检查不存在
+11/25/2020 15:46:45 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA确认数据导出完成_确认数据发送, 流程执行结果：组件【6_1复制中泰证券代销确认数据并生成OK文件】运行失败，失败信息：发送文件目录不存在，请检查
+11/25/2020 15:46:45 PM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【6_1复制中泰证券代销确认数据并生成OK文件】运行失败，失败信息：发送文件目录不存在，请检查不存在
+11/25/2020 15:47:43 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA确认数据导出完成_确认数据发送, 流程执行结果：组件【6_4_MSP_DATA直销数据复制】运行失败，失败信息：true
+11/25/2020 15:47:43 PM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【6_4_MSP_DATA直销数据复制】运行失败，失败信息：true不存在
+11/25/2020 15:49:02 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA确认数据导出完成_确认数据发送, 流程执行结果：成功
+11/25/2020 15:49:02 PM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/25/2020 16:20:32 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA确认数据导出完成_确认数据发送, 流程执行结果：成功
+11/25/2020 16:20:32 PM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/25/2020 17:18:58 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统日终清算, 流程执行结果：成功
+11/25/2020 17:18:58 PM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统日终清算, 流程执行成功
+11/25/2020 17:18:58 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/25/2020 17:19:00 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BA489B5A58>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/25/2020 17:19:49 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统资金调节表导入, 流程执行结果：成功
+11/25/2020 17:19:49 PM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统资金调节表导入, 流程执行成功
+11/25/2020 17:19:49 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/25/2020 17:19:51 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BA489B8BE0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/25/2020 17:29:23 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统公共数据处理, 流程执行结果：获取搜索按钮失败
+11/25/2020 17:29:23 PM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统公共数据处理, 流程执行失败，失败信息：获取搜索按钮失败
+11/25/2020 17:29:23 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/25/2020 17:29:24 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 302 0
+11/25/2020 17:29:24 PM - DEBUG - Starting new HTTP connection (1): 10.29.181.202:30080
+11/25/2020 17:29:24 PM - DEBUG - http://10.29.181.202:30080 "GET /cas/login?service=http%3A%2F%2F10.29.180.151%3A9080%2Fvesta_rpa%3Fmethod%3Dcallback HTTP/1.1" 302 161
+11/25/2020 17:29:24 PM - DEBUG - Starting new HTTP connection (1): staging.portal.zts.com.cn:80
+11/25/2020 17:29:24 PM - DEBUG - http://staging.portal.zts.com.cn:80 "GET /cas/login?service=http%3A%2F%2F10.29.180.151%3A9080%2Fvesta_rpa%3Fmethod%3Dcallback HTTP/1.1" 200 None
+11/25/2020 17:30:10 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统公共数据处理, 流程执行结果：获取时间框失败
+11/25/2020 17:30:10 PM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统公共数据处理, 流程执行失败，失败信息：获取时间框失败
+11/25/2020 17:30:10 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/25/2020 17:30:10 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 302 0
+11/25/2020 17:30:10 PM - DEBUG - Starting new HTTP connection (1): 10.29.181.202:30080
+11/25/2020 17:30:10 PM - DEBUG - http://10.29.181.202:30080 "GET /cas/login?service=http%3A%2F%2F10.29.180.151%3A9080%2Fvesta_rpa%3Fmethod%3Dcallback HTTP/1.1" 302 161
+11/25/2020 17:30:10 PM - DEBUG - Starting new HTTP connection (1): staging.portal.zts.com.cn:80
+11/25/2020 17:30:10 PM - DEBUG - http://staging.portal.zts.com.cn:80 "GET /cas/login?service=http%3A%2F%2F10.29.180.151%3A9080%2Fvesta_rpa%3Fmethod%3Dcallback HTTP/1.1" 200 None
+11/25/2020 17:33:37 PM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统公共数据处理, 流程执行结果：获取时间框失败
+11/25/2020 17:33:37 PM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统公共数据处理, 流程执行失败，失败信息：获取时间框失败
+11/25/2020 17:33:37 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/25/2020 17:33:37 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 302 0
+11/25/2020 17:33:37 PM - DEBUG - Starting new HTTP connection (1): 10.29.181.202:30080
+11/25/2020 17:33:37 PM - DEBUG - http://10.29.181.202:30080 "GET /cas/login?service=http%3A%2F%2F10.29.180.151%3A9080%2Fvesta_rpa%3Fmethod%3Dcallback HTTP/1.1" 302 161
+11/25/2020 17:33:37 PM - DEBUG - Starting new HTTP connection (1): staging.portal.zts.com.cn:80
+11/25/2020 17:33:37 PM - DEBUG - http://staging.portal.zts.com.cn:80 "GET /cas/login?service=http%3A%2F%2F10.29.180.151%3A9080%2Fvesta_rpa%3Fmethod%3Dcallback HTTP/1.1" 200 None
+11/26/2020 08:45:46 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 102, flag is: 0
+11/26/2020 08:45:46 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 105, flag is: 0
+11/26/2020 08:45:46 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA日初始化, FlowNum is 97, flag is: 0
+11/26/2020 08:45:46 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据处理, FlowNum is 115, flag is: 0
+11/26/2020 08:45:46 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导出, FlowNum is 116, flag is: 0
+11/26/2020 08:45:46 AM - INFO - StartFlow  save_param: FlowName is 托管部\FA外包估值\FA系统公共数据处理, FlowNum is 142, flag is: 0
+11/26/2020 08:45:47 AM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA日初始化 流程执行成功
+11/26/2020 08:45:47 AM - INFO - StartFlow post: FlowName : 托管部\FA外包估值\FA系统公共数据处理 流程执行成功
+11/26/2020 08:45:47 AM - INFO - StartFlow post: FlowName : 托管部\TA日清算\OTC数据导入 流程执行成功
+11/26/2020 08:45:47 AM - INFO - StartFlow post: FlowName : 托管部\TA日清算\OTC数据处理 流程执行成功
+11/26/2020 08:45:47 AM - INFO - StartFlow post: FlowName : 托管部\TA日清算\OTC数据导出 流程执行成功
+11/26/2020 08:45:48 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/26/2020 08:45:56 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据处理, 流程执行结果：获取密码输入框失败
+11/26/2020 08:45:56 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：获取密码输入框失败
+11/26/2020 08:45:56 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导出, 流程执行结果：获取密码输入框失败
+11/26/2020 08:45:56 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据处理, 流程执行失败，失败信息：获取密码输入框失败
+11/26/2020 08:45:56 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 08:45:56 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导出, 流程执行失败，失败信息：获取密码输入框失败
+11/26/2020 08:45:56 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 08:45:56 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行失败，失败信息：获取密码输入框失败
+11/26/2020 08:45:56 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 08:46:01 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统公共数据处理, 流程执行结果：FA程序登录失败，失败原因：获取用户名窗口失败
+11/26/2020 08:46:01 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 08:46:01 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 08:46:01 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 08:46:01 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统公共数据处理, 流程执行失败，失败信息：FA程序登录失败，失败原因：获取用户名窗口失败
+11/26/2020 08:46:01 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 08:46:01 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 08:46:59 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：获取【日初始化】窗口失败
+11/26/2020 08:46:59 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：获取【日初始化】窗口失败
+11/26/2020 08:46:59 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 08:46:59 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 09:05:47 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【1_登记结算部_深圳通小站_文件传输】运行失败，失败信息：代销产品路径不存在，路径：D:\测试\S\招商银行\20201125\
+11/26/2020 09:05:47 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【1_登记结算部_深圳通小站_文件传输】运行失败，失败信息：代销产品路径不存在，路径：D:\测试\S\招商银行\20201125\不存在
+11/26/2020 09:06:43 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：组件【1_登记结算部_深圳通小站_文件传输】运行失败，失败信息：代销产品路径不存在，路径：D:\测试\S\招商银行\20201125\
+11/26/2020 09:06:43 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【1_登记结算部_深圳通小站_文件传输】运行失败，失败信息：代销产品路径不存在，路径：D:\测试\S\招商银行\20201125\不存在
+11/26/2020 09:28:43 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：成功
+11/26/2020 09:28:43 AM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/26/2020 09:28:44 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化后_代销_直销数据准备, 流程执行结果：成功
+11/26/2020 09:28:44 AM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/26/2020 09:49:18 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA基金行情导出完成_行情文件发送, 流程执行结果：组件【4_1_代销数据发送_中泰660】运行失败，失败信息：发送文件目录不存在，请检查
+11/26/2020 09:49:18 AM - WARNING - FlowResult post: 查询流程状态失败，流程名组件【4_1_代销数据发送_中泰660】运行失败，失败信息：发送文件目录不存在，请检查不存在
+11/26/2020 10:14:16 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统公共数据处理, 流程执行结果：成功
+11/26/2020 10:14:17 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统公共数据处理, 流程执行成功
+11/26/2020 10:14:17 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 10:14:17 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 10:16:40 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统日终清算, 流程执行结果：程序运行失败，失败原因:获取元素失败
+11/26/2020 10:16:40 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统日终清算, 流程执行失败，失败信息：程序运行失败，失败原因:获取元素失败
+11/26/2020 10:16:40 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 10:16:40 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 10:33:15 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统日终清算, 流程执行结果：成功
+11/26/2020 10:33:16 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统日终清算, 流程执行成功
+11/26/2020 10:33:16 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 10:33:16 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 10:38:27 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统日终清算, 流程执行结果：成功
+11/26/2020 10:38:27 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统日终清算, 流程执行成功
+11/26/2020 10:38:27 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 10:38:27 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 13:41:05 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导出, FlowNum is 143, flag is: 0
+11/26/2020 13:41:05 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA日初始化, FlowNum is 101, flag is: 0
+11/26/2020 13:41:05 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 114, flag is: 0
+11/26/2020 13:41:05 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据处理, FlowNum is 133, flag is: 0
+11/26/2020 13:41:05 PM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 106, flag is: 0
+11/26/2020 13:41:05 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\OTC数据处理 流程执行成功
+11/26/2020 13:41:05 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\OTC数据导入 流程执行成功
+11/26/2020 13:41:06 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\OTC数据导出 流程执行成功
+11/26/2020 13:41:06 PM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/26/2020 13:41:06 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA日初始化 流程执行成功
+11/26/2020 13:41:14 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导出, 流程执行结果：获取密码输入框失败
+11/26/2020 13:41:14 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：获取密码输入框失败
+11/26/2020 13:41:14 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导出, 流程执行失败，失败信息：获取密码输入框失败
+11/26/2020 13:41:14 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 13:41:14 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行失败，失败信息：获取密码输入框失败
+11/26/2020 13:41:14 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 13:41:14 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 13:41:14 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 13:43:40 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：获取【日操作流程】窗口失败
+11/26/2020 13:43:41 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：获取【日操作流程】窗口失败
+11/26/2020 13:43:41 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 13:43:41 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 13:44:40 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据处理, 流程执行结果：获取【OTC处理流程】窗口失败
+11/26/2020 13:44:41 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据处理, 流程执行失败，失败信息：获取【OTC处理流程】窗口失败
+11/26/2020 13:44:41 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 13:44:41 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 14:00:06 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：节点已完成
+11/26/2020 14:00:06 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：节点已完成
+11/26/2020 14:00:06 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 14:00:06 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 14:41:39 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：成功
+11/26/2020 14:41:40 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行成功
+11/26/2020 14:41:40 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/26/2020 14:41:40 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/26/2020 14:42:03 PM - INFO - Flow_Status post: 流程号：143, 流程结果：获取密码输入框失败
+11/26/2020 14:42:03 PM - INFO - Flow_Status post: 流程号：101, 流程结果：成功
+11/26/2020 14:42:03 PM - INFO - Flow_Status post: 流程号：114, 流程结果：获取密码输入框失败
+11/26/2020 14:42:03 PM - INFO - Flow_Status post: 流程号：133, 流程结果：获取【OTC处理流程】窗口失败
+11/26/2020 14:49:26 PM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 109, flag is: 0
+11/26/2020 14:49:26 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 126, flag is: 0
+11/26/2020 14:49:26 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA日初始化, FlowNum is 104, flag is: 0
+11/26/2020 14:49:26 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据处理, FlowNum is 213, flag is: 0
+11/26/2020 14:49:27 PM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/26/2020 14:49:27 PM - WARNING - StartFlow  save_param: ip: 10.29.182.49 资源繁忙
+11/26/2020 14:49:27 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\OTC数据导入 流程执行成功
+11/26/2020 14:49:27 PM - WARNING - StartFlow  save_param: ip: 10.29.182.49 资源繁忙
+11/26/2020 15:03:31 PM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 112, flag is: 0
+11/26/2020 15:03:31 PM - WARNING - StartFlow  save_param: ip: 10.29.182.49 资源繁忙
+11/26/2020 15:03:31 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA日初始化, FlowNum is 104, flag is: 1
+11/26/2020 15:03:31 PM - INFO - StartFlow  save_param: FlowNum 104 流程二次或多次开启
+11/26/2020 15:03:31 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据处理, FlowNum is 213, flag is: 1
+11/26/2020 15:03:31 PM - INFO - StartFlow  save_param: FlowNum 213 流程二次或多次开启
+11/26/2020 15:03:31 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA基金行情复核, FlowNum is 285, flag is: 0
+11/26/2020 15:03:31 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA处理前备份, FlowNum is 269, flag is: 0
+11/26/2020 15:03:31 PM - INFO - StartFlow  save_param: FlowNum 104 已重新创建
+11/26/2020 15:03:31 PM - WARNING - StartFlow  save_param: ip: 10.29.182.49 资源繁忙
+11/26/2020 15:03:31 PM - WARNING - StartFlow  save_param: ip: 10.29.182.49 资源繁忙
+11/26/2020 15:03:31 PM - INFO - StartFlow  save_param: FlowName is 托管部\FA外包估值\FA系统公共账套设置, FlowNum is 251, flag is: 0
+11/26/2020 15:03:31 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\OTC数据处理 流程执行成功
+11/26/2020 15:03:31 PM - WARNING - StartFlow  save_param: FlowNum 251 流程号已存在
+11/26/2020 15:03:31 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA日初始化 流程执行成功
+11/26/2020 15:20:34 PM - INFO - Flow_Status post: 流程号：104, 流程结果：正在执行
+11/26/2020 15:20:34 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/26/2020 15:20:34 PM - INFO - Flow_Status post: 流程号：213, 流程结果：成功
+11/26/2020 15:52:48 PM - INFO - Flow_Status post: 流程号：104, 流程结果：正在执行
+11/26/2020 15:52:48 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/26/2020 15:55:55 PM - INFO - Flow_Status post: 流程号：104, 流程结果：正在执行
+11/26/2020 15:55:55 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/26/2020 15:59:30 PM - INFO - Flow_Status post: 流程号：104, 流程结果：正在执行
+11/26/2020 15:59:30 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/26/2020 15:59:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 205, flag is: 0
+11/26/2020 15:59:36 PM - WARNING - StartFlow  save_param: ip: 10.29.182.49 资源繁忙
+11/26/2020 16:07:04 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 205, flag is: 0
+11/26/2020 16:07:04 PM - WARNING - StartFlow  save_param: ip: 10.29.182.49 资源繁忙
+11/26/2020 16:46:21 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 205, flag is: 0
+11/26/2020 16:46:21 PM - WARNING - StartFlow  save_param: ip: 10.29.182.49 资源繁忙
+11/27/2020 09:51:32 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 106, flag is: 0
+11/27/2020 09:51:32 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 126, flag is: 0
+11/27/2020 09:51:32 AM - WARNING - StartFlow  save_param: ip: 10.29.182.49 资源繁忙
+11/27/2020 09:51:32 AM - WARNING - StartFlow  save_param: ip: 10.29.182.49 资源繁忙
+11/27/2020 09:52:32 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 106, flag is: 1
+11/27/2020 09:52:32 AM - INFO - StartFlow  save_param: FlowNum 106 流程二次或多次开启
+11/27/2020 09:52:32 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 126, flag is: 1
+11/27/2020 09:52:32 AM - INFO - StartFlow  save_param: FlowNum 126 流程二次或多次开启
+11/27/2020 09:52:32 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 09:52:32 AM - INFO - StartFlow post: FlowName : 托管部\TA日清算\OTC数据导入 流程执行成功
+11/27/2020 09:53:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 109, flag is: 0
+11/27/2020 09:53:30 AM - WARNING - StartFlow  save_param: FlowNum 109 流程号已存在
+11/27/2020 09:54:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 112, flag is: 0
+11/27/2020 09:54:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 09:55:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 118, flag is: 0
+11/27/2020 09:55:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 09:56:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 124, flag is: 0
+11/27/2020 09:56:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 09:57:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 129, flag is: 0
+11/27/2020 09:57:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 09:58:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 135, flag is: 0
+11/27/2020 09:58:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 09:58:33 AM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/27/2020 09:59:14 AM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/27/2020 09:59:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 151, flag is: 0
+11/27/2020 09:59:30 AM - WARNING - StartFlow  save_param: FlowNum 151 流程号已存在
+11/27/2020 10:00:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 154, flag is: 0
+11/27/2020 10:00:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:01:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 157, flag is: 0
+11/27/2020 10:01:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:02:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 160, flag is: 0
+11/27/2020 10:02:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:03:14 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:03:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 165, flag is: 0
+11/27/2020 10:03:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:04:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 168, flag is: 0
+11/27/2020 10:04:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:05:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 171, flag is: 0
+11/27/2020 10:05:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:06:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 205, flag is: 0
+11/27/2020 10:06:29 AM - WARNING - StartFlow  save_param: FlowNum 205 流程号已存在
+11/27/2020 10:07:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 207, flag is: 0
+11/27/2020 10:07:29 AM - WARNING - StartFlow  save_param: FlowNum 207 流程号已存在
+11/27/2020 10:08:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 219, flag is: 0
+11/27/2020 10:08:29 AM - WARNING - StartFlow  save_param: FlowNum 219 流程号已存在
+11/27/2020 10:09:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 223, flag is: 0
+11/27/2020 10:09:29 AM - WARNING - StartFlow  save_param: FlowNum 223 流程号已存在
+11/27/2020 10:10:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 231, flag is: 0
+11/27/2020 10:10:29 AM - WARNING - StartFlow  save_param: FlowNum 231 流程号已存在
+11/27/2020 10:11:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 239, flag is: 0
+11/27/2020 10:11:29 AM - WARNING - StartFlow  save_param: FlowNum 239 流程号已存在
+11/27/2020 10:12:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 243, flag is: 0
+11/27/2020 10:12:29 AM - WARNING - StartFlow  save_param: FlowNum 243 流程号已存在
+11/27/2020 10:13:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 283, flag is: 0
+11/27/2020 10:13:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:14:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 297, flag is: 0
+11/27/2020 10:14:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:15:29 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 332, flag is: 0
+11/27/2020 10:15:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:16:56 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:20:28 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:23:07 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:28:26 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:42:38 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:46:09 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:46:33 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:50:35 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:51:02 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 471, flag is: 0
+11/27/2020 10:51:03 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:51:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 473, flag is: 0
+11/27/2020 10:51:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:52:32 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 475, flag is: 0
+11/27/2020 10:52:32 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:52:57 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:53:30 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 477, flag is: 0
+11/27/2020 10:53:30 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 10:54:29 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:56:39 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 10:58:04 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 11:00:41 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 11:00:48 AM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 11:10:30 AM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/27/2020 13:21:29 PM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 508, flag is: 0
+11/27/2020 13:21:30 PM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/27/2020 14:09:28 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA日初始化, FlowNum is 327, flag is: 0
+11/27/2020 14:09:28 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA日初始化 流程执行成功
+11/27/2020 14:44:29 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 14:56:27 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 14:58:30 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 14:59:22 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 15:35:31 PM - INFO - Flow_Status post: 流程号：327, 流程结果：正在执行
+11/27/2020 15:46:55 PM - INFO - Flow_Status post: 流程号：327, 流程结果：正在执行
+11/27/2020 15:51:59 PM - INFO - Flow_Status post: 流程号：327, 流程结果：正在执行
+11/27/2020 16:24:21 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 16:31:58 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 16:36:31 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 16:40:28 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行
+11/27/2020 17:03:38 PM - INFO - Flow_Status post: 流程号：126, 流程结果：正在执行

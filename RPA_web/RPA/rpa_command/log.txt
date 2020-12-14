@@ -1,0 +1,4 @@
+11/19/2020 10:44:30 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统资金调节表导入, 流程执行结果：成功
+11/19/2020 10:44:30 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统资金调节表导入, 流程执行成功
+11/19/2020 10:44:30 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 10:44:32 AM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023AEAAD4DA0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))

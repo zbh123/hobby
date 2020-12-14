@@ -6,7 +6,7 @@ url = 'http://10.49.87.35:8080/command/startflow'
 # url = 'http://10.49.87.35:8080/command/flowresult'   # 设置流程结果和机器状态
 # url = 'http://10.49.87.35:8080/command/stopflow'
 
-data = {"FlowName": "托管部\FA外包估值\FA系统日终清算第二批", "FlowNum": 10}
+data = {"FlowName": "托管部\TA日清算\TA代销_直销数据准备", "FlowNum": 11, "flag": '1'}
 # data = {"FlowNum": 2}
 # data = {"FlowName": "托管部\TA日清算\TA日初始化", "FlowResult": '成功'}
 # data = {"FlowNum": 2}

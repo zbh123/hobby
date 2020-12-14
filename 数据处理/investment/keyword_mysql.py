@@ -167,32 +167,27 @@ sql = """CREATE TABLE wind_ecm_issue (
          convertible_issue CHAR(150)
         )"""
 
+
+
 sql = """CREATE TABLE wind_star (
          code CHAR(150),
          bond_abbr CHAR(150),
-         announce_date_late	CHAR(150),
-         enterprise	CHAR(150),
+         accept_date CHAR(150),
+         fullname_issuer CHAR(150),
+         accept_batch CHAR(150),
          audit_status CHAR(150),
-         pre_disclosed CHAR(150),
-         listing_board CHAR(150),
          ipo_theme CHAR(150),
          ipo_theme_detail CHAR(150),
-         industry_csrc CHAR(150),
-         pre_issued	CHAR(150),
-         pre_total CHAR(150),
-         place_registration	CHAR(150),
-         sponsor CHAR(150),
-         sponsor_person	CHAR(150),
+         list_standards CHAR(150),
+         to_raise_funds	CHAR(150),
+         sponsor_and_underwriter CHAR(150),
          account_firm CHAR(150),
-         accountant	CHAR(150),
          law_firm CHAR(150),
-         lawyer	CHAR(150),
-         change_status CHAR(150),
-         announcement_date_f CHAR(150),
-         website CHAR(150),
-         email CHAR(150),
-         phone CHAR(150),
-         address CHAR(150)
+         asset_appraisal_agency CHAR(150),
+         registration CHAR(150),
+         csrc CHAR(150),
+         update_time CHAR(150),        
+         current_time CHAR(150)
         )"""
 
 sql = """CREATE TABLE csrc_ipo (

@@ -31,5 +31,5 @@ def static_code(path):
     print(count)
 
 
-# getAllDirQU(r'D:\0RPA\代码统计')
-static_code(r'D:\pyfile\github_files\hobby\RPA_web\RPA')
+static_code(r'D:\0RPA\代码统计')
+# static_code(r'D:\pyfile\github_files\hobby\RPA_web\RPA')

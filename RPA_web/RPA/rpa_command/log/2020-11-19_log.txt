@@ -1,0 +1,132 @@
+11/19/2020 10:58:59 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统日终清算, 流程执行结果：成功
+11/19/2020 10:59:00 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统日终清算, 流程执行成功
+11/19/2020 10:59:00 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 10:59:02 AM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7A4DA0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 13:25:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA日初始化, FlowNum is 183, flag is: 0
+11/19/2020 13:25:36 PM - INFO - StartFlow post: 流程执行成功
+11/19/2020 13:26:49 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：获取【日初始化】窗口失败
+11/19/2020 13:26:49 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：获取【日初始化】窗口失败
+11/19/2020 13:26:49 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 13:26:49 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/19/2020 13:38:35 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA日初始化, FlowNum is 184, flag is: 0
+11/19/2020 13:38:35 PM - INFO - StartFlow post: 流程执行成功
+11/19/2020 13:39:44 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：获取【日初始化】窗口失败
+11/19/2020 13:39:44 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：获取【日初始化】窗口失败
+11/19/2020 13:39:44 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 13:39:44 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/19/2020 15:19:14 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：等待60s，关闭窗口不可用，请增加等待时间
+11/19/2020 15:19:14 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：等待60s，关闭窗口不可用，请增加等待时间
+11/19/2020 15:19:14 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 15:19:16 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7D8080>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 15:20:14 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：成功
+11/19/2020 15:20:14 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行成功
+11/19/2020 15:20:14 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 15:20:16 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7E5438>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 15:21:56 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据处理, 流程执行结果：成功
+11/19/2020 15:21:56 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据处理, 流程执行成功
+11/19/2020 15:21:56 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 15:21:58 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7D1860>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 15:22:58 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导出, 流程执行结果：成功
+11/19/2020 15:22:58 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导出, 流程执行成功
+11/19/2020 15:22:58 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 15:23:00 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B78ECF8>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 16:01:35 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA日初始化, FlowNum is 185, flag is: 0
+11/19/2020 16:01:35 PM - INFO - StartFlow post: 流程执行成功
+11/19/2020 16:02:45 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：获取【日初始化】窗口失败
+11/19/2020 16:02:46 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：获取【日初始化】窗口失败
+11/19/2020 16:02:46 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 16:02:46 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/19/2020 16:05:35 PM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 187, flag is: 0
+11/19/2020 16:05:35 PM - WARNING - StartFlow post: 流程执行失败，失败信息：找不到指定路径的流程
+11/19/2020 16:15:35 PM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 194, flag is: 0
+11/19/2020 16:15:35 PM - WARNING - StartFlow  save_param: 资源繁忙
+11/19/2020 16:16:35 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：获取【日初始化】窗口失败
+11/19/2020 16:16:35 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：获取【日初始化】窗口失败
+11/19/2020 16:16:35 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 16:16:53 PM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 194, flag is: 1
+11/19/2020 16:16:53 PM - INFO - StartFlow  save_param: 流程二次或多次开启
+11/19/2020 16:17:01 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/19/2020 16:19:17 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：等待60s，关闭窗口不可用，请增加等待时间
+11/19/2020 16:19:17 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：等待60s，关闭窗口不可用，请增加等待时间
+11/19/2020 16:19:17 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 16:19:19 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7E51D0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 16:22:43 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：获取到的提示窗口不是【[OTC份额转让申请文件导入] 成功操作完毕!】，标题是：
+11/19/2020 16:22:43 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行失败，失败信息：获取到的提示窗口不是【[OTC份额转让申请文件导入] 成功操作完毕!】，标题是：
+11/19/2020 16:22:43 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 16:22:49 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 404 0
+11/19/2020 16:32:05 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：获取【确定】按钮失败
+11/19/2020 16:32:06 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：获取【确定】按钮失败
+11/19/2020 16:32:06 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 16:32:08 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7D80B8>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 16:35:59 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：成功
+11/19/2020 16:36:00 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行成功
+11/19/2020 16:36:00 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 16:41:11 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 404 0
+11/19/2020 16:44:09 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：成功
+11/19/2020 16:44:09 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行成功
+11/19/2020 16:44:09 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 16:47:01 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 404 0
+11/19/2020 16:47:58 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：获取【OTC数据导入】窗口失败
+11/19/2020 16:47:58 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行失败，失败信息：获取【OTC数据导入】窗口失败
+11/19/2020 16:47:58 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 16:48:00 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7A4518>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 17:42:43 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：成功
+11/19/2020 17:42:43 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行成功
+11/19/2020 17:42:43 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 17:42:45 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7E5B38>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 17:43:07 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：成功
+11/19/2020 17:43:07 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行成功
+11/19/2020 17:43:07 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 17:43:09 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7EFB70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 17:44:38 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据处理, 流程执行结果：成功
+11/19/2020 17:44:38 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据处理, 流程执行成功
+11/19/2020 17:44:38 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 17:44:40 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7D87F0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 17:45:34 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导出, 流程执行结果：成功
+11/19/2020 17:45:35 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导出, 流程执行成功
+11/19/2020 17:45:35 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 17:45:37 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7D1B38>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 18:23:46 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：成功
+11/19/2020 18:23:46 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行成功
+11/19/2020 18:23:46 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 18:23:48 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7D1828>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 18:24:10 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：成功
+11/19/2020 18:24:10 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行成功
+11/19/2020 18:24:10 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 18:24:12 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C0890EB828>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 18:25:48 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据处理, 流程执行结果：成功
+11/19/2020 18:25:49 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据处理, 流程执行成功
+11/19/2020 18:25:49 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 18:25:51 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7EFB00>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/19/2020 18:26:51 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导出, 流程执行结果：成功
+11/19/2020 18:26:51 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导出, 流程执行成功
+11/19/2020 18:26:51 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/19/2020 18:26:53 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C08B7E5908>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/20/2020 09:55:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA日初始化, FlowNum is 200, flag is: 0
+11/20/2020 09:55:37 AM - INFO - StartFlow post: 流程执行成功
+11/20/2020 09:55:56 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：成功
+11/20/2020 09:55:57 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行成功
+11/20/2020 09:55:57 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 09:55:58 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 09:57:36 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 201, flag is: 0
+11/20/2020 09:57:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\FA外包估值\FA系统公共数据处理, FlowNum is 204, flag is: 0
+11/20/2020 09:57:37 AM - WARNING - StartFlow post: 流程执行失败，失败信息：找不到指定路径的流程
+11/20/2020 09:57:37 AM - INFO - StartFlow post: 流程执行成功
+11/20/2020 09:59:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 205, flag is: 0
+11/20/2020 09:59:36 AM - WARNING - StartFlow  save_param: 资源繁忙
+11/20/2020 10:00:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 205, flag is: 1
+11/20/2020 10:00:36 AM - INFO - StartFlow  save_param: 流程二次或多次开启
+11/20/2020 10:03:53 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统公共数据处理, 流程执行结果：成功
+11/20/2020 10:03:54 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统公共数据处理, 流程执行成功
+11/20/2020 10:03:54 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:03:54 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:05:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\FA外包估值\FA系统资金调节表导入, FlowNum is 206, flag is: 0
+11/20/2020 10:05:36 AM - INFO - StartFlow post: 流程执行成功
+11/20/2020 10:06:26 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统资金调节表导入, 流程执行结果：成功
+11/20/2020 10:06:26 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统资金调节表导入, 流程执行成功
+11/20/2020 10:06:26 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:06:26 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:07:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 205, flag is: 2
+11/20/2020 10:07:36 AM - INFO - StartFlow  save_param: 流程二次或多次开启
+11/20/2020 10:07:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\FA外包估值\FA系统日终清算, FlowNum is 207, flag is: 0
+11/20/2020 10:07:36 AM - INFO - StartFlow post: 流程执行成功

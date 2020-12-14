@@ -1,0 +1,219 @@
+11/20/2020 10:11:43 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 205, flag is: 0
+11/20/2020 10:11:43 AM - INFO - StartFlow post: 流程执行成功
+11/20/2020 10:12:04 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：成功
+11/20/2020 10:12:04 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行成功
+11/20/2020 10:12:04 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:12:04 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:13:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据处理, FlowNum is 208, flag is: 0
+11/20/2020 10:13:36 AM - INFO - StartFlow post: 流程执行成功
+11/20/2020 10:15:16 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据处理, 流程执行结果：成功
+11/20/2020 10:15:16 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据处理, 流程执行成功
+11/20/2020 10:15:16 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:15:16 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:16:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导出, FlowNum is 209, flag is: 0
+11/20/2020 10:16:36 AM - INFO - StartFlow post: 流程执行成功
+11/20/2020 10:17:37 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导出, 流程执行结果：成功
+11/20/2020 10:17:37 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导出, 流程执行成功
+11/20/2020 10:17:37 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:17:37 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:18:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA申请数据导入, FlowNum is 210, flag is: 0
+11/20/2020 10:18:36 AM - INFO - StartFlow post: 流程执行成功
+11/20/2020 10:20:24 AM - INFO - FlowResult post: 流程名：托管部\FA外包估值\FA系统日终清算, 流程执行结果：成功
+11/20/2020 10:20:24 AM - INFO - FlowResult post: 流程名:托管部\FA外包估值\FA系统日终清算, 流程执行成功
+11/20/2020 10:20:24 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:20:24 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:21:08 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA申请数据导入, 流程执行结果：成功
+11/20/2020 10:21:08 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA申请数据导入, 流程执行成功
+11/20/2020 10:21:08 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:21:08 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:22:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA基金行情输入, FlowNum is 211, flag is: 0
+11/20/2020 10:22:37 AM - INFO - StartFlow post: 流程执行成功
+11/20/2020 10:24:44 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA基金行情输入, 流程执行结果：获取【日操作流程】窗口失败
+11/20/2020 10:24:44 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA基金行情输入, 流程执行失败，失败信息：获取【日操作流程】窗口失败
+11/20/2020 10:24:44 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:24:44 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:29:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA基金行情输入, FlowNum is 211, flag is: 1
+11/20/2020 10:29:36 AM - INFO - StartFlow  save_param: FlowNum 211 流程二次或多次开启
+11/20/2020 10:29:36 AM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA基金行情输入 流程执行成功
+11/20/2020 10:49:29 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA基金行情输入, 流程执行结果：获取到的提示窗口不是【行情导入处理完成!】，标题是：
+11/20/2020 10:49:29 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA基金行情输入, 流程执行失败，失败信息：获取到的提示窗口不是【行情导入处理完成!】，标题是：
+11/20/2020 10:49:29 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:49:30 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:50:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA基金行情输入, FlowNum is 211, flag is: 2
+11/20/2020 10:50:36 AM - INFO - StartFlow  save_param: FlowNum 211 流程二次或多次开启
+11/20/2020 10:50:36 AM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA基金行情输入 流程执行成功
+11/20/2020 10:51:44 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA基金行情输入, 流程执行结果：成功
+11/20/2020 10:51:45 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA基金行情输入, 流程执行成功
+11/20/2020 10:51:45 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:51:45 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:52:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA基金行情复核, FlowNum is 212, flag is: 0
+11/20/2020 10:52:36 AM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA基金行情复核 流程执行成功
+11/20/2020 10:53:07 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA基金行情复核, 流程执行结果：成功
+11/20/2020 10:53:07 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA基金行情复核, 流程执行成功
+11/20/2020 10:53:07 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 10:53:07 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 10:54:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA基金行情导出, FlowNum is 213, flag is: 0
+11/20/2020 10:54:36 AM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA基金行情导出 流程执行成功
+11/20/2020 11:04:19 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA基金行情导出, 流程执行结果：成功
+11/20/2020 11:04:19 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA基金行情导出, 流程执行成功
+11/20/2020 11:04:19 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 11:04:19 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 11:05:36 AM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA处理前备份, FlowNum is 214, flag is: 0
+11/20/2020 11:05:36 AM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA处理前备份 流程执行成功
+11/20/2020 11:10:50 AM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA处理前备份, 流程执行结果：获取到的提示窗口不是【备份处理已完成!】，标题是：
+11/20/2020 11:10:50 AM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA处理前备份, 流程执行失败，失败信息：获取到的提示窗口不是【备份处理已完成!】，标题是：
+11/20/2020 11:10:50 AM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 11:10:50 AM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 11:11:58 AM - WARNING - Method Not Allowed (GET): /command/flowresult
+11/20/2020 11:13:28 AM - WARNING - Method Not Allowed (GET): /command/flowresult
+11/20/2020 14:07:09 PM - INFO - FlowResult post: 流程名：, 流程执行结果：
+11/20/2020 14:07:09 PM - WARNING - FlowResult post: 查询流程状态失败，流程名不存在
+11/20/2020 14:07:23 PM - INFO - FlowResult post: 流程名：, 流程执行结果：
+11/20/2020 14:07:23 PM - WARNING - FlowResult post: 查询流程状态失败，流程名不存在
+11/20/2020 14:08:37 PM - INFO - FlowResult post: 流程名：, 流程执行结果：
+11/20/2020 14:08:37 PM - WARNING - FlowResult post: 查询流程状态失败，流程名不存在
+11/20/2020 14:09:54 PM - INFO - FlowResult post: 流程名：, 流程执行结果：
+11/20/2020 14:09:54 PM - WARNING - FlowResult post: 查询流程状态失败，流程名不存在
+11/20/2020 14:11:42 PM - INFO - FlowResult post: 流程名：, 流程执行结果：
+11/20/2020 14:11:42 PM - WARNING - FlowResult post: 查询流程状态失败，流程名不存在
+11/20/2020 14:12:26 PM - INFO - FlowResult post: 流程名：, 流程执行结果：
+11/20/2020 14:12:26 PM - WARNING - FlowResult post: 查询流程状态失败，流程名不存在
+11/20/2020 14:15:54 PM - DEBUG - Flow_Status post: 流程号：213, 不存在
+11/20/2020 14:19:51 PM - DEBUG - Flow_Status post: 流程号：214, 不存在
+11/20/2020 14:21:47 PM - DEBUG - Flow_Status post: 流程号：214, 不存在
+11/20/2020 14:21:48 PM - DEBUG - Flow_Status post: 流程号：214, 不存在
+11/20/2020 14:21:48 PM - DEBUG - Flow_Status post: 流程号：214, 不存在
+11/20/2020 14:21:50 PM - DEBUG - Flow_Status post: 流程号：214, 不存在
+11/20/2020 14:48:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA处理前备份, FlowNum is 214, flag is: 1
+11/20/2020 14:48:36 PM - INFO - StartFlow  save_param: FlowNum 214 流程二次或多次开启
+11/20/2020 14:48:36 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA处理前备份 流程执行成功
+11/20/2020 14:50:22 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA处理前备份, 流程执行结果：成功
+11/20/2020 14:50:22 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA处理前备份, 流程执行成功
+11/20/2020 14:50:23 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 14:50:23 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 14:51:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA账户预处理, FlowNum is 215, flag is: 0
+11/20/2020 14:51:37 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA账户预处理 流程执行成功
+11/20/2020 14:55:05 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA账户预处理, 流程执行结果：成功
+11/20/2020 14:55:06 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA账户预处理, 流程执行成功
+11/20/2020 14:55:06 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 14:55:06 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 14:56:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA交易预处理, FlowNum is 216, flag is: 0
+11/20/2020 14:56:37 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA交易预处理 流程执行成功
+11/20/2020 14:57:13 PM - DEBUG - Flow_Status post: 流程号：214, 不存在
+11/20/2020 14:57:58 PM - DEBUG - Flow_Status post: 流程号：215, 不存在
+11/20/2020 14:58:20 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA交易预处理, 流程执行结果：成功
+11/20/2020 14:58:20 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA交易预处理, 流程执行成功
+11/20/2020 14:58:20 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 14:58:20 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 14:59:46 PM - DEBUG - Flow_Status post: 流程号：215, 不存在
+11/20/2020 14:59:49 PM - DEBUG - Flow_Status post: 流程号：215, 不存在
+11/20/2020 15:00:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA批处理, FlowNum is 217, flag is: 1
+11/20/2020 15:00:36 PM - INFO - StartFlow  save_param: FlowNum 217 流程二次或多次开启
+11/20/2020 15:00:36 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA批处理 流程执行成功
+11/20/2020 15:03:20 PM - DEBUG - Flow_Status post: 流程号：215, 不存在
+11/20/2020 15:03:26 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA批处理, 流程执行结果：成功
+11/20/2020 15:03:26 PM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/20/2020 15:05:26 PM - INFO - Flow_Status post: 流程号：215, 流程结果：成功
+11/20/2020 15:15:50 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA批处理, 流程执行结果：成功
+11/20/2020 15:15:50 PM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/20/2020 15:18:02 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA批处理, 流程执行结果：成功
+11/20/2020 15:18:02 PM - WARNING - FlowResult post: 查询流程状态失败，流程名成功不存在
+11/20/2020 15:21:07 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA批处理, 流程执行结果：成功
+11/20/2020 15:21:07 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA批处理, 流程执行成功
+11/20/2020 15:21:07 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 15:21:07 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 15:22:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA批后统计, FlowNum is 218, flag is: 0
+11/20/2020 15:22:37 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA批后统计 流程执行成功
+11/20/2020 15:23:48 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA批后统计, 流程执行结果：成功
+11/20/2020 15:23:49 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA批后统计, 流程执行成功
+11/20/2020 15:23:49 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 15:23:49 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 15:25:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA处理后备份, FlowNum is 219, flag is: 0
+11/20/2020 15:25:37 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA处理后备份 流程执行成功
+11/20/2020 15:27:12 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA处理后备份, 流程执行结果：成功
+11/20/2020 15:27:13 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA处理后备份, 流程执行成功
+11/20/2020 15:27:13 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 15:27:13 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 15:28:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA集中备份导出, FlowNum is 220, flag is: 0
+11/20/2020 15:28:37 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA集中备份导出 流程执行成功
+11/20/2020 15:29:34 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA集中备份导出, 流程执行结果：成功
+11/20/2020 15:29:34 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA集中备份导出, 流程执行成功
+11/20/2020 15:29:34 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 15:29:34 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 15:30:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA清算数据导出, FlowNum is 221, flag is: 0
+11/20/2020 15:30:37 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA清算数据导出 流程执行成功
+11/20/2020 15:40:44 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA清算数据导出, 流程执行结果：成功
+11/20/2020 15:40:45 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA清算数据导出, 流程执行成功
+11/20/2020 15:40:45 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 15:40:45 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 15:41:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA确认数据导出, FlowNum is 222, flag is: 0
+11/20/2020 15:41:37 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA确认数据导出 流程执行成功
+11/20/2020 16:09:58 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA确认数据导出, 流程执行结果：成功
+11/20/2020 16:09:58 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA确认数据导出, 流程执行成功
+11/20/2020 16:09:58 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 16:09:58 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 16:11:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA客服数据导出, FlowNum is 223, flag is: 0
+11/20/2020 16:11:37 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA客服数据导出 流程执行成功
+11/20/2020 16:21:39 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA客服数据导出, 流程执行结果：成功
+11/20/2020 16:21:40 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA客服数据导出, 流程执行成功
+11/20/2020 16:21:40 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 16:21:40 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 16:22:36 PM - INFO - StartFlow  save_param: FlowName is TA确认数据发送, FlowNum is 224, flag is: 0
+11/20/2020 16:22:37 PM - WARNING - StartFlow post: FlowName : TA确认数据发送 流程执行失败，失败信息：找不到指定路径的流程
+11/20/2020 16:38:10 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\OTC数据导入, FlowNum is 11, flag is: 1
+11/20/2020 16:38:10 PM - INFO - StartFlow  save_param: FlowNum 11 流程二次或多次开启
+11/20/2020 16:38:11 PM - INFO - StartFlow  save_param: FlowNum 11 已重新创建
+11/20/2020 16:38:11 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\OTC数据导入 流程执行成功
+11/20/2020 16:38:32 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：获取【OTC数据导入】窗口失败
+11/20/2020 16:38:33 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行失败，失败信息：获取【OTC数据导入】窗口失败
+11/20/2020 16:38:33 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 16:38:33 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 16:43:36 PM - INFO - StartFlow  save_param: FlowName is 托管部\TA日清算\TA日初始化, FlowNum is 225, flag is: 0
+11/20/2020 16:43:37 PM - INFO - StartFlow post: FlowName : 托管部\TA日清算\TA日初始化 流程执行成功
+11/20/2020 16:43:42 PM - INFO - StopFlow post: 流程名：托管部\TA日清算\TA日初始化, 机器IP：10.29.182.49
+11/20/2020 16:43:42 PM - INFO - StopFlow post: 流程名：托管部\TA日清算\TA日初始化,停止成功
+11/20/2020 16:46:13 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：获取【日操作流程】窗口失败
+11/20/2020 16:46:13 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：获取【日操作流程】窗口失败
+11/20/2020 16:46:13 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 16:46:13 PM - DEBUG - http://10.49.87.85:8080 "POST //vesta_rpa?method=callback HTTP/1.1" 200 None
+11/20/2020 16:46:54 PM - INFO - Flow_Status post: 流程号：215, 流程结果：成功
+11/20/2020 16:47:19 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 16:47:37 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 16:47:38 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 16:47:39 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 16:47:40 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 16:47:40 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 16:47:41 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 16:47:44 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 16:47:48 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 16:47:48 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 17:09:23 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 17:10:02 PM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/20/2020 17:37:21 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：等待60s，关闭窗口不可用，请增加等待时间
+11/20/2020 17:37:21 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：等待60s，关闭窗口不可用，请增加等待时间
+11/20/2020 17:37:21 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 17:37:23 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002B59F6CEB00>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/20/2020 17:38:55 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：获取【提示】窗口失败
+11/20/2020 17:38:55 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：获取【提示】窗口失败
+11/20/2020 17:38:55 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 17:38:58 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002B59F6CB588>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/20/2020 17:55:08 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：等待60s，关闭窗口不可用，请增加等待时间
+11/20/2020 17:55:08 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：等待60s，关闭窗口不可用，请增加等待时间
+11/20/2020 17:55:08 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 17:55:10 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002B59F6AAC50>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/20/2020 17:57:07 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导入, 流程执行结果：成功
+11/20/2020 17:57:07 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导入, 流程执行成功
+11/20/2020 17:57:07 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 17:57:09 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002B59F6C7978>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/20/2020 17:58:46 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据处理, 流程执行结果：成功
+11/20/2020 17:58:46 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据处理, 流程执行成功
+11/20/2020 17:58:46 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 17:58:48 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002B59F693C50>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/20/2020 17:59:49 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\OTC数据导出, 流程执行结果：成功
+11/20/2020 17:59:49 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\OTC数据导出, 流程执行成功
+11/20/2020 17:59:49 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+11/20/2020 17:59:51 PM - DEBUG - FlowResult post: 回调API失败，失败信息：HTTPConnectionPool(host='10.49.87.85', port=8080): Max retries exceeded with url: //vesta_rpa?method=callback (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002B59F6CB048>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。',))
+11/21/2020 09:27:37 AM - INFO - StartFlow  save_param: FlowName is TA数据收取, FlowNum is 226, flag is: 0
+11/21/2020 09:27:38 AM - WARNING - StartFlow post: FlowName : TA数据收取 流程执行失败，失败信息：找不到指定路径的流程
+11/21/2020 10:51:43 AM - INFO - Flow_Status post: 流程号：224, 流程结果：
+11/21/2020 13:19:33 PM - INFO - Flow_Status post: 流程号：173, 流程结果：成功
