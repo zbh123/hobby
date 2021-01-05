@@ -1,5 +1,6 @@
 import MySQLdb
 from sshtunnel import SSHTunnelForwarder
+import time
 
 with SSHTunnelForwarder(
         ("10.29.24.47", 222),  # ssh IP和port
@@ -17,9 +18,8 @@ with SSHTunnelForwarder(
                            passwd="zts000",  # 数据库密码
                            db='brokerage',
                            charset='utf8')  # 可以限定，只访问特定的数据库,否则需要在mysql的查询或者操作语句中，指定好表名
-
-
     print('连接成功')
+    time.sleep(100)
     cur = conn.cursor()
     # sql = """CREATE TABLE shenzhen_month (
     #          month CHAR(150),
@@ -69,18 +69,18 @@ with SSHTunnelForwarder(
     # )
     # """
 
-    sql = """CREATE TABLE sse_fund_day(
-    single_day_situation CHAR(150),
-    fund CHAR(150),
-    closed_fund CHAR(150),
-    ETF CHAR(150),
-    LOF CHAR(150),
-    trading_fund CHAR(150),
-    repurchase_fund CHAR(150),
-    `current_time` CHAR(150)
-    )
-    """
-    cur.execute(sql)
+    # sql = """CREATE TABLE sse_fund_day(
+    # single_day_situation CHAR(150),
+    # fund CHAR(150),
+    # closed_fund CHAR(150),
+    # ETF CHAR(150),
+    # LOF CHAR(150),
+    # trading_fund CHAR(150),
+    # repurchase_fund CHAR(150),
+    # `current_time` CHAR(150)
+    # )
+    # """
+    # cur.execute(sql)
     print("CREATE TABLE OK")
     # 关闭数据库连接
     cur.close()

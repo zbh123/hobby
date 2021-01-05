@@ -33,8 +33,8 @@ logging.basicConfig(filename=logfile, level=logging.DEBUG, format=LOG_FORMAT, da
 class BaseInfo(View):
     def __init__(self):
         self.AomFile = r'C:\Users\Administrator\Desktop\Agent\Temp\AomScript.py'
-        self.FsServerIP = '10.32.90.187'
-        # self.FsServerIP = '10.29.132.76'
+        # self.FsServerIP = '10.32.90.187'
+        self.FsServerIP = '10.29.132.76'
         self.FsPort = '12580'
         self.REQUEST_URL = "http://%s:%s/CallFunc.aom" % (self.FsServerIP, self.FsPort)  # 请求地址
         self.IDD_Return = "{50043442-8A69-4A6B-A8B5-61F882EDE4F3}"  # 返回消息
@@ -186,9 +186,9 @@ class StartFlow(BaseInfo):
         print(FlowName)
         try:
             request_body = [{"Value": "TFlowDM", "Type": 4, "Name": self.IDD_DMName},
-                            # {"Value": 'lily', "Type": 4, "Name": "AppName"},
-                            # {"Value": '1F646BAA62B4413CB47587152373FDB9', "Type": 4, "Name": "AppPass"},
-                            {"Value": self.getToken(), "Type": 4, "Name": "Token"},
+                            {"Value": 'zhubh', "Type": 4, "Name": "AppName"},
+                            {"Value": '2B710FC391E9413CAFFA048E91120257', "Type": 4, "Name": "AppPass"},
+                            # {"Value": self.getToken(), "Type": 4, "Name": "Token"},
                             {"Value": "ScriptStartFlow", "Type": 4, "Name": self.IDD_lpName},
                             {"Value": FlowName, "Type": 4, "Name": "FlowPath"}
                             ]

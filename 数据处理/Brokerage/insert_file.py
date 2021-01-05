@@ -57,7 +57,7 @@ def generate_sql(table_name, value):
         :return:
     """
     now_time = time.strftime("%Y-%m-%d", time.localtime(time.time()))
-    now_time = '2020-12-08'
+    now_time = '2020-12-29'
     if table_name == 'shenzhen_month':
         sql = "INSERT INTO " + table_name + " (month, total_amount, market_share, stock_trading_amount, " \
                                             "fund_trading_amount, bond_trading_amount, warrants_trading_amount, " \
@@ -105,7 +105,7 @@ def store_to(db_name, table_name, excel_file):
     db, server = mysql_link(db_name)  # 打开数据库连接
     try:
         now_time = time.strftime("%Y-%m-%d", time.localtime(time.time()))
-        now_time = '2020-12-08'
+        now_time = '2020-12-29'
         cursor = db.cursor()  # 使用 cursor() 方法创建一个游标对象 cursor
         book = open_excel(excel_file)  # 打开excel文件
         sheets = book.sheet_names()  # 获取所有sheet表名
@@ -170,12 +170,13 @@ def store_to(db_name, table_name, excel_file):
 
 
 if __name__ == '__main__':
-    path_db = {'上交所股票成交概况': 'sse_stock_day'
+    path_db = {'深交所普通专区市场总貌': 'shenzhen_total_day'
+               # '上交所股票成交概况': 'sse_stock_day', '上交所基金成交概况': 'sse_fund_day'
                }
 
     path = r'D:\0RPA\计划财务部\经纪业务'
     now_time = time.strftime("%Y%m%d", time.localtime(time.time()))
-    now_time = '20201208'
+    now_time = '20201229'
     path = os.path.join(path, now_time)
     fileList = os.listdir(path)
     for fileName in fileList:

@@ -50,10 +50,10 @@ class CNN():
         self.p_keep_conv = tf.placeholder("float")  # 卷积层的dropout概率
         self.p_keep_hidden = tf.placeholder("float")  # 全连接层的dropout概率
 
-        # 第一个卷积层：padding=SAME, 保证输出的feature map与输入矩阵的大小相同
+        # 第一个卷积层：padding=SAME, 保证输出的feature map与输入矩阵的大小相同，输出值与输入值大小相同，卷积不会改变输出值的大小
         l_c_1 = tf.nn.relu(
             tf.nn.conv2d(X, self.w, strides=[1, 1, 1, 1], padding='SAME') + self.b)  # l_c_1大小为(?,28,28,32)
-        # max_pooling,窗口大小为2x2
+        # max_pooling,窗口大小为2x2，池化会改变输入值的大小
         l_p_1 = tf.nn.max_pool(l_c_1, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1],
                                padding='SAME')  # l_p_1 shape=（？, 14, 14, 32）
         # dropout: 每个神经元有p_keep_conv的概率以1/p_keep_conv的比例进行归一化，有(1-p_keep_conv)的概率置为0

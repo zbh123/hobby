@@ -1,11 +1,30 @@
-# !/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!python3
+# -*- coding:utf-8 -*-
 import psycopg2
 import pandas as pd
 import xlwt
 import time
 import os
 import shutil
+import psutil
+
+
+def kill_pid(name):
+    process_name = os.path.basename(name)
+    print(process_name)
+    all_pid = psutil.pids()
+    for sub_id in all_pid:
+        process = psutil.Process(sub_id)
+        if process_name == process.name():
+            print('进程已存在, 3s后自动关闭进程')
+            time.sleep(3)
+            # print(process.terminate())
+            # sleep(2)
+            # get_pid(name)
+            print('taskkill /f /im %s' % process_name)
+            os.system('taskkill /f /im %s' % process_name)
+            return False
+    return True
 
 
 def export_excel(table_name):
@@ -47,6 +66,9 @@ def parse_excel(filename):
     basedir = os.path.dirname(path)
     mould = os.path.join(basedir, '模板.csv')
     data = pd.read_excel(filename, usecols=['user_name', 'ip', 'address'], index=False)
+    data = data.loc[data["address"].str.contains("北京启皓大厦中心")==False]
+    # data = data.drop[data['address'].str.contains('北京启皓大厦中心').fillna(True)]
+    # 根据IP地址去重，保留第一个值
     data.drop_duplicates(subset=['ip'], keep='first', inplace=True)
     data.reset_index(drop=True, inplace=True)
     print(len(data))
@@ -59,9 +81,10 @@ def parse_excel(filename):
             # print(index, line)
             for i, value in enumerate(line.split('/')):
                 # print(i)
-                print(df['user_name'][index-flag] + str(i))
-                df = df.append({'user_name': df['user_name'][index-flag] + str(i), 'ip': value, 'address': df['address'][index-flag]}, ignore_index=True)
-            df = df.drop(index-flag)
+                print(df['user_name'][index - flag] + str(i))
+                df = df.append({'user_name': df['user_name'][index - flag] + str(i), 'ip': value,
+                                'address': df['address'][index - flag]}, ignore_index=True)
+            df = df.drop(index - flag)
             flag += 1
             df.reset_index(drop=True, inplace=True)
 
@@ -109,7 +132,7 @@ def parse_excel(filename):
         shutil.copyfile(mould, os.path.join(path, '深圳.csv'))
         time.sleep(0.5)
         data_out.to_csv(os.path.join(path, '深圳.csv'), mode='a', encoding='gbk', header=False, index=False)
-        shutil.copyfile(mould, os.path.join(path, '深圳.csv'))
+
     data_out = df.loc[df['address'].str.startswith('上海')]
     if len(data_out.index) != 0:
         del data_out['address']
@@ -119,6 +142,7 @@ def parse_excel(filename):
 
 
 if __name__ == '__main__':
+    kill_pid(r'C:\Program Files (x86)\Kingsoft\WPS Office\11.8.2.9022\office6\et.exe')
     path = r'D:\0RPA\合规部\IP地址监控'
     now_time = time.strftime("%Y%m%d", time.localtime(time.time()))
     path = os.path.join(path, now_time)
@@ -129,4 +153,3 @@ if __name__ == '__main__':
         os.remove(file)
     export_excel(file)
     parse_excel(file)
-

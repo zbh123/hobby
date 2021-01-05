@@ -1,0 +1,4 @@
+12/18/2020 14:46:12 PM - INFO - FlowResult post: 流程名：托管部\TA日清算\TA日初始化, 流程执行结果：窗口未获取到
+12/18/2020 14:46:13 PM - INFO - FlowResult post: 流程名:托管部\TA日清算\TA日初始化, 流程执行失败，失败信息：窗口未获取到
+12/18/2020 14:46:13 PM - DEBUG - Starting new HTTP connection (1): 10.49.87.85:8080
+12/18/2020 14:46:14 PM - DEBUG - http://10.49.87.85:8080 "POST /vesta_rpa?method=callback HTTP/1.1" 200 None
