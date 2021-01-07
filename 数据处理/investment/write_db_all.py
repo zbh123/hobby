@@ -12,7 +12,7 @@ import time, calendar
 def ipo_deal():
     path = r'D:\0RPA\计划财务部\投行业务'
     now_time = time.strftime("%Y%m%d", time.localtime(time.time()))
-    now_time = '20201203'
+    # now_time = '20201203'
     path = os.path.join(path, now_time)
     if not os.path.exists(path):
         sys.exit(0)
@@ -21,8 +21,8 @@ def ipo_deal():
 
     if os.path.exists(path2):
         os.remove(path2)
-    else:
-        return True
+    # else:
+    #     return True
 
     dataframe = pd.read_excel(path1)
     status_list = ['报送证监会', '已审核通过', '待上会', '已回复(第三次)', '已回复(第二次)', '已回复', '暂缓表决', '已问询', '已受理']
@@ -42,7 +42,7 @@ def get_last_month_start_and_end(date):
     if date.count('-') != 2:
         raise ValueError('- is error')
     year, month = str(date).split('-')[0], str(date).split('-')[1]
-    if month == '1':
+    if month == '01':
         month_last = 12
         year = int(year) - 1
     else:
@@ -60,26 +60,26 @@ def mysql_link(de_name):
       returns:db
     """
     try:
-        server = SSHTunnelForwarder(
-            ("10.29.24.47", 222),  # ssh IP和port
-            ssh_password="zts000000",  # ssh 密码
-            ssh_username="tianyj",  # ssh账号
-            remote_bind_address=("10.29.129.94", 3306),  # 数据库所在的IP和端口
-            local_bind_address=('0.0.0.0', 10008)
-        )
-
-        server.start()
+        # server = SSHTunnelForwarder(
+        #     ("10.29.24.47", 222),  # ssh IP和port
+        #     ssh_password="zts000000",  # ssh 密码
+        #     ssh_username="tianyj",  # ssh账号
+        #     remote_bind_address=("10.29.129.94", 3306),  # 数据库所在的IP和端口
+        #     local_bind_address=('0.0.0.0', 10008)
+        # )
+        #
+        # server.start()
         # 打印本地端口，已检查是否配置正确
         # print(server.local_bind_port)
 
-        db = MySQLdb.connect(host="127.0.0.1",  # 固定写法
-                             port=server.local_bind_port,
+        db = MySQLdb.connect(host="10.29.129.94",  # 固定写法
+                             port=3306,
                              user="rpa",  # 数据库账号
                              passwd="zts000",  # 数据库密码
                              db=de_name,
                              charset='utf8',
                              connect_timeout=1000)  # 可以限定，只访问特定的数据库,否则需要在mysql的查询或者操作语句中，指定好表名
-        return db, server
+        return db
     except:
         print("could not connect to mysql server")
 
@@ -105,7 +105,7 @@ def generate_sql(table_name, value):
         :return:
     """
     now_time = time.strftime("%Y-%m-%d", time.localtime(time.time()))
-    now_time = '2020-12-03'
+    # now_time = '2020-12-03'
     sql = ''
     if table_name == 'wind_dcm':
         sql = "INSERT INTO " + table_name + " (`organization`, total_amount, total_ranking, market_share, `number`," \
@@ -143,7 +143,7 @@ def generate_sql(table_name, value):
     elif table_name == 'wind_star':
         sql = "INSERT INTO " + table_name + " (`code`, bond_abbr, accept_date, fullname_issuer, accept_batch, " \
                                             "audit_status, ipo_theme, ipo_theme_detail, list_standards," \
-                                            " to_raise_funds, estimated_market_value, sponsor_and_underwriter," \
+                                            " to_raise_funds, estimated_market_value, sponsor," \
                                             " account_firm, law_firm, asset_appraisal_agency, registration, csrc, " \
                                             "update_time, `current_time`, data_time) " \
                                             "SELECT %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, " \
@@ -219,10 +219,10 @@ def store_to(db_name, table_name_index, excel_file):
          excel_file（excel文件名，把文件与py文件放在同一目录下）
 
     """
-    db, server = mysql_link(db_name)  # 打开数据库连接
+    db = mysql_link(db_name)  # 打开数据库连接
     try:
         now_time = time.strftime("%Y-%m-%d", time.localtime(time.time()))
-        now_time = '2020-12-03'
+        # now_time = '2020-12-03'
         cursor = db.cursor()  # 使用 cursor() 方法创建一个游标对象 cursor
         book = open_excel(excel_file)  # 打开excel文件
         sheets = book.sheet_names()  # 获取所有sheet表名
@@ -256,10 +256,12 @@ def store_to(db_name, table_name_index, excel_file):
                     i += 1
                     continue
                 for j in range(len(row_data)):
+                    # print(row_data[j])
                     ctype = sh.cell(i, j).ctype  # 获取单元格格式
                     # ctype =3,为日期
                     if ctype == 3:
                         date = xlrd.xldate.xldate_as_datetime(row_data[j], 0)
+                        # print(date)
                         cell = date.strftime('%Y-%m-%d')  # ('%Y/%m/%d %H:%M:%S')
                         # print(cell)
                         value.append(cell)
@@ -283,8 +285,7 @@ def store_to(db_name, table_name_index, excel_file):
                     flag = 1
                     count += 1
                     db.close()
-                    server.close()
-                    db, server = mysql_link(db_name)  # 打开数据库连接
+                    db = mysql_link(db_name)  # 打开数据库连接
                     db.rollback()
                     cursor = db.cursor()
             cursor.close()  # 关闭连接
@@ -294,7 +295,7 @@ def store_to(db_name, table_name_index, excel_file):
         print('写入数据库失败,失败信息：', e)
     finally:
         db.close()
-        server.close()
+
 
 
 def verify_excel(table_name_index, excel_file):
@@ -346,7 +347,6 @@ if __name__ == '__main__':
     # path = r'D:\0RPA\计划财务部\投行业务\20200720\创业板_IPO.xls'
     path = r'D:\0RPA\计划财务部\投行业务'
     now_time = time.strftime("%Y%m%d", time.localtime(time.time()))
-    now_time = '20201203'
     path = os.path.join(path, now_time)
     if not os.path.exists(path):
         sys.exit(0)

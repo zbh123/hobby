@@ -36,7 +36,7 @@ def get_last_month_start_and_end(date):
     if date.count('-') != 2:
         raise ValueError('- is error')
     year, month = str(date).split('-')[0], str(date).split('-')[1]
-    if month == '1':
+    if month == '01':
         month_last = 12
         year = int(year) - 1
     else:
@@ -99,7 +99,7 @@ def generate_sql(table_name, value):
         :return:
     """
     now_time = time.strftime("%Y-%m-%d", time.localtime(time.time()))
-    now_time = '20201030'
+    # now_time = '20201030'
     sql = ''
     if table_name == 'wind_dcm':
         sql = "INSERT INTO " + table_name + " (`organization`, total_amount, total_ranking, market_share, `number`," \
@@ -216,7 +216,8 @@ def store_to(db_name, table_name_index, excel_file):
     db, server = mysql_link(db_name)  # 打开数据库连接
     try:
         now_time = time.strftime("%Y-%m-%d", time.localtime(time.time()))
-        now_time = '2020-10-30'
+        # now_time = '2020-10-30'
+        print(now_time)
         cursor = db.cursor()  # 使用 cursor() 方法创建一个游标对象 cursor
         book = open_excel(excel_file)  # 打开excel文件
         sheets = book.sheet_names()  # 获取所有sheet表名
@@ -245,6 +246,7 @@ def store_to(db_name, table_name_index, excel_file):
                     count = 0
                 flag = 0
                 row_data = sh.row_values(i)  # 按行获取excel的值
+                # print(row_data)
                 value = []
                 if row_data[2] == '':
                     i += 1
@@ -261,15 +263,17 @@ def store_to(db_name, table_name_index, excel_file):
                         value.append(row_data[j])
                 value.append(now_time)
                 # if table_name_index[0] == 'wind_star':
-                value.append('2020-10-31')
+                # value.append('2020-10-31')
+                value.append(get_last_month_start_and_end(now_time))
                 value = tuple(value)
+                print(value)
                 sql = generate_sql(table_name_index[0], value)
                 # print(sql)
                 # print(value)
                 try:
                     # 执行sql语句
-                    cursor.execute(sql, value)
-                    db.commit()  # 提交
+                    # cursor.execute(sql, value)
+                    # db.commit()  # 提交
                     num += 1
                     i += 1
                 except Exception as e:
@@ -306,7 +310,7 @@ if __name__ == '__main__':
     # path = r'D:\0RPA\计划财务部\投行业务\20200720\发行监管部首次公开发行股票企业基本信息情况表（截至2020年7月16日）.xls'
     # path = r'D:\0RPA\计划财务部\投行业务\20200720\创业板_再融资.xls'
     # path = r'D:\0RPA\计划财务部\投行业务\20200720\创业板_IPO.xls'
-    path = r'D:\0RPA\计划财务部\投行业务\20201116 - 副本\创业板_再融资.xls'
+    path = r'D:\0RPA\计划财务部\投行业务\20210106\创业板_IPO.xls'
     # now_time = time.strftime("%Y%m%d", time.localtime(time.time()))
-    now_time = '20201030'
+    # now_time = '20201030'
     store_to('investment_banks', ['shenzhen_refinance', 1], path)

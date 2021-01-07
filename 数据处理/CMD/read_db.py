@@ -87,6 +87,16 @@ def parse_excel(filename):
             df = df.drop(index - flag)
             flag += 1
             df.reset_index(drop=True, inplace=True)
+        elif ',' in line:
+            # print(index, line)
+            for i, value in enumerate(line.split(',')):
+                # print(i)
+                print(df['user_name'][index - flag] + str(i))
+                df = df.append({'user_name': df['user_name'][index - flag] + str(i), 'ip': value,
+                                'address': df['address'][index - flag]}, ignore_index=True)
+            df = df.drop(index - flag)
+            flag += 1
+            df.reset_index(drop=True, inplace=True)
 
     col_name = df.columns.tolist()  # 将数据框的列名全部提取出来存放在列表里
     # print(col_name)
