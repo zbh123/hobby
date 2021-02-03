@@ -22,7 +22,9 @@ from . import views
 urlpatterns = [
     path(r'favicon/.ico/', RedirectView.as_view(url=r"{% static 'img/bitbug_favicon.ico' %}")),
     path(r'index', views.index, name='index'),
+    path(r'', views.workflow_infomation, name='workflow_infomation'),
     path(r'flowchart_info/<int:workflow_id>/states', views.WorkflowStateView.as_view(), name='flowchart_info'),
     path(r'flowinfo', views.workflow_infomation, name='workflow_infomation'),
+    path(r'flowchart_display/<int:workflow_id>', views.flowchart_display, name='flowchart_display'),
 
 ]

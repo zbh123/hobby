@@ -67,7 +67,7 @@
 <script>
 
     $.ajax({
-        url:"/flowchart/flowchart_info/"+ "{{ 1 }}" + "/states",
+        url:"/flowchart/flowchart_info/"+ "{{ workflow_id }}" + "/states",
         type:'GET',
         contentType: "application/json; charset=utf-8",
         success: function(result) {

@@ -18,11 +18,11 @@ def index(requests):
     return render(requests, 'flowchart/index.html')
 
 
-
 class LoonBaseView(View):
     """
     base view for params validate
     """
+
     def dispatch(self, request, *args, **kwargs):
         # Try to dispatch to the right method; if a method doesn't exist,
         # defer to the error handler. Also defer to the error handler if the
@@ -39,14 +39,15 @@ class LoonBaseView(View):
                 meth_schema.validate(json_dict)
             except Exception as e:
                 print(e.__str__())
-                return HttpResponse(json.dumps(dict(code=-1, data='请求参数不合法:{}'.format(e.__str__()), msg={})), content_type="application/json")
+                return HttpResponse(json.dumps(dict(code=-1, data='请求参数不合法:{}'.format(e.__str__()), msg={})),
+                                    content_type="application/json")
         return handler(request, *args, **kwargs)
 
 
 class WorkflowStateService(View):
 
     @staticmethod
-    def get_workflow_states(workflow_id: int)->tuple:
+    def get_workflow_states(workflow_id: int) -> tuple:
         """
         获取流程的状态列表，每个流程的state不会很多，所以不分页
         get workflow state queryset
@@ -59,9 +60,9 @@ class WorkflowStateService(View):
             workflow_states = FlowInfo.objects.filter(workflow_id=workflow_id, is_deleted=False).order_by('order_id')
             return True, workflow_states
 
-
     @staticmethod
-    def get_workflow_states_serialize(workflow_id: int, per_page: int=10, page: int=1, query_value: str='')->tuple:
+    def get_workflow_states_serialize(workflow_id: int, per_page: int = 10, page: int = 1,
+                                      query_value: str = '') -> tuple:
         """
         获取序列化工作流状态记录
         get restful workflow's state by params
@@ -124,7 +125,7 @@ class WorkflowStateView(LoonBaseView):
         :param kwargs:
         :return:
         """
-        status_list = {0:'prepare', 1:'current', 2:'success', 3:'fail'}
+        status_list = {0: 'prepare', 1: 'current', 2: 'success', 3: 'fail'}
         workflow_id = kwargs.get('workflow_id')
         request_data = request.GET
         if not workflow_id:
@@ -146,12 +147,10 @@ class WorkflowStateView(LoonBaseView):
         print(info_list)
 
         if info_list:
-            code, msg,  = 0, ''
+            code, msg, = 0, ''
         else:
             code, msg = -1, {}
         return HttpResponse(json.dumps(dict(code=code, data=info_list, msg=msg)), content_type="application/json")
-
-
 
     def post(self, request, *args, **kwargs):
         """
@@ -203,7 +202,8 @@ def workflow_infomation(request):
     workflow_list = FlowID.objects.filter(query_params).values()
     print(len(workflow_list), workflow_list)
     for i in range(len(workflow_list)):
-        id, creator, gmt_created, gmt_modified, is_deleted, flow_name, workflow_id, flow_status, last_run_info = workflow_list[
+        id, creator, gmt_created, gmt_modified, is_deleted, flow_name, workflow_id, flow_status, last_run_info = \
+        workflow_list[
             i].values()
         print(creator, gmt_created, gmt_modified, is_deleted, flow_name, workflow_id, flow_status, last_run_info)
         flow_dict[i] = {'flow_name': flow_name, 'workflow_id': workflow_id, 'flow_status': flow_status,
@@ -211,3 +211,13 @@ def workflow_infomation(request):
     head_key = ['Flow_Name', 'Workflow_ID', 'Flow_Status']
     param = {'flow_dict': flow_dict, 'head_key': head_key}
     return render(request, 'flowchart/flowinfo.html', param)
+
+
+def flowchart_display(request, workflow_id):
+    """
+    工作流流程图
+    :param request:
+    :param workflow_id:
+    :return:
+    """
+    return render(request, 'flowchart/index.html', {'workflow_id': workflow_id})
