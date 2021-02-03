@@ -1,0 +1,158 @@
+{% extends 'info/base.html' %}
+{% load static %}
+{% block title %}RPA流程汇总{% endblock %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+{% endblock %}
+{% block style%}
+ <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ionicons.min.css' %}">
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dataTables.bootstrap.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/AdminLTE.min.css' %}">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/_all-skins.min.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1 align="center">
+       RPA流程汇总
+    </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">流程汇总</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered" width="100%">
+                        <thead>
+                        <tr align="center" data-bgColor="blue">
+                            <th align="right" width="15%">ID</th>
+                            <th align="right" width="20%">流程名称</th>
+                            <th align="right" width="5%">流程编号</th>
+                            <th align="right" width="5%">流程状态</th>
+                            <th align="right">视图</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for key, values in flow_dict.items %}
+                        <tr>
+                            <td align="left" width="15%">{{ key }}</td>
+                            <td align="left" width="20%">{{ values.flow_name }}</td>
+                            <td align="left" width="15%">{{ values.workflow_id }}</td>
+                            <td align="left" width="15%">{{ values.flow_status }}</td>
+                            <td align="left" width="10%" id={{values.workflow_id}}><a href="flowchart_info/{{values.workflow_id}}/states">查看流程图</a></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot align="center">
+                        <tr>
+                            <th align="center">ID</th>
+                            {% for item in head_key %}
+                            <th align="center">{{ item }}</th>
+                            {% endfor %}
+                            <th align="right">View</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<h5 align="center"><input id="AddData" type="button" value="增加内容"></h5>
+
+{% endblock %}
+
+{% block script %}
+<!-- jQuery 3 -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- DataTables -->
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.min.js' %}"></script>
+<!-- SlimScroll -->
+<script src="{% static 'js/jquery.slimscroll.min.js' %}"></script>
+<!-- FastClick -->
+<script src="{% static 'js/fastclick.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'js/adminlte.min.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'js/demo.js' %}"></script>
+<!-- page script -->
+<script src="{% static 'js/layer.js' %}"></script>
+<script type="text/javascript">
+ $.ajax({
+        url:"/flowchart/flowchart_info/"+ "{{ 1 }}" + "/states",
+        type:'GET',
+        contentType: "application/json; charset=utf-8",
+        success: function(result) {
+        var dataFlow = result.data
+        console.log(dataFlow)
+        // Create the input graph
+        var g = new dagreD3.graphlib.Graph()
+            .setGraph({})
+            .setDefaultEdgeLabel(function () { return {}; });
+
+        dataFlow && dataFlow.map((item, i) =>{
+            g.setNode(item.id, {
+                label: item.label,
+                class: "type-" + item.status,
+                // id: "status" + i
+            });
+             // Set up edges, no special attributes.
+            if(item.target && !item.back_target) {
+                g.setEdge(item.id,item.target, {})
+            }else if(item.back_target) {
+                console.log(1111111)
+                g.setEdge(item.id,item.target, {})
+                g.setEdge(item.id,item.back_target, {})
+            }
+        })
+
+        g.nodes().forEach(function (v) {
+            var node = g.node(v);
+            // Round the corners of the nodes
+            node.rx = node.ry = 5;
+        });
+
+        // Create the renderer
+        var render = new dagreD3.render();
+
+        // Set up an SVG group so that we can translate the final graph.
+        var svg = d3.select("svg"),
+            svgGroup = svg.append("g");
+
+        // Run the renderer. This is what draws the final graph.
+        render(d3.select("svg g"), g);
+
+        var xCenterOffset = (svg.attr("width") - g.graph().width) / 2;
+        svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
+        svg.attr("height", g.graph().height + 40);
+        }
+    });
+
+</script>
+{% endblock %}
+

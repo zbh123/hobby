@@ -1,0 +1,132 @@
+01/28/2021 10:09:24 AM - WARNING - Not Found: /flowchart_info/1/states
+01/28/2021 10:09:24 AM - WARNING - Not Found: /favicon.ico
+01/28/2021 10:09:43 AM - ERROR - Internal Server Error: /flowchart/flowchart_info/1/states
+Traceback (most recent call last):
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 46, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 146, in get
+    dest = flowinfo['destination_id'].split((',', '£¬'))
+TypeError: 'FlowInfo' object is not subscriptable
+01/28/2021 10:11:56 AM - ERROR - Internal Server Error: /flowchart/flowchart_info/1/states
+Traceback (most recent call last):
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 46, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 146, in get
+    dest = info['destination_id'].split((',', '£¬'))
+TypeError: 'FlowInfo' object is not subscriptable
+01/28/2021 10:12:15 AM - ERROR - Internal Server Error: /flowchart/flowchart_info/1/states
+Traceback (most recent call last):
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 46, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 146, in get
+    dest = info['destination_id'].split(',')
+TypeError: 'FlowInfo' object is not subscriptable
+01/28/2021 10:12:58 AM - ERROR - Internal Server Error: /flowchart/flowchart_info/1/states
+Traceback (most recent call last):
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 46, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 147, in get
+    dest = info['destination_id'].split(',')
+TypeError: 'FlowInfo' object is not subscriptable
+01/28/2021 10:26:16 AM - ERROR - Internal Server Error: /flowchart/flowchart_info/1/states
+Traceback (most recent call last):
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 46, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 147, in get
+    dest = info['destination_id'].split(',')
+TypeError: 'FlowInfo' object is not subscriptable
+01/28/2021 10:26:48 AM - ERROR - Internal Server Error: /flowchart/flowchart_info/1/states
+Traceback (most recent call last):
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 46, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 147, in get
+    dest = info['destination_id'].split(',')
+TypeError: 'FlowInfo' object is not subscriptable
+01/28/2021 11:04:52 AM - ERROR - Internal Server Error: /flowchart/index
+Traceback (most recent call last):
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 475, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 21, in index
+    return render(requests, 'flowchart/index.html')
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 477, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 539, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 6: 'static'. Did you forget to register or load this tag?

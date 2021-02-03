@@ -1,0 +1,18 @@
+01/27/2021 09:27:14 AM - ERROR - Internal Server Error: /flowchart/index
+Traceback (most recent call last):
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\pyfile\github_files\hobby\RPA_web\RPA\rpa_flowchart\views.py", line 17, in index
+    return render(requests, 'flowchart/index.html')
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\zhubh\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: flowchart/index.html
+01/27/2021 09:27:14 AM - WARNING - Not Found: /favicon.ico

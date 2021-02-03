@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'rpa_info',
     'rpa_request',
     'rpa_command',
+    'rpa_flowchart',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,9 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'rpa_info\\templates'),
                  os.path.join(BASE_DIR, 'rpa_request\\templates\\request'),
-                 os.path.join(BASE_DIR, 'rpa_command\\templates\\command')],
+                 os.path.join(BASE_DIR, 'rpa_command\\templates\\command'),
+                 os.path.join(BASE_DIR, 'rpa_flowchart\\templates\\flowchart'),
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
